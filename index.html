@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Buy Hub • Free Tools</title>
+  <title>Digital Buy Hub • All‑in‑One SEO & Creator Toolkit</title>
+
+  <!-- Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap"
     rel="stylesheet"
   />
+
   <!-- QR code library (browser-ready) -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
+
   <style>
     :root {
       --primary: #ff3366;
@@ -151,7 +155,7 @@
       text-align: center;
       font-size: 18px;
       color: var(--gray);
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     .tools-grid {
@@ -160,6 +164,7 @@
       gap: 40px;
       max-width: 1600px;
       margin: 0 auto;
+      align-items: flex-start;
     }
 
     .tool-card {
@@ -292,11 +297,7 @@
 
     .canvas-container {
       margin: 20px 0;
-      background: linear-gradient(
-          45deg,
-          #f0f0f0 25%,
-          transparent 25%
-        ),
+      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
         linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
         linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
@@ -458,24 +459,292 @@
   <!-- Hero -->
   <header>
     <div class="hero">
-      <h1>Free Professional Tools<br />for Digital Creators</h1>
+      <h1>All‑in‑One SEO & Creator Toolkit<br />for Digital Sellers</h1>
       <p>
-        Logo Designer • Hashtag Generator • QR Code Maker • Product Mockups<br />
-        Free with watermark – Upgrade once to remove it everywhere
+        Like a mini Helium 10 for creators, Etsy sellers and small brands.<br />
+        Generate keywords, titles, captions, logos, QR codes and T‑shirt mockups in one place.
       </p>
-      <button class="cta" onclick="scrollToTools()">Start Creating →</button>
+      <button class="cta" onclick="scrollToTools()">Start Free (with watermark) →</button>
     </div>
   </header>
 
   <!-- Tools Section -->
   <section class="tools-section" id="tools">
-    <h2 class="section-title">Creator Toolkit</h2>
+    <h2 class="section-title">Creator & SEO Tool Suite</h2>
     <p class="section-subtitle">
-      All tools are free with watermark. Unlock PRO once to remove it on this browser.
-      <span class="pro-badge">PRO</span>
+      All tools are free with a small watermark or credit line. Upgrade once to remove it on this
+      browser.
     </p>
 
+    <!-- Suite Overview -->
+    <div style="max-width:900px;margin:0 auto 40px auto;text-align:center;">
+      <p style="font-size:14px;color:#64748b;margin-bottom:10px;">TOOLS INCLUDED</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <span style="padding:6px 10px;border-radius:999px;background:#eef2ff;font-size:12px;">
+          🎨 Logo Maker
+        </span>
+        <span style="padding:6px 10px;border-radius:999px;background:#ecfeff;font-size:12px;">
+          🔍 Keyword Ideas
+        </span>
+        <span style="padding:6px 10px;border-radius:999px;background:#fef9c3;font-size:12px;">
+          ✍️ Titles & Descriptions
+        </span>
+        <span style="padding:6px 10px;border-radius:999px;background:#fce7f3;font-size:12px;">
+          📱 Hashtag Generator
+        </span>
+        <span style="padding:6px 10px;border-radius:999px;background:#e0f2fe;font-size:12px;">
+          📷 QR Code Maker
+        </span>
+        <span style="padding:6px 10px;border-radius:999px;background:#dcfce7;font-size:12px;">
+          👕 Mockup / T‑Shirt Creator
+        </span>
+      </div>
+    </div>
+
     <div class="tools-grid">
+      <!-- SEO & CONTENT TOOLS HEADING -->
+      <h3
+        style="grid-column:1/-1;font-size:18px;color:#64748b;margin-bottom:-10px;margin-top:10px;"
+      >
+        SEO & Content Tools
+      </h3>
+
+      <!-- ========== KEYWORD & TOPIC IDEA GENERATOR ========== -->
+      <div class="tool-card">
+        <h3>🔍 Keyword & Topic Ideas</h3>
+        <p class="tool-desc">
+          Generate long‑tail keyword and content ideas for SEO, blogs, YouTube & more.
+        </p>
+
+        <div class="input-group">
+          <label>Main keyword / topic</label>
+          <input
+            type="text"
+            id="kwSeed"
+            placeholder="e.g. digital planner, t shirt business, social media marketing"
+          />
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Intent</label>
+            <select id="kwIntent">
+              <option value="blog">Blog / Article</option>
+              <option value="youtube">YouTube / Video</option>
+              <option value="ecommerce">E‑commerce / Product</option>
+              <option value="local">Local Business</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>City (for local SEO, optional)</label>
+            <input type="text" id="kwCity" placeholder="e.g. New York" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Number of ideas</label>
+            <select id="kwCount">
+              <option value="20">20 ideas</option>
+              <option value="50">50 ideas</option>
+              <option value="100">100 ideas</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Format</label>
+            <select id="kwFormat">
+              <option value="list">Numbered list</option>
+              <option value="plain">One per line</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="generateKeywords()">✨ Generate Ideas</button>
+
+        <div class="output-box" id="kwOutputBox" style="display:none;">
+          <textarea id="kwOutputText" rows="8" readonly style="margin-bottom:10px;"></textarea>
+          <div class="row">
+            <button class="btn btn-success" onclick="copyKeywords()">📋 Copy Ideas</button>
+            <button class="btn btn-outline" onclick="generateKeywords()">🔄 New Ideas</button>
+          </div>
+          <p style="font-size:12px;color:#64748b;margin-top:8px;">
+            Free: limited ideas and includes a small “generated with digitalbuyhub.com” note.
+            PRO: more ideas, no note.
+            <span class="pro-badge">PRO</span>
+          </p>
+        </div>
+
+        <div class="watermark">
+          SEO helper: use these as blog titles, H2 sections, video ideas or product keywords.
+        </div>
+      </div>
+
+      <!-- ========== TITLE / CAPTION / DESCRIPTION GENERATOR ========== -->
+      <div class="tool-card">
+        <h3>✍️ Title / Caption / Description</h3>
+        <p class="tool-desc">
+          Create SEO titles, social captions and descriptions for blogs, YouTube, Instagram and
+          products.
+        </p>
+
+        <div class="input-group">
+          <label>Main topic / keyword</label>
+          <input
+            type="text"
+            id="tcSeed"
+            placeholder="e.g. digital planner, t shirt business, fitness motivation"
+          />
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Content type</label>
+            <select id="tcType">
+              <option value="title">SEO Title / Headline</option>
+              <option value="caption">Social Caption</option>
+              <option value="description">Description</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Platform</label>
+            <select id="tcPlatform">
+              <option value="blog">Blog / Article</option>
+              <option value="youtube">YouTube</option>
+              <option value="instagram">Instagram</option>
+              <option value="tiktok">TikTok</option>
+              <option value="product">Product / Etsy / Shopify</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Tone</label>
+            <select id="tcTone">
+              <option value="neutral">Neutral</option>
+              <option value="fun">Fun / Casual</option>
+              <option value="professional">Professional</option>
+              <option value="urgent">Urgent / FOMO</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Number of ideas</label>
+            <select id="tcCount">
+              <option value="5">5 ideas</option>
+              <option value="10">10 ideas</option>
+              <option value="20">20 ideas</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="generateTextContent()">
+          ✨ Generate Text Ideas
+        </button>
+
+        <div class="output-box" id="tcOutputBox" style="display:none;">
+          <textarea id="tcOutputText" rows="8" readonly style="margin-bottom:10px;"></textarea>
+          <div class="row">
+            <button class="btn btn-success" onclick="copyTextContent()">📋 Copy All</button>
+            <button class="btn btn-outline" onclick="generateTextContent()">🔄 New Ideas</button>
+          </div>
+          <p style="font-size:12px;color:#64748b;margin-top:8px;">
+            Free: limited ideas and includes a small “generated with digitalbuyhub.com” note.
+            PRO: more ideas, no note.
+            <span class="pro-badge">PRO</span>
+          </p>
+        </div>
+
+        <div class="watermark">
+          Use titles for SEO & YouTube, captions for social posts, and descriptions for blogs or
+          products.
+        </div>
+      </div>
+
+      <!-- ========== HASHTAG GENERATOR ========== -->
+      <div class="tool-card">
+        <h3>📱 Hashtag Generator</h3>
+        <p class="tool-desc">Generate optimized hashtags for your niche.</p>
+
+        <div class="input-group">
+          <label>Platform</label>
+          <select id="hashPlatform">
+            <option value="instagram">Instagram</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Niche / Category</label>
+          <select id="hashNiche">
+            <option value="digital">Digital Products</option>
+            <option value="fashion">Fashion & Style</option>
+            <option value="fitness">Fitness & Health</option>
+            <option value="food">Food & Cooking</option>
+            <option value="travel">Travel & Adventure</option>
+            <option value="business">Business & Entrepreneur</option>
+            <option value="tech">Tech & Gadgets</option>
+            <option value="beauty">Beauty & Skincare</option>
+            <option value="art">Art & Design</option>
+            <option value="photography">Photography</option>
+            <option value="gaming">Gaming</option>
+            <option value="motivation">Motivation & Mindset</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Custom Keywords (Optional)</label>
+          <input
+            type="text"
+            id="hashKeyword"
+            placeholder="Add custom keywords separated by comma"
+          />
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Hashtag Count</label>
+            <select id="hashCount">
+              <option value="10">10 Tags</option>
+              <option value="15">15 Tags</option>
+              <option value="20" selected>20 Tags</option>
+              <option value="30">30 Tags</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Mix Type</label>
+            <select id="hashMix">
+              <option value="mixed">Mixed (Best)</option>
+              <option value="popular">Popular Only</option>
+              <option value="niche">Niche Only</option>
+              <option value="trending">Trending</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="generateHashtags()">🔥 Generate Hashtags</button>
+
+        <div class="output-box" id="hashOutput" style="display:none;">
+          <div class="hashtag-display" id="hashDisplay"></div>
+          <textarea id="hashText" rows="3" readonly style="margin-bottom:10px;"></textarea>
+          <div class="row">
+            <button class="btn btn-success" onclick="copyHashtags()">📋 Copy All</button>
+            <button class="btn btn-outline" onclick="generateHashtags()">🔄 New Set</button>
+          </div>
+          <p style="font-size:12px;color:#64748b;margin-top:8px;">
+            Free: adds #digitalbuyhub at the end. PRO: no brand tag.
+            <span class="pro-badge">PRO</span>
+          </p>
+        </div>
+
+        <div class="watermark">Hashtags are free to use; PRO removes the brand tag.</div>
+      </div>
+
+      <!-- BRAND & CREATIVE TOOLS HEADING -->
+      <h3
+        style="grid-column:1/-1;font-size:18px;color:#64748b;margin-bottom:-10px;margin-top:10px;"
+      >
+        Brand & Creative Tools
+      </h3>
+
       <!-- ========== LOGO DESIGNER ========== -->
       <div class="tool-card">
         <h3>🎨 Logo Designer</h3>
@@ -554,88 +823,6 @@
         </div>
 
         <div class="watermark">Free version adds a small "digitalbuyhub.com" watermark.</div>
-      </div>
-
-      <!-- ========== HASHTAG GENERATOR ========== -->
-      <div class="tool-card">
-        <h3>📱 Hashtag Generator</h3>
-        <p class="tool-desc">Generate optimized hashtags for your niche.</p>
-
-        <div class="input-group">
-          <label>Platform</label>
-          <select id="hashPlatform">
-            <option value="instagram">Instagram</option>
-            <option value="tiktok">TikTok</option>
-            <option value="pinterest">Pinterest</option>
-            <option value="youtube">YouTube</option>
-            <option value="twitter">Twitter/X</option>
-            <option value="linkedin">LinkedIn</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label>Niche / Category</label>
-          <select id="hashNiche">
-            <option value="digital">Digital Products</option>
-            <option value="fashion">Fashion & Style</option>
-            <option value="fitness">Fitness & Health</option>
-            <option value="food">Food & Cooking</option>
-            <option value="travel">Travel & Adventure</option>
-            <option value="business">Business & Entrepreneur</option>
-            <option value="tech">Tech & Gadgets</option>
-            <option value="beauty">Beauty & Skincare</option>
-            <option value="art">Art & Design</option>
-            <option value="photography">Photography</option>
-            <option value="gaming">Gaming</option>
-            <option value="motivation">Motivation & Mindset</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label>Custom Keywords (Optional)</label>
-          <input
-            type="text"
-            id="hashKeyword"
-            placeholder="Add custom keywords separated by comma"
-          />
-        </div>
-
-        <div class="row">
-          <div class="input-group">
-            <label>Hashtag Count</label>
-            <select id="hashCount">
-              <option value="10">10 Tags</option>
-              <option value="15">15 Tags</option>
-              <option value="20" selected>20 Tags</option>
-              <option value="30">30 Tags</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>Mix Type</label>
-            <select id="hashMix">
-              <option value="mixed">Mixed (Best)</option>
-              <option value="popular">Popular Only</option>
-              <option value="niche">Niche Only</option>
-              <option value="trending">Trending</option>
-            </select>
-          </div>
-        </div>
-
-        <button class="btn btn-primary" onclick="generateHashtags()">🔥 Generate Hashtags</button>
-
-        <div class="output-box" id="hashOutput" style="display:none;">
-          <div class="hashtag-display" id="hashDisplay"></div>
-          <textarea id="hashText" rows="3" readonly style="margin-bottom:10px;"></textarea>
-          <div class="row">
-            <button class="btn btn-success" onclick="copyHashtags()">📋 Copy All</button>
-            <button class="btn btn-outline" onclick="generateHashtags()">🔄 New Set</button>
-          </div>
-          <p style="font-size:12px;color:#64748b;margin-top:8px;">
-            Free: adds #digitalbuyhub at the end. PRO removes this tag.
-          </p>
-        </div>
-
-        <div class="watermark">Hashtags are free to use; PRO removes the brand tag.</div>
       </div>
 
       <!-- ========== QR CODE GENERATOR ========== -->
@@ -847,6 +1034,39 @@
     </div>
   </section>
 
+  <!-- How it works -->
+  <section style="padding:60px 5%;background:white;">
+    <h2 class="section-title" style="font-size:32px;margin-bottom:10px;">
+      How Digital Buy Hub Works
+    </h2>
+    <p class="section-subtitle" style="margin-bottom:40px;">
+      Simple flow – all tools in one place, just like a micro SaaS.
+    </p>
+    <div
+      style="display:flex;flex-wrap:wrap;gap:20px;max-width:900px;margin:0 auto;align-items:stretch;"
+    >
+      <div style="flex:1 1 240px;background:#f8fafc;border-radius:18px;padding:20px;">
+        <h3 style="font-size:18px;margin-bottom:8px;">1. Pick a Tool</h3>
+        <p style="font-size:14px;color:#64748b;">
+          Choose SEO keywords, titles, captions, logos, QR codes or mockups from the suite.
+        </p>
+      </div>
+      <div style="flex:1 1 240px;background:#f8fafc;border-radius:18px;padding:20px;">
+        <h3 style="font-size:18px;margin-bottom:8px;">2. Enter Your Topic</h3>
+        <p style="font-size:14px;color:#64748b;">
+          Add your brand name, product or keyword. The app generates ready‑to‑use results.
+        </p>
+      </div>
+      <div style="flex:1 1 240px;background:#f8fafc;border-radius:18px;padding:20px;">
+        <h3 style="font-size:18px;margin-bottom:8px;">3. Download Free or Go PRO</h3>
+        <p style="font-size:14px;color:#64748b;">
+          Free downloads include a tiny watermark or tag. Unlock PRO once to remove it everywhere on
+          this browser.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="logo">Digital Buy Hub ⚡</div>
@@ -885,7 +1105,8 @@
           <h3 style="margin-bottom:5px;font-size:18px;">PRO (All Tools)</h3>
           <div style="font-size:24px;font-weight:800;color:var(--primary);">$2.00</div>
           <p style="font-size:12px;color:#64748b;margin:8px 0 10px;">
-            One‑time unlock on this browser.<br />Use PRO on all tools (Logo, QR, T‑shirt, etc.).
+            One‑time unlock on this browser.<br />Use PRO on all tools (Logo, QR, SEO, Mockups,
+            etc.).
           </p>
           <ul style="font-size:12px;margin:0 0 10px 15px;padding:0;">
             <li>No watermark on exports</li>
@@ -913,23 +1134,23 @@
         </div>
       </div>
 
-      <!-- Bank details (PK56HABB0075367000005003) -->
+      <!-- Bank details (EDIT THIS TEXT with your real data) -->
       <div
         style="margin-top:20px;padding:12px;border-radius:12px;background:#f8fafc;font-size:12px;color:#475569;text-align:left;"
       >
         <strong>Bank Transfer (manual)</strong><br />
-        You can also pay via direct bank transfer. Please edit this text in the HTML file and put your
-        real details here:<br />
-        Account Name: <em>Your Name</em><br />
-        IBAN / Account No: <em>Your IBAN or Account Number</em><br />
-        Bank: <em>Your Bank Name</em><br />
-        Country: <em>Your Country</em><br />
+        You can also pay via direct bank transfer. Edit this block in the HTML file with your real
+        details:<br />
+        Account Name: <em>Jibran Khan</em><br />
+        IBAN / Account No: <em>PK56HABB0075367000005003</em><br />
+        Bank: <em>Habib Bank Limited</em><br />
+        Country: <em>Pakistan</em><br />
         After payment, click “I already paid – Unlock here”.
       </div>
 
       <p style="font-size:11px;color:#94a3b8;margin-top:15px;">
-        Note: This unlock is stored locally in this browser (localStorage). For a real SaaS, you would
-        later connect this to a backend or license system.
+        Note: This unlock is stored locally in this browser (localStorage). For a real SaaS, you
+        would later connect this to a backend or license system.
       </p>
     </div>
   </div>
@@ -939,9 +1160,11 @@
     function scrollToTools() {
       document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
     }
+
     function openPricing() {
       document.getElementById('pricingModal').style.display = 'flex';
     }
+
     function closePricing() {
       document.getElementById('pricingModal').style.display = 'none';
     }
@@ -1155,6 +1378,334 @@
       link.click();
     }
 
+    // ==================== KEYWORD & TOPIC IDEA GENERATOR ====================
+    const kwPatterns = {
+      blog: [
+        'how to {kw}',
+        'what is {kw}',
+        'best {kw} tips',
+        '{kw} for beginners',
+        '{kw} step by step',
+        '{kw} guide {year}',
+        '{kw} ideas',
+        '{kw} examples',
+        '{kw} mistakes to avoid',
+        'advanced {kw} strategies',
+        '{kw} checklist',
+        'ultimate {kw} guide {year}'
+      ],
+      youtube: [
+        '{kw} tutorial',
+        'how to {kw} (step by step)',
+        '{kw} for beginners',
+        '{kw} explained',
+        '{kw} in 10 minutes',
+        '{kw} full guide',
+        'do not do this when {kw}',
+        '{kw} tips and tricks',
+        '{kw} vs alternatives',
+        'my {kw} setup'
+      ],
+      ecommerce: [
+        'buy {kw} online',
+        'cheap {kw}',
+        'best {kw} for {audience}',
+        '{kw} free shipping',
+        '{kw} review',
+        '{kw} comparison',
+        'top rated {kw}',
+        '{kw} on sale',
+        '{kw} near me',
+        '{kw} for gifts'
+      ],
+      local: [
+        '{kw} near me',
+        '{kw} in {city}',
+        'best {kw} in {city}',
+        'affordable {kw} in {city}',
+        '24 hour {kw} in {city}',
+        'emergency {kw} in {city}',
+        '{kw} services near me',
+        'top rated {kw} in {city}',
+        '{kw} for small businesses in {city}'
+      ]
+    };
+
+    function capitalizeFirst(str) {
+      if (!str) return '';
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function generateKeywords() {
+      const seedInput = document.getElementById('kwSeed');
+      const intentInput = document.getElementById('kwIntent');
+      const cityInput = document.getElementById('kwCity');
+      const countInput = document.getElementById('kwCount');
+      const formatInput = document.getElementById('kwFormat');
+
+      const seedRaw = (seedInput.value || '').trim();
+      if (!seedRaw) {
+        alert('Please enter a main keyword or topic.');
+        seedInput.focus();
+        return;
+      }
+
+      const baseKw = seedRaw.toLowerCase();
+      const intent = intentInput.value;
+      const cityRaw = (cityInput.value || '').trim();
+      const city = cityRaw || 'your city';
+      const requested = parseInt(countInput.value, 10);
+      const format = formatInput.value;
+      const year = new Date().getFullYear();
+
+      let patterns = kwPatterns[intent] || kwPatterns.blog;
+
+      const ideasSet = new Set();
+
+      patterns.forEach(p => {
+        let out = p
+          .replace(/\{kw\}/g, baseKw)
+          .replace(/\{city\}/g, city)
+          .replace(/\{year\}/g, year)
+          .replace(/\{audience\}/g, 'beginners');
+        ideasSet.add(capitalizeFirst(out));
+      });
+
+      if (ideasSet.size < requested) {
+        const extras = [
+          `best ${baseKw} ${year}`,
+          `${baseKw} for small business`,
+          `${baseKw} for beginners ${year}`,
+          `does ${baseKw} really work`,
+          `${baseKw} case study`,
+          `${baseKw} success stories`
+        ];
+        extras.forEach(e => ideasSet.add(capitalizeFirst(e)));
+      }
+
+      const maxFree = 20;
+      const limit = isProUser ? requested : Math.min(requested, maxFree);
+
+      const allIdeas = Array.from(ideasSet);
+      const finalIdeas = allIdeas.slice(0, limit);
+
+      let lines;
+      if (format === 'list') {
+        lines = finalIdeas.map((kw, i) => `${i + 1}. ${kw}`);
+      } else {
+        lines = finalIdeas;
+      }
+
+      let outputText = lines.join('\n');
+
+      if (!isProUser) {
+        outputText += `\n\nGenerated with digitalbuyhub.com (free version)`;
+      }
+
+      const box = document.getElementById('kwOutputBox');
+      const ta = document.getElementById('kwOutputText');
+      box.style.display = 'block';
+      ta.value = outputText;
+    }
+
+    function copyKeywords() {
+      const ta = document.getElementById('kwOutputText');
+      if (!ta.value.trim()) {
+        alert('Generate some keyword ideas first.');
+        return;
+      }
+      navigator.clipboard.writeText(ta.value);
+      alert('✅ Keyword ideas copied to clipboard!');
+    }
+
+    // ==================== TITLE / CAPTION / DESCRIPTION GENERATOR ====================
+    const tcPatterns = {
+      title: {
+        blog: [
+          'How to {kw} (Step by Step)',
+          'Best {kw} Tips for {year}',
+          "Beginner's Guide to {kw}",
+          '{kw}: Everything You Need to Know in {year}',
+          'Top 10 {kw} Ideas for {audience}',
+          'Why {kw} Matters in {year}',
+          'The Ultimate {kw} Guide',
+          'Common {kw} Mistakes (and How to Fix Them)'
+        ],
+        youtube: [
+          'How to {kw} (FULL TUTORIAL)',
+          '{kw} in 10 Minutes',
+          '{kw} for Beginners (NO Experience Needed)',
+          'Watch This Before You {kw}',
+          '{kw} Tips & Tricks Nobody Tells You',
+          'My Honest {kw} Review',
+          'Do THIS to {kw} Faster',
+          'The Truth About {kw}'
+        ],
+        instagram: [
+          '{kw} ideas you\'ll love',
+          "Let's talk about {kw}",
+          'Why I started with {kw}',
+          '{kw} hacks for everyday life',
+          'Little moments of {kw}',
+          'My favorite {kw} tip today'
+        ],
+        tiktok: [
+          'POV: you finally {kw}',
+          '{kw} in 15 seconds',
+          'Nobody is talking about this {kw}',
+          'POV: you needed this {kw} tip',
+          '{kw} changed everything for me',
+          'If you love {kw}, watch this'
+        ],
+        product: [
+          'Best {kw} for {audience}',
+          'Premium {kw} – Limited Offer',
+          'New {kw} just dropped',
+          '{kw} designed for {audience}',
+          'Why customers love our {kw}'
+        ]
+      },
+      caption: {
+        blog: [
+          'New on the blog: {kw} – link in bio.',
+          "If you're trying to {kw}, this one is for you.",
+          'Swipe to learn how to {kw} step by step.',
+          'Save this post if {kw} is on your list for {year}.'
+        ],
+        youtube: [
+          "Today we dive deep into {kw}. I'll share tips, examples, and lessons I wish I knew when I first started.",
+          "If you've ever wanted to {kw} but didn't know where to start, this video is for you.",
+          'Timestamps in the description – don\'t forget to subscribe!',
+          'Comment "PART 2" if you want more content about {kw}.'
+        ],
+        instagram: [
+          'Just a little {kw} moment ✨',
+          'Raise your hand if you love {kw} 🙋‍♂️',
+          'Tag someone who needs this {kw} today.',
+          'Double tap if {kw} is your {year} goal.',
+          'Not perfect, but it\'s progress. {kw}'
+        ],
+        tiktok: [
+          'Wait till the end 👀 #{kwTag}',
+          'Who can relate? #{kwTag}',
+          'POV: you finally start {kw}',
+          'This took way too long 😂 #{kwTag}',
+          'Should I do a part 2? #{kwTag}'
+        ],
+        product: [
+          '{kw} made for everyday use.',
+          'Because you deserve better {kw}.',
+          'Small detail, big difference – {kw}.',
+          "Limited stock – don't miss out on {kw}."
+        ]
+      },
+      description: {
+        blog: [
+          'In this article, we explore {kw} and show you practical ways to get started. You\'ll learn key basics, real examples, and action steps you can use right away.',
+          "Thinking about {kw} but not sure where to begin? This guide walks you through the process and highlights what actually works in {year}.",
+          'This post covers the essentials of {kw} for {audience}. From common mistakes to simple strategies, you\'ll find everything you need to move forward.'
+        ],
+        youtube: [
+          "In today's video, we're going to talk about {kw}. I'll share tips, examples, and lessons I wish I knew when I first started.",
+          "If you've ever wanted to {kw} but didn't know where to start, this video is for you. Watch until the end for extra tips.",
+          'Make sure to like, comment and subscribe if you found this video helpful. Let me know what you want to see next related to {kw}.'
+        ],
+        instagram: [
+          '{kw} has been a big part of my journey lately. Sharing it here so you can save it for later and come back when you need a reminder.',
+          'Sometimes all you need is a small step towards {kw}. This is your sign to start today.'
+        ],
+        tiktok: [
+          'Thanks for watching! If you like content about {kw}, hit follow for more.',
+          'Drop a comment if you want a full tutorial or part 2 on {kw}.'
+        ],
+        product: [
+          'Our {kw} is designed for {audience} who want quality, comfort and style in one place. Built to last and made to be used every day.',
+          'This {kw} was created with real feedback from customers. Every detail is designed to make your life a little easier.',
+          'Perfect for anyone who cares about {kw} and wants something that looks good and works great.'
+        ]
+      }
+    };
+
+    function generateTextContent() {
+      const seedInput = document.getElementById('tcSeed');
+      const typeInput = document.getElementById('tcType');
+      const platformInput = document.getElementById('tcPlatform');
+      const toneInput = document.getElementById('tcTone');
+      const countInput = document.getElementById('tcCount');
+
+      const seedRaw = (seedInput.value || '').trim();
+      if (!seedRaw) {
+        alert('Please enter a main topic or keyword.');
+        seedInput.focus();
+        return;
+      }
+
+      const baseKw = seedRaw.toLowerCase();
+      const type = typeInput.value;
+      const platform = platformInput.value;
+      const tone = toneInput.value;
+      const requested = parseInt(countInput.value, 10);
+      const year = new Date().getFullYear();
+
+      const typePatterns = tcPatterns[type] || tcPatterns.title;
+      let patterns = typePatterns[platform] || typePatterns.blog;
+
+      const ideas = [];
+
+      patterns.forEach(p => {
+        let line = p
+          .replace(/\{kw\}/g, baseKw)
+          .replace(/\{year\}/g, year)
+          .replace(/\{audience\}/g, 'beginners')
+          .replace(/\{kwTag\}/g, baseKw.replace(/\s+/g, ''));
+
+        if (tone === 'fun') {
+          line = line.replace(/guide/gi, 'fun guide');
+        } else if (tone === 'professional') {
+          line = line.replace(/tips/gi, 'strategies');
+        } else if (tone === 'urgent') {
+          if (!/!/g.test(line)) line += '!';
+          line = line.replace(/best/gi, 'must-have');
+        }
+
+        line = line.charAt(0).toUpperCase() + line.slice(1);
+        ideas.push(line);
+      });
+
+      while (ideas.length < requested) {
+        ideas.push(`How to ${baseKw} in ${year}`);
+        if (ideas.length >= requested) break;
+        ideas.push(`Beginner friendly ${baseKw} tips`);
+        if (ideas.length >= requested) break;
+      }
+
+      const maxFree = 5;
+      const limit = isProUser ? requested : Math.min(requested, maxFree);
+      const finalIdeas = ideas.slice(0, limit);
+
+      let outputText = finalIdeas.join('\n');
+
+      if (!isProUser) {
+        outputText += `\n\nGenerated with digitalbuyhub.com (free version)`;
+      }
+
+      const box = document.getElementById('tcOutputBox');
+      const ta = document.getElementById('tcOutputText');
+      box.style.display = 'block';
+      ta.value = outputText;
+    }
+
+    function copyTextContent() {
+      const ta = document.getElementById('tcOutputText');
+      const txt = ta.value.trim();
+      if (!txt) {
+        alert('Generate some ideas first.');
+        return;
+      }
+      navigator.clipboard.writeText(txt);
+      alert('✅ Text copied to clipboard!');
+    }
+
     // ==================== HASHTAG GENERATOR ====================
     const hashtagDatabase = {
       instagram: {
@@ -1187,7 +1738,6 @@
           'etsylove',
           'mrrproducts',
           'resellrights',
-          'pln',
           'digitalassets'
         ],
         fashion: [
@@ -1206,21 +1756,7 @@
           'fashionweek',
           'trendy',
           'stylish',
-          'whatiwore',
-          'fashionaddict',
-          'fashionlover',
-          'outfitoftheday',
-          'styleoftheday',
-          'fashiondiaries',
-          'chic',
-          'instastyle',
-          'todaysoutfit',
-          'womensfashion',
-          'mensfashion',
-          'fashiontrends',
-          'fashionphotography',
-          'outfitinspiration',
-          'styleblogger'
+          'whatiwore'
         ],
         fitness: [
           'fitness',
@@ -1231,28 +1767,10 @@
           'training',
           'health',
           'fitfam',
-          'bodybuilding',
           'exercise',
           'gymlife',
           'healthy',
-          'motivation',
-          'fitnessjourney',
-          'muscle',
-          'gains',
-          'personaltrainer',
-          'weightloss',
-          'fitnessmodel',
-          'lifestyle',
-          'healthylifestyle',
-          'gymmotivation',
-          'cardio',
-          'crossfit',
-          'yoga',
-          'fitlife',
-          'strong',
-          'homeworkout',
-          'workoutmotivation',
-          'fitspo'
+          'fitnessjourney'
         ],
         food: [
           'food',
@@ -1263,28 +1781,9 @@
           'delicious',
           'foodphotography',
           'foodstagram',
-          'foodblogger',
           'cooking',
           'homemade',
-          'dinner',
-          'lunch',
-          'breakfast',
-          'recipe',
-          'healthyfood',
-          'foodlover',
-          'tasty',
-          'chef',
-          'restaurant',
-          'eat',
-          'hungry',
-          'foodgasm',
-          'baking',
-          'foodies',
-          'vegetarian',
-          'vegan',
-          'dessert',
-          'homecooking',
-          'comfortfood'
+          'recipe'
         ],
         travel: [
           'travel',
@@ -1292,94 +1791,35 @@
           'instatravel',
           'travelphotography',
           'wanderlust',
-          'traveling',
           'vacation',
           'adventure',
           'explore',
           'trip',
-          'holiday',
-          'tourism',
-          'travelblogger',
-          'nature',
-          'traveltheworld',
-          'igtravel',
-          'travelling',
-          'traveler',
-          'beautifuldestinations',
-          'landscape',
-          'beach',
-          'roadtrip',
-          'sunset',
-          'photography',
-          'mountains',
-          'paradise',
-          'summer',
-          'view',
-          'globetrotter',
-          'bucketlist'
+          'holiday'
         ],
         business: [
           'business',
           'entrepreneur',
-          'motivation',
           'success',
           'money',
-          'marketing',
           'startup',
-          'entrepreneurship',
           'businessowner',
-          'mindset',
-          'goals',
-          'inspiration',
           'smallbusiness',
           'hustle',
           'leadership',
-          'wealth',
-          'millionaire',
-          'ceo',
-          'investment',
-          'finance',
-          'businesstips',
-          'branding',
-          'growth',
-          'grind',
-          'work',
-          'ambition',
-          'networking',
-          'businessmindset',
-          'strategy',
-          'boss'
+          'wealth'
         ],
         tech: [
           'technology',
           'tech',
           'innovation',
           'gadgets',
-          'smartphone',
           'coding',
           'programming',
           'developer',
           'software',
           'ai',
-          'artificialintelligence',
-          'machinelearning',
-          'startup',
-          'apps',
-          'computer',
-          'data',
-          'cybersecurity',
-          'iot',
-          'digital',
-          'technews',
-          'techie',
-          'apple',
-          'android',
-          'webdesign',
-          'uxdesign',
-          'techworld',
-          'futuristic',
-          'electronics',
-          'techtips'
+          'startup'
         ],
         beauty: [
           'beauty',
@@ -1389,29 +1829,8 @@
           'mua',
           'cosmetics',
           'makeupartist',
-          'beautiful',
-          'makeuptutorial',
-          'beautytips',
-          'skin',
-          'selfcare',
-          'lipstick',
           'glam',
-          'beautyaddict',
-          'instamakeup',
-          'makeuplover',
-          'skincareroutine',
-          'beautycommunity',
-          'makeupjunkie',
-          'eyeshadow',
-          'foundation',
-          'beautyproducts',
-          'naturalmakeup',
-          'skincareaddict',
-          'makeupoftheday',
-          'beautyguru',
-          'instabeauty',
-          'crueltyfree',
-          'glow'
+          'skincareroutine'
         ],
         art: [
           'art',
@@ -1422,140 +1841,46 @@
           'painting',
           'design',
           'creative',
-          'artistsoninstagram',
-          'sketch',
-          'digitalart',
-          'instaart',
-          'artoftheday',
-          'graphicdesign',
-          'arte',
-          'contemporaryart',
-          'artgallery',
-          'artistlife',
-          'artlovers',
-          'draw',
-          'watercolor',
-          'fineart',
-          'abstractart',
-          'creativity',
-          'sketchbook',
-          'artsy',
-          'doodle',
-          'modernart',
-          'pencilart',
-          'artistic'
+          'digitalart'
         ],
         photography: [
           'photography',
           'photo',
           'photooftheday',
           'photographer',
-          'instagood',
           'picoftheday',
           'photoshoot',
           'portrait',
           'canon',
-          'camera',
-          'sony',
-          'nikon',
-          'photographylovers',
-          'instagram',
-          'streetphotography',
-          'naturephotography',
-          'photographyislife',
-          'photographylover',
-          'instaphoto',
-          'beautiful',
-          'landscape',
-          'model',
-          'photos',
-          'portraitphotography',
-          'travelphotography',
-          'art',
-          'photogram',
-          'shots',
-          'fotografia',
-          'snapshot'
+          'camera'
         ],
         gaming: [
           'gaming',
           'gamer',
           'videogames',
-          'games',
           'ps5',
           'xbox',
           'playstation',
-          'pc',
-          'twitch',
-          'streamer',
-          'fortnite',
-          'game',
-          'gamingcommunity',
-          'esports',
-          'gamers',
-          'nintendo',
           'pcgaming',
-          'gaminglife',
-          'gamenight',
-          'consolegaming',
-          'xboxseriesx',
-          'streaming',
-          'gameplay',
-          'retrogaming',
-          'gamingsetup',
-          'gamerlife',
-          'videogame',
-          'gamergirl',
-          'instagaming',
-          'nintendoswitch'
+          'twitch',
+          'streamer'
         ],
         motivation: [
           'motivation',
           'inspiration',
           'success',
           'mindset',
-          'motivationalquotes',
           'goals',
-          'believe',
           'positivevibes',
-          'successquotes',
-          'entrepreneur',
-          'hustle',
-          'grind',
           'nevergiveup',
-          'quotes',
-          'motivational',
           'selflove',
-          'millionairemindset',
-          'ambition',
-          'inspirationalquotes',
-          'focus',
-          'positivity',
-          'dreams',
-          'lifestyle',
-          'life',
-          'growth',
-          'winner',
-          'determination',
-          'successful',
-          'inspire',
-          'mindsetiseverything'
+          'growth'
         ]
       }
-      // (For brevity, other platforms omitted here, but you can paste
-      // your full hashtagDatabase from earlier if you want more.)
     };
 
     const extraTrending = {
-      instagram: [
-        'reels',
-        'explorepage',
-        'instagood',
-        'viralreels',
-        'instadaily',
-        'instareels',
-        'contentcreator'
-      ]
+      instagram: ['reels', 'explorepage', 'instagood', 'viralreels', 'instadaily', 'instareels']
     };
 
     function shuffleArray(array) {
@@ -1574,9 +1899,7 @@
       const count = parseInt(document.getElementById('hashCount').value, 10);
       const mix = document.getElementById('hashMix').value;
 
-      let base =
-        (hashtagDatabase[platform] && hashtagDatabase[platform][niche]) ||
-        hashtagDatabase.instagram.digital;
+      let base = hashtagDatabase[platform]?.[niche] || hashtagDatabase.instagram.digital;
       let trending = extraTrending[platform] || extraTrending.instagram;
 
       base = [...base];
@@ -1684,7 +2007,7 @@
       const wrapper = document.getElementById('qrWrapper');
       wrapper.innerHTML = '';
 
-      const qr = new QRCode(wrapper, {
+      new QRCode(wrapper, {
         text: content,
         width: size,
         height: size,
@@ -1695,11 +2018,9 @@
 
       setTimeout(() => {
         const canvas = wrapper.querySelector('canvas');
-        if (canvas) {
+        if (canvas && !isProUser) {
           const ctx = canvas.getContext('2d');
-          if (!isProUser) {
-            drawWatermark(ctx, canvas, 'digitalbuyhub.com');
-          }
+          drawWatermark(ctx, canvas, 'digitalbuyhub.com');
         }
       }, 0);
     }
@@ -1731,7 +2052,7 @@
       const content = getQrContent();
 
       const tmpWrapper = document.createElement('div');
-      const qr = new QRCode(tmpWrapper, {
+      new QRCode(tmpWrapper, {
         text: content,
         width: size,
         height: size,
@@ -1770,9 +2091,7 @@
       }
     }
 
-    function generateMockup(withWatermark = true, targetCanvasId = 'mockupCanvas') {
-      const canvas = document.getElementById(targetCanvasId);
-      if (!canvas) return;
+    function drawMockupOn(canvas, withWatermark = true) {
       const ctx = canvas.getContext('2d');
 
       const product = document.getElementById('mockupProduct').value;
@@ -2004,8 +2323,15 @@
       if (stroke) ctx.stroke();
     }
 
+    function generateMockup() {
+      const canvas = document.getElementById('mockupCanvas');
+      canvas.width = 500;
+      canvas.height = 600;
+      drawMockupOn(canvas, true);
+    }
+
     function downloadMockupFree() {
-      generateMockup(true, 'mockupCanvas');
+      generateMockup();
       downloadCanvas('mockupCanvas', 'mockup-free.png');
     }
 
@@ -2022,36 +2348,19 @@
       const base = document.createElement('canvas');
       base.width = baseWidth;
       base.height = baseHeight;
-      generateMockup(false, null); // we need to call with custom canvas
-      // simpler: just draw clean directly on base
-      generateMockup(false, base.id || (() => {
-        base.id = 'mockupTmpBase';
-        return base.id;
-      })());
+      drawMockupOn(base, false);
 
-      const tmp = document.createElement('canvas');
-      tmp.width = baseWidth * scale;
-      tmp.height = baseHeight * scale;
-      const ctx = tmp.getContext('2d');
-      ctx.drawImage(base, 0, 0, tmp.width, tmp.height);
+      const hi = document.createElement('canvas');
+      hi.width = baseWidth * scale;
+      hi.height = baseHeight * scale;
+      const ctx = hi.getContext('2d');
+      ctx.drawImage(base, 0, 0, hi.width, hi.height);
 
       const link = document.createElement('a');
       link.download = 'mockup-pro.png';
-      link.href = tmp.toDataURL('image/png');
+      link.href = hi.toDataURL('image/png');
       link.click();
     }
-
-    // Overload generateMockup to accept custom canvas
-    const _generateMockupOriginal = generateMockup;
-    generateMockup = function (withWatermark = true, targetCanvasId = 'mockupCanvas') {
-      if (targetCanvasId && typeof targetCanvasId === 'string') {
-        _generateMockupOriginal(withWatermark, targetCanvasId);
-      } else if (targetCanvasId === null) {
-        _generateMockupOriginal(withWatermark, 'mockupCanvas');
-      } else {
-        _generateMockupOriginal(withWatermark, targetCanvasId);
-      }
-    };
 
     // ==================== INIT ====================
     window.onload = function () {
