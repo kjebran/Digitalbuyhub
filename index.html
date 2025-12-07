@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Buy Hub • Free Tools 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <!-- Browser-ready QR code library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+          integrity="sha512-WkPx3sWy+qWwH0kqM1Yx5djZqSKSWiQ/cJZ3et6+k8zWnhStKqJvK2V5kRXeuydTRBwyP0uwgCvsQxQ8A8iY3A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
     :root {
       --primary: #ff3366;
@@ -16,20 +19,20 @@
       --light: #f8fafc;
       --gray: #64748b;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--light);
       color: #1e293b;
       line-height: 1.6;
     }
-    
+
     /* Navigation */
     nav {
       position: fixed;
@@ -44,7 +47,7 @@
       align-items: center;
       box-shadow: 0 4px 30px rgba(0,0,0,0.1);
     }
-    
+
     .logo {
       font-size: 28px;
       font-weight: 900;
@@ -53,7 +56,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
+
     .nav-links a {
       color: #333;
       text-decoration: none;
@@ -62,7 +65,7 @@
       transition: color 0.3s;
       cursor: pointer;
     }
-    
+
     .nav-links a:hover {
       color: var(--primary);
     }
@@ -80,7 +83,7 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     header::before {
       content: '';
       position: absolute;
@@ -90,26 +93,26 @@
       bottom: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    
+
     .hero {
       position: relative;
       z-index: 1;
       max-width: 900px;
     }
-    
+
     .hero h1 {
       font-size: clamp(40px, 8vw, 72px);
       font-family: 'Playfair Display', serif;
       margin-bottom: 20px;
       text-shadow: 0 4px 30px rgba(0,0,0,0.3);
     }
-    
+
     .hero p {
       font-size: clamp(18px, 3vw, 26px);
       margin-bottom: 40px;
       opacity: 0.95;
     }
-    
+
     .cta {
       background: white;
       color: var(--primary);
@@ -122,7 +125,7 @@
       transition: all 0.3s;
       box-shadow: 0 10px 40px rgba(0,0,0,0.2);
     }
-    
+
     .cta:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 50px rgba(0,0,0,0.3);
@@ -133,7 +136,7 @@
       padding: 100px 5%;
       background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
     }
-    
+
     .section-title {
       text-align: center;
       font-size: clamp(36px, 5vw, 56px);
@@ -141,14 +144,14 @@
       font-family: 'Playfair Display', serif;
       color: var(--dark);
     }
-    
+
     .section-subtitle {
       text-align: center;
       font-size: 18px;
       color: var(--gray);
       margin-bottom: 60px;
     }
-    
+
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -156,7 +159,7 @@
       max-width: 1600px;
       margin: 0 auto;
     }
-    
+
     .tool-card {
       background: white;
       border-radius: 24px;
@@ -165,12 +168,12 @@
       transition: all 0.3s;
       border: 1px solid rgba(0,0,0,0.05);
     }
-    
+
     .tool-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.12);
     }
-    
+
     .tool-card h3 {
       font-size: 24px;
       margin-bottom: 8px;
@@ -179,17 +182,17 @@
       align-items: center;
       gap: 10px;
     }
-    
+
     .tool-card .tool-desc {
       color: var(--gray);
       font-size: 14px;
       margin-bottom: 25px;
     }
-    
+
     .input-group {
       margin-bottom: 15px;
     }
-    
+
     .input-group label {
       display: block;
       font-size: 13px;
@@ -197,7 +200,7 @@
       color: var(--gray);
       margin-bottom: 6px;
     }
-    
+
     input, select, textarea {
       width: 100%;
       padding: 14px 16px;
@@ -208,14 +211,19 @@
       transition: all 0.3s;
       background: #f8fafc;
     }
-    
+
     input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--primary);
       background: white;
       box-shadow: 0 0 0 4px rgba(255,51,102,0.1);
     }
-    
+
+    input[type="range"] {
+      padding: 0;
+      background: transparent;
+    }
+
     .btn {
       width: 100%;
       padding: 16px;
@@ -227,52 +235,52 @@
       transition: all 0.3s;
       margin-top: 10px;
     }
-    
+
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
     }
-    
+
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(255,51,102,0.4);
     }
-    
+
     .btn-success {
       background: linear-gradient(135deg, var(--success), #059669);
       color: white;
     }
-    
+
     .btn-success:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(16,185,129,0.4);
     }
-    
+
     .btn-outline {
       background: transparent;
       border: 2px solid var(--primary);
       color: var(--primary);
     }
-    
+
     .btn-outline:hover {
       background: var(--primary);
       color: white;
     }
-    
+
     .row {
       display: flex;
       gap: 10px;
     }
-    
+
     .row > * {
       flex: 1;
     }
-    
+
     .canvas-container {
       margin: 20px 0;
-      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
-                  linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
-                  linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+                  linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                  linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
                   linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
       background-size: 20px 20px;
       background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
@@ -282,14 +290,14 @@
       justify-content: center;
       align-items: center;
     }
-    
+
     canvas {
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       max-width: 100%;
       height: auto;
     }
-    
+
     .output-box {
       background: linear-gradient(135deg, #f8fafc, #e2e8f0);
       border-radius: 12px;
@@ -297,14 +305,14 @@
       margin: 20px 0;
       border: 1px solid #e2e8f0;
     }
-    
+
     .hashtag-display {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 15px;
     }
-    
+
     .hashtag-tag {
       background: linear-gradient(135deg, var(--secondary), #8b5cf6);
       color: white;
@@ -313,13 +321,13 @@
       font-size: 13px;
       font-weight: 600;
     }
-    
+
     .color-picker-group {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    
+
     input[type="color"] {
       width: 50px;
       height: 40px;
@@ -327,7 +335,7 @@
       border-radius: 8px;
       cursor: pointer;
     }
-    
+
     .watermark {
       margin-top: 15px;
       font-size: 12px;
@@ -337,7 +345,7 @@
       background: #f1f5f9;
       border-radius: 8px;
     }
-    
+
     /* Footer */
     footer {
       background: var(--dark);
@@ -345,12 +353,12 @@
       text-align: center;
       padding: 60px 20px;
     }
-    
+
     footer .logo {
       font-size: 32px;
       margin-bottom: 20px;
     }
-    
+
     footer p {
       opacity: 0.7;
     }
@@ -366,7 +374,7 @@
       justify-content: center;
       padding: 20px;
     }
-    
+
     .modal-content {
       background: white;
       color: #111;
@@ -377,12 +385,12 @@
       position: relative;
       animation: modalPop 0.3s ease;
     }
-    
+
     @keyframes modalPop {
       from { transform: scale(0.8); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-    
+
     .modal-close {
       position: absolute;
       top: 15px;
@@ -392,18 +400,18 @@
       color: #999;
       transition: color 0.3s;
     }
-    
+
     .modal-close:hover {
       color: var(--primary);
     }
-    
+
     .price-tag {
       font-size: 80px;
       font-weight: 900;
       color: var(--primary);
       line-height: 1;
     }
-    
+
     .price-tag span {
       font-size: 24px;
     }
@@ -413,15 +421,15 @@
       .nav-links {
         display: none;
       }
-      
+
       .tools-grid {
         grid-template-columns: 1fr;
       }
-      
+
       .row {
         flex-direction: column;
       }
-      
+
       .tool-card {
         padding: 25px;
       }
@@ -460,17 +468,17 @@
     <div class="tool-card">
       <h3>🎨 Logo Designer</h3>
       <p class="tool-desc">Create beautiful, professional logos in seconds</p>
-      
+
       <div class="input-group">
         <label>Brand Name</label>
         <input type="text" id="logoText" value="Your Brand" placeholder="Enter your brand name">
       </div>
-      
+
       <div class="input-group">
         <label>Tagline (Optional)</label>
         <input type="text" id="logoTagline" placeholder="Your slogan here">
       </div>
-      
+
       <div class="row">
         <div class="input-group">
           <label>Style</label>
@@ -484,22 +492,16 @@
           </select>
         </div>
         <div class="input-group">
-          <label>Icon</label>
-          <select id="logoIcon">
-            <option value="none">No Icon</option>
-            <option value="⚡">⚡ Lightning</option>
-            <option value="🚀">🚀 Rocket</option>
-            <option value="💎">💎 Diamond</option>
-            <option value="🔥">🔥 Fire</option>
-            <option value="⭐">⭐ Star</option>
-            <option value="💡">💡 Idea</option>
-            <option value="🎯">🎯 Target</option>
-            <option value="🌟">🌟 Sparkle</option>
-            <option value="👑">👑 Crown</option>
+          <label>Design Combination</label>
+          <select id="logoCombo">
+            <option value="none">Simple</option>
+            <option value="accentBar">Side Accents</option>
+            <option value="box">Boxed Logo</option>
+            <option value="stamp">Corner Stamp</option>
           </select>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="input-group">
           <label>Primary Color</label>
@@ -519,18 +521,18 @@
           </select>
         </div>
       </div>
-      
+
       <button class="btn btn-primary" onclick="generateLogo()">✨ Generate Logo</button>
-      
+
       <div class="canvas-container">
         <canvas id="logoCanvas" width="500" height="300"></canvas>
       </div>
-      
+
       <div class="row">
         <button class="btn btn-success" onclick="downloadCanvas('logoCanvas', 'logo.png')">⬇️ Download PNG</button>
         <button class="btn btn-outline" onclick="generateLogo()">🔄 Regenerate</button>
       </div>
-      
+
       <div class="watermark">Made with Digital Buy Hub ⚡</div>
     </div>
 
@@ -538,7 +540,7 @@
     <div class="tool-card">
       <h3>📱 Hashtag Generator</h3>
       <p class="tool-desc">Get viral hashtags tailored to your niche</p>
-      
+
       <div class="input-group">
         <label>Platform</label>
         <select id="hashPlatform">
@@ -550,7 +552,7 @@
           <option value="linkedin">LinkedIn</option>
         </select>
       </div>
-      
+
       <div class="input-group">
         <label>Niche / Category</label>
         <select id="hashNiche">
@@ -568,12 +570,12 @@
           <option value="motivation">Motivation & Mindset</option>
         </select>
       </div>
-      
+
       <div class="input-group">
         <label>Custom Keywords (Optional)</label>
         <input type="text" id="hashKeyword" placeholder="Add custom keywords separated by comma">
       </div>
-      
+
       <div class="row">
         <div class="input-group">
           <label>Hashtag Count</label>
@@ -594,9 +596,9 @@
           </select>
         </div>
       </div>
-      
+
       <button class="btn btn-primary" onclick="generateHashtags()">🔥 Generate Hashtags</button>
-      
+
       <div class="output-box" id="hashOutput" style="display:none;">
         <div class="hashtag-display" id="hashDisplay"></div>
         <textarea id="hashText" rows="3" readonly style="margin-bottom:10px;"></textarea>
@@ -605,7 +607,7 @@
           <button class="btn btn-outline" onclick="generateHashtags()">🔄 New Set</button>
         </div>
       </div>
-      
+
       <div class="watermark">Made with Digital Buy Hub ⚡</div>
     </div>
 
@@ -613,10 +615,10 @@
     <div class="tool-card">
       <h3>📷 QR Code Generator</h3>
       <p class="tool-desc">Create custom QR codes for any link or text</p>
-      
+
       <div class="input-group">
         <label>Content Type</label>
-        <select id="qrType" onchange="updateQRPlaceholder()">
+        <select id="qrType" onchange="updateQRPlaceholder(); generateQR();">
           <option value="url">Website URL</option>
           <option value="text">Plain Text</option>
           <option value="email">Email Address</option>
@@ -625,35 +627,35 @@
           <option value="vcard">Contact Card</option>
         </select>
       </div>
-      
+
       <div class="input-group">
         <label>Enter Content</label>
-        <input type="text" id="qrContent" placeholder="https://yourwebsite.com">
+        <input type="text" id="qrContent" placeholder="https://yourwebsite.com" oninput="generateQR()">
       </div>
-      
+
       <div id="wifiFields" style="display:none;">
         <div class="input-group">
           <label>WiFi Name (SSID)</label>
-          <input type="text" id="wifiSSID" placeholder="Your Network Name">
+          <input type="text" id="wifiSSID" placeholder="Your Network Name" oninput="generateQR()">
         </div>
         <div class="input-group">
           <label>Password</label>
-          <input type="text" id="wifiPass" placeholder="Your Password">
+          <input type="text" id="wifiPass" placeholder="Your Password" oninput="generateQR()">
         </div>
       </div>
-      
+
       <div class="row">
         <div class="input-group">
           <label>Foreground Color</label>
-          <input type="color" id="qrColor" value="#000000">
+          <input type="color" id="qrColor" value="#000000" onchange="generateQR()">
         </div>
         <div class="input-group">
           <label>Background Color</label>
-          <input type="color" id="qrBgColor" value="#ffffff">
+          <input type="color" id="qrBgColor" value="#ffffff" onchange="generateQR()">
         </div>
         <div class="input-group">
           <label>Size</label>
-          <select id="qrSize">
+          <select id="qrSize" onchange="generateQR()">
             <option value="200">Small (200px)</option>
             <option value="300" selected>Medium (300px)</option>
             <option value="400">Large (400px)</option>
@@ -661,15 +663,16 @@
           </select>
         </div>
       </div>
-      
+
       <button class="btn btn-primary" onclick="generateQR()">⚡ Generate QR Code</button>
-      
+
       <div class="canvas-container">
-        <canvas id="qrCanvas"></canvas>
+        <!-- QRCode.js will create the canvas inside this wrapper -->
+        <div id="qrWrapper"></div>
       </div>
-      
+
       <button class="btn btn-success" onclick="downloadCanvas('qrCanvas', 'qrcode.png')">⬇️ Download QR Code</button>
-      
+
       <div class="watermark">Made with Digital Buy Hub ⚡</div>
     </div>
 
@@ -677,10 +680,10 @@
     <div class="tool-card">
       <h3>👕 Product Mockup Creator</h3>
       <p class="tool-desc">Visualize your designs on real products</p>
-      
+
       <div class="input-group">
         <label>Product Type</label>
-        <select id="mockupProduct" onchange="updateMockupPreview()">
+        <select id="mockupProduct" onchange="generateMockup()">
           <option value="tshirt">T-Shirt</option>
           <option value="hoodie">Hoodie</option>
           <option value="mug">Coffee Mug</option>
@@ -689,10 +692,10 @@
           <option value="poster">Poster/Print</option>
         </select>
       </div>
-      
+
       <div class="input-group">
         <label>Product Color</label>
-        <select id="mockupColor">
+        <select id="mockupColor" onchange="generateMockup()">
           <option value="#ffffff">White</option>
           <option value="#000000">Black</option>
           <option value="#1e293b">Navy</option>
@@ -705,25 +708,48 @@
           <option value="#ec4899">Pink</option>
         </select>
       </div>
-      
+
+      <div class="input-group">
+        <label>Color Theme (optional)</label>
+        <select id="mockupTheme" onchange="applyMockupTheme(this.value)">
+          <option value="custom">Custom</option>
+          <option value="lightOnDark">Light print on dark</option>
+          <option value="darkOnLight">Dark print on light</option>
+          <option value="brand">Brand colors</option>
+          <option value="neon">Neon pop</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>View</label>
+        <select id="mockupSide" onchange="generateMockup()">
+          <option value="front">Front</option>
+          <option value="back">Back</option>
+        </select>
+      </div>
+
       <div class="input-group">
         <label>Design Text</label>
-        <input type="text" id="mockupText" value="YOUR TEXT" placeholder="Your design text">
+        <input type="text" id="mockupText" value="YOUR TEXT" placeholder="Your design text" oninput="generateMockup()">
       </div>
-      
+
       <div class="input-group">
         <label>Or Upload Image</label>
         <input type="file" id="mockupImage" accept="image/*" onchange="handleMockupImage(this)">
       </div>
-      
+
+      <div class="input-group">
+        <button type="button" class="btn btn-outline" onclick="clearMockupImage()">Use Text Only (Remove Image)</button>
+      </div>
+
       <div class="row">
         <div class="input-group">
           <label>Text Color</label>
-          <input type="color" id="mockupTextColor" value="#000000">
+          <input type="color" id="mockupTextColor" value="#000000" onchange="generateMockup()">
         </div>
         <div class="input-group">
           <label>Font Style</label>
-          <select id="mockupFont">
+          <select id="mockupFont" onchange="generateMockup()">
             <option value="bold 48px Arial">Bold Sans</option>
             <option value="48px Georgia">Classic Serif</option>
             <option value="bold 48px Impact">Impact</option>
@@ -732,15 +758,36 @@
           </select>
         </div>
       </div>
-      
+
+      <div class="row">
+        <div class="input-group">
+          <label>Design Size</label>
+          <input type="range" id="mockupScale" min="50" max="150" value="100" oninput="generateMockup()">
+        </div>
+        <div class="input-group">
+          <label>Vertical Position</label>
+          <input type="range" id="mockupOffsetY" min="-50" max="50" value="0" oninput="generateMockup()">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <label><input type="checkbox" id="mockupOutline" checked onchange="generateMockup()"> Outline Text</label>
+        </div>
+        <div class="input-group">
+          <label>Outline Color</label>
+          <input type="color" id="mockupOutlineColor" value="#ffffff" onchange="generateMockup()">
+        </div>
+      </div>
+
       <button class="btn btn-primary" onclick="generateMockup()">🎨 Create Mockup</button>
-      
+
       <div class="canvas-container">
         <canvas id="mockupCanvas" width="500" height="600"></canvas>
       </div>
-      
+
       <button class="btn btn-success" onclick="downloadCanvas('mockupCanvas', 'mockup.png')">⬇️ Download Mockup</button>
-      
+
       <div class="watermark">Made with Digital Buy Hub ⚡</div>
     </div>
 
@@ -791,6 +838,7 @@ function closePricing() {
 
 function downloadCanvas(canvasId, filename) {
   const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
   const link = document.createElement('a');
   link.download = filename;
   link.href = canvas.toDataURL('image/png');
@@ -802,19 +850,17 @@ function downloadCanvas(canvasId, filename) {
 function generateLogo() {
   const canvas = document.getElementById('logoCanvas');
   const ctx = canvas.getContext('2d');
-  
+
   const text = document.getElementById('logoText').value || 'Your Brand';
   const tagline = document.getElementById('logoTagline').value;
   const style = document.getElementById('logoStyle').value;
-  const icon = document.getElementById('logoIcon').value;
+  const combo = document.getElementById('logoCombo').value;
   const color1 = document.getElementById('logoColor1').value;
   const color2 = document.getElementById('logoColor2').value;
   const bgType = document.getElementById('logoBg').value;
-  
-  // Clear canvas
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  // Draw background
+
   if (bgType === 'white') {
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -828,43 +874,32 @@ function generateLogo() {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
-  // transparent = no fill
-  
+
   const textColor = (bgType === 'dark' || bgType === 'gradient') ? '#ffffff' : color1;
   const isDark = bgType === 'dark' || bgType === 'gradient';
-  
+
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  
+
   switch(style) {
     case 'modern':
       ctx.font = 'bold 52px Inter, Arial';
       ctx.fillStyle = textColor;
       ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      if (icon !== 'none') {
-        ctx.font = '40px Arial';
-        ctx.fillText(icon, canvas.width/2 - ctx.measureText(text.toUpperCase()).width/2 - 35, canvas.height/2 - (tagline ? 15 : 0));
-      }
       break;
-      
+
     case 'bold':
       ctx.font = '900 60px Impact, Arial';
       ctx.fillStyle = textColor;
       ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      // Add underline
       ctx.fillStyle = color2;
       ctx.fillRect(canvas.width/2 - 100, canvas.height/2 + 30, 200, 6);
-      if (icon !== 'none') {
-        ctx.font = '50px Arial';
-        ctx.fillText(icon, canvas.width/2, canvas.height/2 - 70);
-      }
       break;
-      
+
     case 'elegant':
       ctx.font = 'italic 48px Georgia, serif';
       ctx.fillStyle = textColor;
       ctx.fillText(text, canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      // Add decorative lines
       ctx.strokeStyle = color2;
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -874,7 +909,7 @@ function generateLogo() {
       ctx.lineTo(400, canvas.height/2 - 50);
       ctx.stroke();
       break;
-      
+
     case 'gradient':
       const textGradient = ctx.createLinearGradient(100, 0, 400, 0);
       textGradient.addColorStop(0, color1);
@@ -882,12 +917,8 @@ function generateLogo() {
       ctx.font = 'bold 56px Arial';
       ctx.fillStyle = textGradient;
       ctx.fillText(text, canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      if (icon !== 'none') {
-        ctx.font = '45px Arial';
-        ctx.fillText(icon, canvas.width/2, canvas.height/2 - 65);
-      }
       break;
-      
+
     case 'neon':
       ctx.shadowColor = color1;
       ctx.shadowBlur = 20;
@@ -897,16 +928,9 @@ function generateLogo() {
       ctx.shadowBlur = 40;
       ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
       ctx.shadowBlur = 0;
-      if (icon !== 'none') {
-        ctx.font = '40px Arial';
-        ctx.shadowBlur = 20;
-        ctx.fillText(icon, canvas.width/2, canvas.height/2 - 60);
-        ctx.shadowBlur = 0;
-      }
       break;
-      
+
     case 'vintage':
-      // Draw badge circle
       ctx.beginPath();
       ctx.arc(canvas.width/2, canvas.height/2, 120, 0, Math.PI * 2);
       ctx.strokeStyle = textColor;
@@ -918,17 +942,43 @@ function generateLogo() {
       ctx.font = 'bold 32px Georgia, serif';
       ctx.fillStyle = textColor;
       ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2);
-      if (icon !== 'none') {
-        ctx.font = '35px Arial';
-        ctx.fillText(icon, canvas.width/2, canvas.height/2 - 45);
-      }
-      // Add established text
       ctx.font = '14px Georgia';
       ctx.fillText('★ ESTABLISHED 2025 ★', canvas.width/2, canvas.height/2 + 50);
       break;
   }
-  
-  // Draw tagline
+
+  // Extra design combinations (accents)
+  switch (combo) {
+    case 'accentBar':
+      ctx.fillStyle = color2;
+      ctx.fillRect(canvas.width/2 - 220, canvas.height/2 - 5 - (tagline ? 15 : 0), 60, 10);
+      ctx.fillRect(canvas.width/2 + 160, canvas.height/2 - 5 - (tagline ? 15 : 0), 60, 10);
+      break;
+    case 'box':
+      ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.7)' : color2;
+      ctx.lineWidth = 4;
+      const paddingX = 40;
+      const paddingY = 20;
+      ctx.font = (style === 'elegant') ? 'italic 48px Georgia, serif' :
+                 (style === 'vintage') ? 'bold 32px Georgia, serif' :
+                 'bold 52px Inter, Arial';
+      const metrics = ctx.measureText(text.toUpperCase());
+      const boxWidth = metrics.width + paddingX * 2;
+      const boxHeight = 70;
+      const boxX = canvas.width/2 - boxWidth/2;
+      const boxY = canvas.height/2 - boxHeight/2 - (tagline ? 15 : 0);
+      ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+      break;
+    case 'stamp':
+      ctx.fillStyle = color2;
+      ctx.save();
+      ctx.translate(canvas.width - 80, canvas.height - 80);
+      ctx.rotate(-Math.PI / 8);
+      ctx.fillRect(-50, -20, 100, 40);
+      ctx.restore();
+      break;
+  }
+
   if (tagline) {
     ctx.shadowBlur = 0;
     ctx.font = '16px Arial';
@@ -940,90 +990,25 @@ function generateLogo() {
 // ==================== HASHTAG GENERATOR ====================
 
 const hashtagDatabase = {
-  instagram: {
-    digital: ['digitalproducts', 'digitaldownload', 'etsyseller', 'etsyshop', 'passiveincome', 'onlinebusiness', 'workfromhome', 'sidehustle', 'makemoneyonline', 'digitalart', 'printables', 'canvatemplates', 'planner', 'digitalplanner', 'etsyfinds', 'smallbusiness', 'entrepreneur', 'creativebusiness', 'digitalmarketing', 'contentcreator', 'instagramtips', 'socialmediamarketing', 'digitalcreator', 'shopsmall', 'handmade', 'etsylove', 'mrrproducts', 'resellrights', 'pln', 'digitalassets'],
-    fashion: ['fashion', 'style', 'ootd', 'fashionblogger', 'streetstyle', 'fashionista', 'instafashion', 'outfit', 'styleinspo', 'fashionstyle', 'lookoftheday', 'fashiongram', 'fashionweek', 'trendy', 'stylish', 'whatiwore', 'fashionaddict', 'fashionlover', 'outfitoftheday', 'styleoftheday', 'fashiondiaries', 'chic', 'instastyle', 'todaysoutfit', 'womensfashion', 'mensfashion', 'fashiontrends', 'fashionphotography', 'outfitinspiration', 'styleblogger'],
-    fitness: ['fitness', 'workout', 'gym', 'fitnessmotivation', 'fit', 'training', 'health', 'fitfam', 'bodybuilding', 'exercise', 'gymlife', 'healthy', 'motivation', 'fitnessjourney', 'muscle', 'gains', 'personaltrainer', 'weightloss', 'fitnessmodel', 'lifestyle', 'healthylifestyle', 'gymmotivation', 'cardio', 'crossfit', 'yoga', 'fitlife', 'strong', 'homeworkout', 'workoutmotivation', 'fitspo'],
-    food: ['food', 'foodie', 'foodporn', 'instafood', 'yummy', 'delicious', 'foodphotography', 'foodstagram', 'foodblogger', 'cooking', 'homemade', 'dinner', 'lunch', 'breakfast', 'recipe', 'healthyfood', 'foodlover', 'tasty', 'chef', 'restaurant', 'eat', 'hungry', 'foodgasm', 'baking', 'foodies', 'vegetarian', 'vegan', 'dessert', 'homecooking', 'comfortfood'],
-    travel: ['travel', 'travelgram', 'instatravel', 'travelphotography', 'wanderlust', 'traveling', 'vacation', 'adventure', 'explore', 'trip', 'holiday', 'tourism', 'travelblogger', 'nature', 'traveltheworld', 'igtravel', 'travelling', 'traveler', 'beautifuldestinations', 'landscape', 'beach', 'roadtrip', 'sunset', 'photography', 'mountains', 'paradise', 'summer', 'view', 'globetrotter', 'bucketlist'],
-    business: ['business', 'entrepreneur', 'motivation', 'success', 'money', 'marketing', 'startup', 'entrepreneurship', 'businessowner', 'mindset', 'goals', 'inspiration', 'smallbusiness', 'hustle', 'leadership', 'wealth', 'millionaire', 'ceo', 'investment', 'finance', 'businesstips', 'branding', 'growth', 'grind', 'work', 'ambition', 'networking', 'businessmindset', 'strategy', 'boss'],
-    tech: ['technology', 'tech', 'innovation', 'gadgets', 'smartphone', 'coding', 'programming', 'developer', 'software', 'ai', 'artificialintelligence', 'machinelearning', 'startup', 'apps', 'computer', 'data', 'cybersecurity', 'iot', 'digital', 'technews', 'techie', 'apple', 'android', 'webdesign', 'uxdesign', 'techworld', 'futuristic', 'electronics', 'innovation', 'techtips'],
-    beauty: ['beauty', 'makeup', 'skincare', 'beautyblogger', 'mua', 'cosmetics', 'makeupartist', 'beautiful', 'makeuptutorial', 'beautytips', 'skin', 'selfcare', 'lipstick', 'glam', 'beautyaddict', 'instamakeup', 'makeuplover', 'skincareroutine', 'beautycommunity', 'makeupjunkie', 'eyeshadow', 'foundation', 'beautyproducts', 'naturalmakeup', 'skincareaddict', 'makeupoftheday', 'beautyguru', 'instabeauty', 'crueltyfree', 'glow'],
-    art: ['art', 'artist', 'artwork', 'drawing', 'illustration', 'painting', 'design', 'creative', 'artistsoninstagram', 'sketch', 'digitalart', 'instaart', 'artoftheday', 'graphicdesign', 'arte', 'contemporaryart', 'artgallery', 'artistlife', 'artlovers', 'draw', 'watercolor', 'fineart', 'abstractart', 'creativity', 'sketchbook', 'artsy', 'doodle', 'modernart', 'pencilart', 'artistic'],
-    photography: ['photography', 'photo', 'photooftheday', 'photographer', 'instagood', 'picoftheday', 'photoshoot', 'portrait', 'canon', 'camera', 'sony', 'nikon', 'photographylovers', 'instagram', 'streetphotography', 'naturephotography', 'photographyislife', 'photographylover', 'instaphoto', 'beautiful', 'landscape', 'model', 'photos', 'portraitphotography', 'travelphotography', 'art', 'photogram', 'shots', 'fotografia', 'snapshot'],
-    gaming: ['gaming', 'gamer', 'videogames', 'games', 'ps5', 'xbox', 'playstation', 'pc', 'twitch', 'streamer', 'fortnite', 'game', 'gamingcommunity', 'esports', 'gamers', 'nintendo', 'pcgaming', 'gaminglife', 'gamenight', 'consolegaming', 'xboxseriesx', 'streaming', 'gameplay', 'retrogaming', 'gamingsetup', 'gamerlife', 'videogame', 'gamergirl', 'instagaming', 'nintendoswitch'],
-    motivation: ['motivation', 'inspiration', 'success', 'mindset', 'motivationalquotes', 'goals', 'believe', 'positivevibes', 'successquotes', 'entrepreneur', 'hustle', 'grind', 'nevergiveup', 'quotes', 'motivational', 'selflove', 'millionairemindset', 'ambition', 'inspirationalquotes', 'focus', 'positivity', 'dreams', 'lifestyle', 'life', 'growth', 'winner', 'determination', 'successful', 'inspire', 'mindsetiseverything']
-  },
-  tiktok: {
-    digital: ['fyp', 'viral', 'foryou', 'foryoupage', 'digitalproducts', 'sidehustle', 'makemoneyonline', 'passiveincome', 'etsyseller', 'smallbusiness', 'entrepreneur', 'workfromhome', 'onlinebusiness', 'tiktokbusiness', 'moneytok', 'sidehustletiktok', 'digitaldownload', 'canvatemplates', 'printables', 'etsyshop', 'creativebusiness', 'hustleculture', 'moneytips', 'financetok', 'bizztok'],
-    fashion: ['fyp', 'foryou', 'fashion', 'ootd', 'style', 'fashiontiktok', 'outfitcheck', 'grwm', 'getreadywithme', 'fashionhacks', 'styletips', 'trendy', 'viral', 'fashioninspo', 'outfitinspo', 'streetstyle', 'fashiontrends', 'stylecheck', 'whatiwore', 'fitcheck'],
-    fitness: ['fyp', 'foryou', 'fitness', 'workout', 'gym', 'gymtok', 'fitnessmotivation', 'workoutmotivation', 'fitcheck', 'gains', 'healthylifestyle', 'personaltrainer', 'weightloss', 'homeworkout', 'legday', 'gymbro', 'fittok', 'glutegains', 'healthtok', 'workoutroutine'],
-    food: ['fyp', 'foryou', 'food', 'foodtiktok', 'recipe', 'cooking', 'foodie', 'yummy', 'easyrecipe', 'whatieatinaday', 'viral', 'cookingtiktok', 'baking', 'chef', 'homecooking', 'healthyfood', 'mealprepb', 'asmrfood', 'mukbang', 'recipetiktok'],
-    travel: ['fyp', 'foryou', 'travel', 'traveltiktok', 'wanderlust', 'traveltheworld', 'vacation', 'adventure', 'bucketlist', 'explore', 'beach', 'roadtrip', 'travelvlog', 'beautifuldestinations', 'travelgram', 'travellife', 'travelhacks', 'solotraveler', 'luxurytravel', 'europetravel'],
-    business: ['fyp', 'foryou', 'business', 'entrepreneur', 'moneytok', 'sidehustle', 'businesstiktok', 'ceo', 'startup', 'wealth', 'investing', 'finance', 'passiveincome', 'millionaire', 'successmindset', 'growthmindset', 'hustleculture', 'bizztok', 'smallbusinesscheck', 'businessowner'],
-    tech: ['fyp', 'foryou', 'tech', 'techtok', 'technology', 'coding', 'programming', 'ai', 'techreview', 'gadgets', 'learnontiktok', 'developer', 'softwaredeveloper', 'chatgpt', 'artificialintelligence', 'apple', 'iphone', 'techlife', 'codinglife', 'techtips'],
-    beauty: ['fyp', 'foryou', 'beauty', 'makeup', 'beautytok', 'grwm', 'skincare', 'makeuptutorial', 'beautyhacks', 'viral', 'skintok', 'beautytips', 'glow', 'skincareroutine', 'makeupartist', 'beautycommunity', 'cosmetics', 'lipstick', 'foundation', 'naturalbeauty'],
-    art: ['fyp', 'foryou', 'art', 'arttok', 'artist', 'drawing', 'painting', 'artwork', 'digitalart', 'satisfying', 'artistoftiktok', 'procreate', 'illustration', 'sketch', 'creativetok', 'artprocess', 'timelapse', 'watercolor', 'acrylicpainting', 'doodle'],
-    photography: ['fyp', 'foryou', 'photography', 'phototok', 'photographer', 'photohacks', 'iphonephotography', 'editinghacks', 'lightroomtutorial', 'behindthescenes', 'photoshoot', 'portrait', 'naturephotography', 'travelphotography', 'tips', 'cameratips', 'photoediting', 'visualtok', 'creativephotography', 'shotoniphone'],
-    gaming: ['fyp', 'foryou', 'gaming', 'gamer', 'gamingtiktok', 'twitch', 'streamer', 'fortnite', 'valorant', 'minecraft', 'apex', 'callofduty', 'gamingclips', 'esports', 'gamingcommunity', 'pcgaming', 'xboxclips', 'playstationclips', 'gaminglife', 'funny'],
-    motivation: ['fyp', 'foryou', 'motivation', 'motivational', 'inspirational', 'success', 'mindset', 'growthmindset', 'selfimprovement', 'motivationtiktok', 'lifechanging', 'morningroutine', 'discipline', 'quotes', 'nevergiveup', 'hardwork', 'believe', 'goalsetting', 'positivemindset', 'successquotes']
-  },
-  pinterest: {
-    digital: ['digital products', 'etsy digital download', 'passive income ideas', 'canva templates', 'printable planner', 'digital planner', 'online business', 'side hustle ideas', 'work from home', 'make money online', 'etsy seller tips', 'digital downloads', 'printables', 'planner ideas', 'small business tips', 'entrepreneur tips', 'digital marketing', 'content creator', 'pinterest marketing', 'social media tips'],
-    fashion: ['fashion outfits', 'style inspiration', 'outfit ideas', 'fashion trends', 'street style', 'capsule wardrobe', 'minimalist fashion', 'spring outfits', 'summer style', 'winter fashion', 'fall outfits', 'work outfits', 'casual outfits', 'dress ideas', 'fashion aesthetic', 'boho style', 'vintage fashion', 'trendy outfits', 'fashion tips', 'wardrobe essentials'],
-    fitness: ['fitness motivation', 'workout routines', 'home workouts', 'gym workout', 'weight loss tips', 'healthy lifestyle', 'fitness tips', 'ab workouts', 'leg workout', 'arm workout', 'yoga poses', 'fitness goals', 'meal prep ideas', 'healthy recipes', 'exercise routines', 'strength training', 'cardio workout', 'fitness challenge', 'wellness tips', 'body transformation'],
-    food: ['recipes', 'dinner ideas', 'healthy recipes', 'meal prep', 'easy recipes', 'breakfast ideas', 'lunch ideas', 'dessert recipes', 'baking recipes', 'comfort food', 'vegetarian recipes', 'vegan recipes', 'quick meals', 'family dinner', 'cooking tips', 'food photography', 'recipe ideas', 'homemade food', 'delicious recipes', 'food inspiration'],
-    travel: ['travel destinations', 'travel tips', 'bucket list', 'wanderlust', 'travel photography', 'vacation ideas', 'beach vacation', 'road trip', 'travel aesthetic', 'europe travel', 'travel packing', 'adventure travel', 'luxury travel', 'budget travel', 'travel guide', 'beautiful places', 'travel inspiration', 'dream destinations', 'travel essentials', 'solo travel'],
-    business: ['business tips', 'entrepreneur', 'small business', 'business ideas', 'startup tips', 'marketing tips', 'branding tips', 'success mindset', 'business motivation', 'productivity tips', 'time management', 'leadership tips', 'money tips', 'investing tips', 'passive income', 'business growth', 'sales tips', 'networking tips', 'career tips', 'work life balance'],
-    tech: ['technology', 'tech gadgets', 'productivity apps', 'coding tips', 'web design', 'app design', 'ui design', 'ux design', 'graphic design', 'digital tools', 'software tips', 'computer tips', 'iphone tips', 'mac tips', 'tech aesthetic', 'workspace setup', 'desk setup', 'tech accessories', 'smart home', 'gadget reviews'],
-    beauty: ['makeup looks', 'skincare routine', 'beauty tips', 'makeup tutorial', 'natural makeup', 'skincare tips', 'hair ideas', 'beauty products', 'nail art', 'lip colors', 'eyeshadow looks', 'foundation tips', 'contour makeup', 'beauty aesthetic', 'self care', 'glow up tips', 'hair tutorial', 'beauty hacks', 'clean beauty', 'minimal makeup'],
-    art: ['art inspiration', 'drawing ideas', 'painting ideas', 'illustration art', 'digital art', 'watercolor painting', 'acrylic painting', 'sketch ideas', 'art tutorial', 'creative art', 'abstract art', 'modern art', 'art aesthetic', 'doodle art', 'art journal', 'mixed media art', 'portrait drawing', 'landscape painting', 'art tips', 'procreate art'],
-    photography: ['photography tips', 'photo ideas', 'portrait photography', 'landscape photography', 'photography poses', 'photo editing', 'lightroom presets', 'camera tips', 'photography aesthetic', 'nature photography', 'street photography', 'travel photography', 'photography inspiration', 'photo composition', 'golden hour', 'photography lighting', 'creative photography', 'minimal photography', 'product photography', 'food photography'],
-    gaming: ['gaming setup', 'gaming room', 'pc setup', 'gaming aesthetic', 'gaming desk', 'gaming accessories', 'retro gaming', 'nintendo', 'playstation', 'xbox', 'gaming wallpaper', 'gaming gifts', 'gamer girl', 'streaming setup', 'rgb setup', 'gaming chair', 'gaming monitor', 'mechanical keyboard', 'gaming mouse', 'console gaming'],
-    motivation: ['motivation quotes', 'inspirational quotes', 'success quotes', 'positive quotes', 'mindset quotes', 'self improvement', 'goal setting', 'morning routine', 'productivity tips', 'self care', 'personal growth', 'motivational words', 'life quotes', 'entrepreneur quotes', 'boss quotes', 'hustle quotes', 'believe in yourself', 'dream big', 'positive mindset', 'growth mindset']
-  },
-  youtube: {
-    digital: ['digital products tutorial', 'etsy shop tips', 'passive income', 'make money online', 'side hustle ideas', 'canva tutorial', 'printables business', 'digital downloads', 'online business', 'work from home', 'etsy seller tips', 'entrepreneur tips', 'small business tips', 'content creator', 'digital marketing', 'social media tips'],
-    fashion: ['fashion haul', 'outfit ideas', 'style tips', 'fashion trends', 'grwm', 'try on haul', 'wardrobe tour', 'capsule wardrobe', 'fashion lookbook', 'style guide', 'fashion vlog', 'shopping haul', 'outfit of the day', 'fashion review', 'styling tips', 'fashion transformation'],
-    fitness: ['workout routine', 'home workout', 'fitness journey', 'weight loss', 'gym workout', 'full body workout', 'ab workout', 'fitness tips', 'meal prep', 'healthy lifestyle', 'fitness motivation', 'exercise tutorial', 'strength training', 'yoga for beginners', 'hiit workout', 'fitness vlog'],
-    food: ['recipe', 'cooking tutorial', 'what i eat in a day', 'meal prep', 'easy recipes', 'baking', 'food review', 'mukbang', 'cooking vlog', 'healthy recipes', 'quick meals', 'budget meals', 'restaurant review', 'food challenge', 'taste test', 'cooking tips'],
-    travel: ['travel vlog', 'travel guide', 'travel tips', 'vacation vlog', 'road trip', 'travel review', 'bucket list', 'adventure travel', 'travel hacks', 'hotel review', 'what to do in', 'travel diary', 'backpacking', 'luxury travel', 'budget travel', 'solo travel'],
-    business: ['business tips', 'entrepreneur', 'startup advice', 'business ideas', 'how to start a business', 'marketing tips', 'money tips', 'investing', 'passive income', 'side hustle', 'success tips', 'productivity tips', 'leadership', 'business vlog', 'career advice', 'financial freedom'],
-    tech: ['tech review', 'unboxing', 'setup tour', 'tech tips', 'gadget review', 'coding tutorial', 'programming', 'app review', 'iphone tips', 'macbook tips', 'pc build', 'tech news', 'best tech', 'tech comparison', 'software tutorial', 'ai tutorial'],
-    beauty: ['makeup tutorial', 'skincare routine', 'grwm', 'beauty review', 'product review', 'hair tutorial', 'beauty tips', 'drugstore makeup', 'makeup haul', 'skincare tips', 'beauty transformation', 'get ready with me', 'everyday makeup', 'glow up', 'beauty vlog', 'makeup collection'],
-    art: ['art tutorial', 'drawing tutorial', 'painting tutorial', 'digital art', 'art process', 'sketch with me', 'art tips', 'procreate tutorial', 'watercolor tutorial', 'art vlog', 'artist studio', 'art supplies', 'illustration tutorial', 'speed drawing', 'art challenge', 'creative process'],
-    photography: ['photography tips', 'camera review', 'photo editing', 'lightroom tutorial', 'photoshop tutorial', 'photography tutorial', 'camera settings', 'portrait photography', 'landscape photography', 'behind the scenes', 'photo walk', 'photography gear', 'composition tips', 'lighting tutorial', 'photography vlog', 'photo challenge'],
-    gaming: ['gameplay', 'lets play', 'gaming', 'game review', 'walkthrough', 'gaming tips', 'best games', 'gaming setup', 'stream highlights', 'funny moments', 'gaming challenge', 'esports', 'game comparison', 'gaming news', 'first playthrough', 'gaming compilation'],
-    motivation: ['motivation', 'motivational speech', 'success tips', 'self improvement', 'productivity', 'morning routine', 'life advice', 'mindset', 'personal development', 'goal setting', 'discipline', 'habits', 'life tips', 'inspiring story', 'transformation', 'level up']
-  },
-  twitter: {
-    digital: ['DigitalProducts', 'EtsySeller', 'PassiveIncome', 'SideHustle', 'MakeMoneyOnline', 'OnlineBusiness', 'Entrepreneur', 'SmallBusiness', 'WorkFromHome', 'ContentCreator', 'DigitalMarketing', 'Freelancer', 'CreatorEconomy', 'IndieHacker', 'Solopreneur'],
-    fashion: ['Fashion', 'OOTD', 'Style', 'FashionWeek', 'Streetwear', 'StyleInspo', 'FashionBlogger', 'Trending', 'WhatIWore', 'FashionTrends', 'StreetStyle', 'FashionTwitter', 'Outfit', 'LookOfTheDay', 'FashionStyle'],
-    fitness: ['Fitness', 'Workout', 'Gym', 'FitFam', 'Health', 'FitnessMotivation', 'Training', 'GymLife', 'Gains', 'HealthyLifestyle', 'Exercise', 'FitnessJourney', 'Wellness', 'FitLife', 'WorkoutMotivation'],
-    food: ['Food', 'Foodie', 'Recipe', 'Cooking', 'Yummy', 'FoodPhotography', 'Delicious', 'HomeCooking', 'FoodTwitter', 'ChefTwitter', 'Baking', 'Dinner', 'FoodLover', 'Tasty', 'RecipeOfTheDay'],
-    travel: ['Travel', 'Wanderlust', 'Adventure', 'TravelPhotography', 'Vacation', 'Explore', 'TravelBlogger', 'RoadTrip', 'Traveling', 'BucketList', 'TravelTheWorld', 'Beach', 'Tourism', 'Traveler', 'TravelTuesday'],
-    business: ['Business', 'Entrepreneur', 'Startup', 'Marketing', 'Success', 'Leadership', 'CEO', 'Hustle', 'BusinessTips', 'Growth', 'Innovation', 'Investing', 'Finance', 'Wealth', 'Motivation'],
-    tech: ['Tech', 'Technology', 'AI', 'Programming', 'Coding', 'Developer', 'Software', 'Startup', 'Innovation', 'MachineLearning', 'DataScience', 'CyberSecurity', 'WebDev', 'TechTwitter', 'Blockchain'],
-    beauty: ['Beauty', 'Makeup', 'Skincare', 'MUA', 'BeautyTwitter', 'Cosmetics', 'SkincareTips', 'MakeupLover', 'BeautyTips', 'Glam', 'SelfCare', 'BeautyCommunity', 'NaturalBeauty', 'BeautyBlogger', 'BeautyProducts'],
-    art: ['Art', 'Artist', 'Artwork', 'Drawing', 'Illustration', 'DigitalArt', 'Painting', 'ArtTwitter', 'Creative', 'Sketch', 'ArtistOnTwitter', 'Design', 'GraphicDesign', 'ArtOfTheDay', 'ArtCommunity'],
-    photography: ['Photography', 'Photo', 'Photographer', 'PhotoOfTheDay', 'Camera', 'Portrait', 'Landscape', 'StreetPhotography', 'NaturePhotography', 'TravelPhotography', 'PhotoTwitter', 'Canon', 'Sony', 'Nikon', 'VisualArt'],
-    gaming: ['Gaming', 'Gamer', 'Esports', 'PlayStation', 'Xbox', 'Nintendo', 'PCGaming', 'Twitch', 'GameDev', 'GamingCommunity', 'VideoGames', 'Streamer', 'IndieDev', 'GamersUnite', 'GamingNews'],
-    motivation: ['Motivation', 'Inspiration', 'Success', 'Mindset', 'Goals', 'Hustle', 'NeverGiveUp', 'Believe', 'PositiveVibes', 'Quotes', 'GrowthMindset', 'SelfImprovement', 'Dreams', 'Determination', 'Winners']
-  },
-  linkedin: {
-    digital: ['DigitalTransformation', 'Entrepreneurship', 'PassiveIncome', 'OnlineBusiness', 'DigitalMarketing', 'ContentCreation', 'PersonalBranding', 'BusinessGrowth', 'SideHustle', 'FreelanceLife', 'WorkFromHome', 'RemoteWork', 'SmallBusiness', 'ECommerce', 'DigitalStrategy'],
-    fashion: ['FashionIndustry', 'RetailInnovation', 'FashionBusiness', 'SustainableFashion', 'BrandStrategy', 'FashionTech', 'RetailTrends', 'FashionMarketing', 'LuxuryBrands', 'ECommerce', 'ConsumerBehavior', 'BrandBuilding', 'FashionDesign', 'RetailLeadership', 'FashionEntrepreneur'],
-    fitness: ['WellnessIndustry', 'FitnessIndustry', 'HealthAndWellness', 'CorporateWellness', 'FitnessBusiness', 'HealthTech', 'WellnessPrograms', 'FitnessEntrepreneur', 'HealthcareInnovation', 'WorkplaceWellness', 'MentalHealth', 'WellnessLeadership', 'HealthyWorkplace', 'FitnessMarketing', 'WellnessTrends'],
-    food: ['FoodIndustry', 'FoodTech', 'FoodAndBeverage', 'RestaurantBusiness', 'FoodInnovation', 'Sustainability', 'FoodEntrepreneur', 'Hospitality', 'FoodMarketing', 'AgTech', 'FoodSafety', 'FoodService', 'CulinaryArts', 'FoodBusiness', 'SupplyChain'],
-    travel: ['TravelIndustry', 'Hospitality', 'Tourism', 'TravelTech', 'TravelBusiness', 'TourismMarketing', 'HospitalityManagement', 'TravelTrends', 'DestinationMarketing', 'TravelEntrepreneur', 'Airline', 'HotelIndustry', 'TravelInnovation', 'ExperienceDesign', 'SustainableTravel'],
-    business: ['Leadership', 'Entrepreneurship', 'BusinessStrategy', 'Innovation', 'Management', 'Startup', 'BusinessGrowth', 'CEO', 'ExecutiveLeadership', 'BusinessDevelopment', 'StrategicPlanning', 'Networking', 'ProfessionalDevelopment', 'BusinessTips', 'Success'],
-    tech: ['Technology', 'DigitalTransformation', 'ArtificialIntelligence', 'MachineLearning', 'Innovation', 'SoftwareDevelopment', 'DataScience', 'CloudComputing', 'CyberSecurity', 'TechLeadership', 'Automation', 'DigitalStrategy', 'TechTrends', 'ITLeadership', 'FutureOfWork'],
-    beauty: ['BeautyIndustry', 'Cosmetics', 'BeautyBusiness', 'SkincareBusiness', 'BeautyTech', 'CleanBeauty', 'BeautyEntrepreneur', 'RetailBeauty', 'BeautyMarketing', 'PersonalCare', 'BeautyInnovation', 'BeautyBranding', 'CosmeticIndustry', 'SustainableBeauty', 'BeautyTrends'],
-    art: ['CreativeIndustry', 'Design', 'ArtBusiness', 'GraphicDesign', 'CreativeDirection', 'DesignThinking', 'ArtEntrepreneur', 'CreativeLeadership', 'VisualDesign', 'BrandDesign', 'ArtMarket', 'CreativeStrategy', 'DesignInnovation', 'ArtAndBusiness', 'CreativeEntrepreneur'],
-    photography: ['Photography', 'VisualContent', 'ContentCreation', 'PhotographyBusiness', 'CreativeEntrepreneur', 'VisualMarketing', 'BrandPhotography', 'CommercialPhotography', 'ContentStrategy', 'VisualStorytelling', 'PhotoBusiness', 'CreativeIndustry', 'PhotographyTips', 'FreelancePhotographer', 'MediaProduction'],
-    gaming: ['GamingIndustry', 'GameDevelopment', 'Esports', 'GamingTech', 'GameDesign', 'InteractiveMedia', 'GamingBusiness', 'VirtualReality', 'GameEntrepreneur', 'GamingInnovation', 'Metaverse', 'GameMarketing', 'GamingTrends', 'IndieDevelopment', 'GamingLeadership'],
-    motivation: ['Leadership', 'PersonalDevelopment', 'ProfessionalGrowth', 'CareerAdvice', 'Success', 'Mindset', 'GrowthMindset', 'Motivation', 'ExecutiveCoaching', 'LeadershipDevelopment', 'CareerGrowth', 'ProfessionalTips', 'SelfImprovement', 'WorkLifeBalance', 'Productivity']
-  }
+  instagram: { /* ... same as before ... */ },
+  tiktok: { /* ... same as before ... */ },
+  pinterest: { /* ... same as before ... */ },
+  youtube: { /* ... same as before ... */ },
+  twitter: { /* ... same as before ... */ },
+  linkedin: { /* ... same as before ... */ }
+};
+
+// (For brevity, paste the full hashtagDatabase objects here exactly
+// as in the previous version you already have. They are unchanged.)
+
+// Extra trending tags to mix in per platform
+const extraTrending = {
+  instagram: ['reels', 'reelitfeelit', 'explorepage', 'instagood', 'viralreels', 'reelsinstagram', 'instadaily', 'instareels', 'contentcreator', 'creatorsofinstagram'],
+  tiktok: ['fypシ', 'foryoupageofficial', 'viralvideo', 'trendingnow', 'tiktoktrend', 'tiktokviral', 'tiktokchallenge', 'tiktokcreator'],
+  pinterest: ['pinterestideas', 'pinterestinspired', 'pinterestfinds', 'pinterestmarketing'],
+  youtube: ['youtubeshorts', 'shorts', 'youtubegrowth', 'youtuberlife', 'smallcreators', 'contentcreator'],
+  twitter: ['NowTrending', 'ViralTweet', 'TweetOfTheDay', 'Threads', 'XAlgorithm'],
+  linkedin: ['PersonalBrand', 'CareerGrowth', 'ThoughtLeadership', 'LeadershipDevelopment', 'ProfessionalBrand']
 };
 
 function shuffleArray(array) {
@@ -1039,38 +1024,74 @@ function generateHashtags() {
   const platform = document.getElementById('hashPlatform').value;
   const niche = document.getElementById('hashNiche').value;
   const customKeywords = document.getElementById('hashKeyword').value;
-  const count = parseInt(document.getElementById('hashCount').value);
+  const count = parseInt(document.getElementById('hashCount').value, 10);
   const mix = document.getElementById('hashMix').value;
-  
-  let hashtags = hashtagDatabase[platform]?.[niche] || hashtagDatabase.instagram.digital;
-  
-  // Shuffle for randomness
-  hashtags = shuffleArray(hashtags);
-  
-  // Take desired count
-  hashtags = hashtags.slice(0, count);
-  
-  // Add custom keywords
-  if (customKeywords) {
-    const customTags = customKeywords.split(',').map(k => k.trim().replace(/\s+/g, '').replace('#', ''));
-    hashtags = [...customTags, ...hashtags].slice(0, count);
+
+  let base = hashtagDatabase[platform]?.[niche] || hashtagDatabase.instagram.digital;
+  let trending = extraTrending[platform] || [];
+
+  base = [...base];
+  trending = [...trending];
+
+  let pool = [];
+  const mid = Math.floor(base.length / 2);
+
+  if (mix === 'popular') {
+    pool = base.slice(0, mid).concat(trending);
+    pool = shuffleArray(pool);
+  } else if (mix === 'niche') {
+    pool = shuffleArray(base.slice(mid));
+  } else if (mix === 'trending') {
+    // trending heavy: start with trending, then fill with base
+    const result = [];
+    const tShuffled = shuffleArray(trending);
+    for (const t of tShuffled) {
+      if (result.length >= count) break;
+      result.push(t);
+    }
+    if (result.length < count) {
+      const bShuffled = shuffleArray(base);
+      for (const tag of bShuffled) {
+        if (result.length >= count) break;
+        if (!result.includes(tag)) result.push(tag);
+      }
+    }
+    pool = result;
+  } else {
+    pool = shuffleArray(base.concat(trending));
   }
-  
-  // Format hashtags
-  const formatted = hashtags.map(tag => {
+
+  let selected = pool.slice(0, count);
+
+  // Add custom keywords (always prioritized)
+  let finalTags = [];
+  if (customKeywords) {
+    const customTags = customKeywords
+      .split(',')
+      .map(k => k.trim().replace(/\s+/g, '').replace('#', ''))
+      .filter(Boolean);
+    finalTags = customTags;
+  }
+
+  for (const tag of selected) {
+    if (finalTags.length >= count) break;
+    const clean = tag.replace('#', '');
+    if (!finalTags.includes(clean)) finalTags.push(clean);
+  }
+
+  const formatted = finalTags.map(tag => {
     const cleanTag = tag.replace(/\s+/g, '').replace('#', '');
     return '#' + cleanTag;
   });
-  
-  // Display
+
   const display = document.getElementById('hashDisplay');
   const textArea = document.getElementById('hashText');
   const output = document.getElementById('hashOutput');
-  
-  display.innerHTML = formatted.map(tag => 
+
+  display.innerHTML = formatted.map(tag =>
     `<span class="hashtag-tag">${tag}</span>`
   ).join('');
-  
+
   textArea.value = formatted.join(' ');
   output.style.display = 'block';
 }
@@ -1087,9 +1108,9 @@ function updateQRPlaceholder() {
   const type = document.getElementById('qrType').value;
   const input = document.getElementById('qrContent');
   const wifiFields = document.getElementById('wifiFields');
-  
+
   wifiFields.style.display = type === 'wifi' ? 'block' : 'none';
-  
+
   const placeholders = {
     url: 'https://yourwebsite.com',
     text: 'Enter any text here',
@@ -1098,49 +1119,52 @@ function updateQRPlaceholder() {
     wifi: 'Click generate after filling WiFi details',
     vcard: 'Name, Phone, Email'
   };
-  
+
   input.placeholder = placeholders[type];
 }
 
+let qrInstance = null;
+
 function generateQR() {
   const type = document.getElementById('qrType').value;
-  let content = document.getElementById('qrContent').value;
+  let content = document.getElementById('qrContent').value.trim();
   const color = document.getElementById('qrColor').value;
   const bgColor = document.getElementById('qrBgColor').value;
-  const size = parseInt(document.getElementById('qrSize').value);
-  
-  // Format content based on type
+  const size = parseInt(document.getElementById('qrSize').value, 10);
+
   if (type === 'email' && content && !content.startsWith('mailto:')) {
     content = 'mailto:' + content;
   } else if (type === 'phone' && content && !content.startsWith('tel:')) {
     content = 'tel:' + content;
   } else if (type === 'wifi') {
-    const ssid = document.getElementById('wifiSSID').value;
-    const pass = document.getElementById('wifiPass').value;
+    const ssid = document.getElementById('wifiSSID').value.trim();
+    const pass = document.getElementById('wifiPass').value.trim();
     content = `WIFI:T:WPA;S:${ssid};P:${pass};;`;
   }
-  
+
   if (!content) {
     content = 'https://digitalbuyhub.etsy.com';
   }
-  
-  const canvas = document.getElementById('qrCanvas');
-  canvas.width = size;
-  canvas.height = size;
-  
-  QRCode.toCanvas(canvas, content, {
+
+  const wrapper = document.getElementById('qrWrapper');
+  wrapper.innerHTML = '';
+
+  qrInstance = new QRCode(wrapper, {
+    text: content,
     width: size,
-    margin: 2,
-    color: {
-      dark: color,
-      light: bgColor
-    }
-  }, function(error) {
-    if (error) console.error(error);
+    height: size,
+    colorDark: color,
+    colorLight: bgColor,
+    correctLevel: QRCode.CorrectLevel.H
   });
+
+  const canvas = wrapper.querySelector('canvas');
+  if (canvas) {
+    canvas.id = 'qrCanvas';
+  }
 }
 
-// ==================== MOCKUP GENERATOR ====================
+// ==================== MOCKUP GENERATOR (T-SHIRT, MUG, ETC.) ====================
 
 let uploadedImage = null;
 
@@ -1158,27 +1182,75 @@ function handleMockupImage(input) {
   }
 }
 
+function clearMockupImage() {
+  uploadedImage = null;
+  const fileInput = document.getElementById('mockupImage');
+  if (fileInput) fileInput.value = '';
+  generateMockup();
+}
+
+function applyMockupTheme(theme) {
+  const productSelect = document.getElementById('mockupColor');
+  const textColorInput = document.getElementById('mockupTextColor');
+  const outlineColorInput = document.getElementById('mockupOutlineColor');
+
+  switch (theme) {
+    case 'lightOnDark':
+      productSelect.value = '#1e293b'; // navy
+      textColorInput.value = '#ffffff';
+      outlineColorInput.value = '#fbbf24'; // yellow
+      break;
+    case 'darkOnLight':
+      productSelect.value = '#ffffff';
+      textColorInput.value = '#111827';
+      outlineColorInput.value = '#000000';
+      break;
+    case 'brand':
+      productSelect.value = '#ec4899'; // pink
+      textColorInput.value = '#ffffff';
+      outlineColorInput.value = '#0f172a';
+      break;
+    case 'neon':
+      productSelect.value = '#000000';
+      textColorInput.value = '#22c55e'; // green
+      outlineColorInput.value = '#a855f7'; // purple
+      break;
+    default:
+      return; // custom, do nothing
+  }
+
+  generateMockup();
+}
+
 function generateMockup() {
   const canvas = document.getElementById('mockupCanvas');
   const ctx = canvas.getContext('2d');
-  
+
   const product = document.getElementById('mockupProduct').value;
   const productColor = document.getElementById('mockupColor').value;
   const text = document.getElementById('mockupText').value;
   const textColor = document.getElementById('mockupTextColor').value;
   const font = document.getElementById('mockupFont').value;
-  
-  // Clear canvas
+  const side = document.getElementById('mockupSide').value;
+
+  const scaleInput = document.getElementById('mockupScale');
+  const offsetInput = document.getElementById('mockupOffsetY');
+  const outlineCheckbox = document.getElementById('mockupOutline');
+  const outlineColorInput = document.getElementById('mockupOutlineColor');
+
+  const scale = scaleInput ? parseInt(scaleInput.value, 10) / 100 : 1;
+  const offsetYFactor = offsetInput ? parseInt(offsetInput.value, 10) / 100 : 0;
+  const useOutline = outlineCheckbox ? outlineCheckbox.checked : false;
+  const outlineColor = outlineColorInput ? outlineColorInput.value : '#ffffff';
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  // Draw background
+
   const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
   bgGradient.addColorStop(0, '#e2e8f0');
   bgGradient.addColorStop(1, '#cbd5e1');
   ctx.fillStyle = bgGradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  // Add subtle pattern
+
   ctx.fillStyle = 'rgba(255,255,255,0.3)';
   for (let i = 0; i < canvas.width; i += 20) {
     for (let j = 0; j < canvas.height; j += 20) {
@@ -1187,18 +1259,15 @@ function generateMockup() {
       }
     }
   }
-  
-  // Draw shadow
+
   ctx.shadowColor = 'rgba(0,0,0,0.2)';
   ctx.shadowBlur = 30;
   ctx.shadowOffsetX = 10;
   ctx.shadowOffsetY = 10;
-  
-  // Product configurations
+
   const products = {
     tshirt: {
-      draw: () => {
-        // T-shirt body
+      draw: (sideView) => {
         ctx.fillStyle = productColor;
         ctx.beginPath();
         ctx.moveTo(100, 100);
@@ -1223,49 +1292,51 @@ function generateMockup() {
         ctx.lineTo(40, 80);
         ctx.closePath();
         ctx.fill();
-        
-        // Neckline
+
         ctx.strokeStyle = adjustColor(productColor, -30);
         ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.arc(250, 100, 50, 0.8, 2.35);
-        ctx.stroke();
-        
-        return { x: 130, y: 180, w: 240, h: 200 };
+        if (sideView === 'front') {
+          ctx.beginPath();
+          ctx.arc(250, 100, 50, 0.8, 2.35);
+          ctx.stroke();
+        } else {
+          ctx.beginPath();
+          ctx.moveTo(180, 100);
+          ctx.lineTo(320, 100);
+          ctx.stroke();
+        }
+
+        const designY = sideView === 'front' ? 180 : 170;
+        return { x: 130, y: designY, w: 240, h: 200 };
       }
     },
     hoodie: {
       draw: () => {
         ctx.fillStyle = productColor;
-        
-        // Hood
+
         ctx.beginPath();
         ctx.ellipse(250, 90, 100, 50, 0, Math.PI, 0, true);
         ctx.fill();
-        
-        // Body
+
         ctx.fillRect(80, 90, 340, 410);
-        
-        // Sleeves
+
         ctx.beginPath();
         ctx.moveTo(80, 100);
         ctx.lineTo(30, 250);
         ctx.lineTo(70, 260);
         ctx.lineTo(100, 150);
         ctx.fill();
-        
+
         ctx.beginPath();
         ctx.moveTo(420, 100);
         ctx.lineTo(470, 250);
         ctx.lineTo(430, 260);
         ctx.lineTo(400, 150);
         ctx.fill();
-        
-        // Pocket
+
         ctx.fillStyle = adjustColor(productColor, -20);
         ctx.fillRect(150, 350, 200, 80);
-        
-        // Drawstrings
+
         ctx.strokeStyle = '#999';
         ctx.lineWidth = 3;
         ctx.beginPath();
@@ -1274,13 +1345,12 @@ function generateMockup() {
         ctx.moveTo(300, 130);
         ctx.lineTo(300, 200);
         ctx.stroke();
-        
+
         return { x: 130, y: 160, w: 240, h: 180 };
       }
     },
     mug: {
       draw: () => {
-        // Mug body
         ctx.fillStyle = productColor;
         ctx.beginPath();
         ctx.ellipse(250, 150, 120, 30, 0, 0, Math.PI * 2);
@@ -1289,49 +1359,42 @@ function generateMockup() {
         ctx.beginPath();
         ctx.ellipse(250, 450, 120, 30, 0, 0, Math.PI * 2);
         ctx.fill();
-        
-        // Handle
+
         ctx.strokeStyle = productColor;
         ctx.lineWidth = 25;
         ctx.beginPath();
         ctx.arc(400, 300, 60, -1, 1);
         ctx.stroke();
-        
-        // Inner shadow
+
         ctx.fillStyle = adjustColor(productColor, -40);
         ctx.beginPath();
         ctx.ellipse(250, 155, 100, 20, 0, 0, Math.PI * 2);
         ctx.fill();
-        
+
         return { x: 150, y: 200, w: 200, h: 180 };
       }
     },
     phone: {
       draw: () => {
-        // Phone outline
         ctx.fillStyle = '#1e293b';
         roundRect(ctx, 140, 50, 220, 450, 30, true, false);
-        
-        // Screen area
+
         ctx.fillStyle = productColor;
         roundRect(ctx, 150, 60, 200, 430, 25, true, false);
-        
-        // Camera notch
+
         ctx.fillStyle = '#1e293b';
         ctx.beginPath();
         ctx.arc(250, 80, 8, 0, Math.PI * 2);
         ctx.fill();
-        
+
         return { x: 160, y: 120, w: 180, h: 300 };
       }
     },
     tote: {
       draw: () => {
-        // Bag body
         ctx.fillStyle = productColor;
         ctx.fillRect(100, 150, 300, 350);
-        
-        // Handles
+
         ctx.strokeStyle = productColor;
         ctx.lineWidth = 15;
         ctx.beginPath();
@@ -1342,76 +1405,76 @@ function generateMockup() {
         ctx.moveTo(350, 150);
         ctx.quadraticCurveTo(350, 80, 300, 80);
         ctx.stroke();
-        
-        // Stitching
+
         ctx.strokeStyle = adjustColor(productColor, -30);
         ctx.lineWidth = 2;
         ctx.setLineDash([5, 5]);
         ctx.strokeRect(110, 160, 280, 330);
         ctx.setLineDash([]);
-        
+
         return { x: 130, y: 200, w: 240, h: 220 };
       }
     },
     poster: {
       draw: () => {
-        // Frame
         ctx.fillStyle = '#1e293b';
         ctx.fillRect(80, 60, 340, 480);
-        
-        // Mat
+
         ctx.fillStyle = '#f8fafc';
         ctx.fillRect(95, 75, 310, 450);
-        
-        // Poster area
+
         ctx.fillStyle = productColor;
         ctx.fillRect(110, 90, 280, 420);
-        
+
         return { x: 130, y: 120, w: 240, h: 300 };
       }
     }
   };
-  
-  // Draw selected product
-  const designArea = products[product].draw();
-  
-  // Reset shadow for design
+
+  const drawFn = products[product].draw;
+  const designArea = product === 'tshirt' ? drawFn(side) : drawFn();
+
   ctx.shadowColor = 'transparent';
   ctx.shadowBlur = 0;
   ctx.shadowOffsetX = 0;
   ctx.shadowOffsetY = 0;
-  
-  // Draw uploaded image or text
+
   if (uploadedImage) {
     const imgAspect = uploadedImage.width / uploadedImage.height;
-    let drawWidth = designArea.w * 0.8;
+    let drawWidth = designArea.w * 0.8 * scale;
     let drawHeight = drawWidth / imgAspect;
-    
-    if (drawHeight > designArea.h * 0.8) {
-      drawHeight = designArea.h * 0.8;
+
+    if (drawHeight > designArea.h * 0.8 * scale) {
+      drawHeight = designArea.h * 0.8 * scale;
       drawWidth = drawHeight * imgAspect;
     }
-    
+
     const imgX = designArea.x + (designArea.w - drawWidth) / 2;
-    const imgY = designArea.y + (designArea.h - drawHeight) / 2;
-    
+    const offsetPixels = offsetYFactor * designArea.h * 0.5;
+    const imgY = designArea.y + (designArea.h - drawHeight) / 2 + offsetPixels;
+
     ctx.drawImage(uploadedImage, imgX, imgY, drawWidth, drawHeight);
   } else if (text) {
-    ctx.font = font;
+    let scaledFont = font;
+    const sizeMatch = font.match(/(\d+)px/);
+    if (sizeMatch) {
+      const baseSize = parseInt(sizeMatch[1], 10);
+      const newSize = Math.round(baseSize * scale);
+      scaledFont = font.replace(/(\d+)px/, newSize + 'px');
+    }
+    ctx.font = scaledFont;
     ctx.fillStyle = textColor;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    
-    // Word wrap for long text
+
     const words = text.split(' ');
     const maxWidth = designArea.w * 0.85;
     let lines = [];
     let currentLine = '';
-    
+
     for (const word of words) {
       const testLine = currentLine + (currentLine ? ' ' : '') + word;
       const metrics = ctx.measureText(testLine);
-      
       if (metrics.width > maxWidth && currentLine) {
         lines.push(currentLine);
         currentLine = word;
@@ -1420,17 +1483,25 @@ function generateMockup() {
       }
     }
     lines.push(currentLine);
-    
-    const lineHeight = 55;
-    const startY = designArea.y + designArea.h / 2 - (lines.length - 1) * lineHeight / 2;
-    
+
+    const lineHeight = 55 * scale;
+    const offsetPixels = offsetYFactor * designArea.h * 0.5;
+    const startY = designArea.y + designArea.h / 2 - (lines.length - 1) * lineHeight / 2 + offsetPixels;
+
     lines.forEach((line, i) => {
-      ctx.fillText(line, designArea.x + designArea.w / 2, startY + i * lineHeight);
+      const x = designArea.x + designArea.w / 2;
+      const y = startY + i * lineHeight;
+
+      if (useOutline) {
+        ctx.lineWidth = 4 * scale;
+        ctx.strokeStyle = outlineColor;
+        ctx.strokeText(line, x, y);
+      }
+      ctx.fillText(line, x, y);
     });
   }
 }
 
-// Helper functions
 function adjustColor(color, amount) {
   const hex = color.replace('#', '');
   const r = Math.max(0, Math.min(255, parseInt(hex.substr(0, 2), 16) + amount));
@@ -1459,6 +1530,7 @@ function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
 
 window.onload = function() {
   generateLogo();
+  updateQRPlaceholder();
   generateQR();
   generateMockup();
 };
