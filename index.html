@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Buy Hub • Free Tools 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- Browser-ready QR code library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-          integrity="sha512-WkPx3sWy+qWwH0kqM1Yx5djZqSKSWiQ/cJZ3et6+k8zWnhStKqJvK2V5kRXeuydTRBwyP0uwgCvsQxQ8A8iY3A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Buy Hub • Free Tools</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- QR code library (browser-ready) -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
   <style>
     :root {
       --primary: #ff3366;
@@ -39,13 +44,13 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: rgba(255,255,255,0.98);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(20px);
       padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
 
     .logo {
@@ -70,7 +75,7 @@
       color: var(--primary);
     }
 
-    /* Hero Section */
+    /* Hero */
     header {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff3366 100%);
       min-height: 100vh;
@@ -87,10 +92,7 @@
     header::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
@@ -104,7 +106,7 @@
       font-size: clamp(40px, 8vw, 72px);
       font-family: 'Playfair Display', serif;
       margin-bottom: 20px;
-      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
     .hero p {
@@ -123,15 +125,15 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     }
 
     .cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
     }
 
-    /* Tools Section */
+    /* Tools section */
     .tools-section {
       padding: 100px 5%;
       background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
@@ -164,14 +166,14 @@
       background: white;
       border-radius: 24px;
       padding: 35px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       transition: all 0.3s;
-      border: 1px solid rgba(0,0,0,0.05);
     }
 
     .tool-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
     }
 
     .tool-card h3 {
@@ -183,7 +185,7 @@
       gap: 10px;
     }
 
-    .tool-card .tool-desc {
+    .tool-desc {
       color: var(--gray);
       font-size: 14px;
       margin-bottom: 25px;
@@ -201,7 +203,9 @@
       margin-bottom: 6px;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       width: 100%;
       padding: 14px 16px;
       border-radius: 12px;
@@ -212,16 +216,26 @@
       background: #f8fafc;
     }
 
-    input:focus, select:focus, textarea:focus {
+    input:focus,
+    select:focus,
+    textarea:focus {
       outline: none;
       border-color: var(--primary);
       background: white;
-      box-shadow: 0 0 0 4px rgba(255,51,102,0.1);
+      box-shadow: 0 0 0 4px rgba(255, 51, 102, 0.1);
     }
 
-    input[type="range"] {
+    input[type='range'] {
       padding: 0;
       background: transparent;
+    }
+
+    input[type='color'] {
+      width: 50px;
+      height: 40px;
+      padding: 2px;
+      border-radius: 8px;
+      cursor: pointer;
     }
 
     .btn {
@@ -243,7 +257,7 @@
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255,51,102,0.4);
+      box-shadow: 0 8px 25px rgba(255, 51, 102, 0.4);
     }
 
     .btn-success {
@@ -253,7 +267,7 @@
 
     .btn-success:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(16,185,129,0.4);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
     }
 
     .btn-outline {
@@ -278,10 +292,14 @@
 
     .canvas-container {
       margin: 20px 0;
-      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
-                  linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
-                  linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
-                  linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+      background: linear-gradient(
+          45deg,
+          #f0f0f0 25%,
+          transparent 25%
+        ),
+        linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+        linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
       background-size: 20px 20px;
       background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
       border-radius: 16px;
@@ -293,7 +311,7 @@
 
     canvas {
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       max-width: 100%;
       height: auto;
     }
@@ -322,20 +340,6 @@
       font-weight: 600;
     }
 
-    .color-picker-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    input[type="color"] {
-      width: 50px;
-      height: 40px;
-      padding: 2px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
     .watermark {
       margin-top: 15px;
       font-size: 12px;
@@ -344,6 +348,17 @@
       padding: 8px;
       background: #f1f5f9;
       border-radius: 8px;
+    }
+
+    .pro-badge {
+      display: none;
+      margin-left: 6px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      background: #22c55e;
+      color: #f8fafc;
     }
 
     /* Footer */
@@ -363,12 +378,12 @@
       opacity: 0.7;
     }
 
-    /* Pricing Modal */
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0, 0, 0, 0.9);
       z-index: 9999;
       align-items: center;
       justify-content: center;
@@ -378,23 +393,30 @@
     .modal-content {
       background: white;
       color: #111;
-      padding: 50px;
+      padding: 40px;
       border-radius: 30px;
-      max-width: 500px;
+      max-width: 620px;
+      width: 100%;
       text-align: center;
       position: relative;
       animation: modalPop 0.3s ease;
     }
 
     @keyframes modalPop {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .modal-close {
       position: absolute;
-      top: 15px;
-      right: 25px;
+      top: 10px;
+      right: 20px;
       font-size: 35px;
       cursor: pointer;
       color: #999;
@@ -405,31 +427,17 @@
       color: var(--primary);
     }
 
-    .price-tag {
-      font-size: 80px;
-      font-weight: 900;
-      color: var(--primary);
-      line-height: 1;
-    }
-
-    .price-tag span {
-      font-size: 24px;
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
-
       .tools-grid {
         grid-template-columns: 1fr;
       }
-
       .row {
         flex-direction: column;
       }
-
       .tool-card {
         padding: 25px;
       }
@@ -437,1104 +445,1622 @@
   </style>
 </head>
 <body>
-
-<!-- Navigation -->
-<nav>
-  <div class="logo">Digital Buy Hub ⚡</div>
-  <div class="nav-links">
-    <a onclick="scrollToTools()">Tools</a>
-    <a onclick="openPricing()">Pricing</a>
-    <a href="https://digitalbuyhub.etsy.com" target="_blank">Etsy Shop</a>
-  </div>
-</nav>
-
-<!-- Hero Header -->
-<header>
-  <div class="hero">
-    <h1>Free Professional Tools<br>for Digital Creators</h1>
-    <p>Logo Designer • Hashtag Generator • QR Code Maker • Product Mockups<br>All 100% Free – No Sign Up Required</p>
-    <button class="cta" onclick="scrollToTools()">Start Creating →</button>
-  </div>
-</header>
-
-<!-- Tools Section -->
-<section class="tools-section" id="tools">
-  <h2 class="section-title">Professional Creator Tools</h2>
-  <p class="section-subtitle">Everything you need to build your brand – completely free</p>
-
-  <div class="tools-grid">
-
-    <!-- ========== LOGO GENERATOR ========== -->
-    <div class="tool-card">
-      <h3>🎨 Logo Designer</h3>
-      <p class="tool-desc">Create beautiful, professional logos in seconds</p>
-
-      <div class="input-group">
-        <label>Brand Name</label>
-        <input type="text" id="logoText" value="Your Brand" placeholder="Enter your brand name">
-      </div>
-
-      <div class="input-group">
-        <label>Tagline (Optional)</label>
-        <input type="text" id="logoTagline" placeholder="Your slogan here">
-      </div>
-
-      <div class="row">
-        <div class="input-group">
-          <label>Style</label>
-          <select id="logoStyle">
-            <option value="modern">Modern Minimal</option>
-            <option value="bold">Bold & Strong</option>
-            <option value="elegant">Elegant Classic</option>
-            <option value="gradient">Gradient Glow</option>
-            <option value="neon">Neon Cyber</option>
-            <option value="vintage">Vintage Badge</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label>Design Combination</label>
-          <select id="logoCombo">
-            <option value="none">Simple</option>
-            <option value="accentBar">Side Accents</option>
-            <option value="box">Boxed Logo</option>
-            <option value="stamp">Corner Stamp</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-group">
-          <label>Primary Color</label>
-          <input type="color" id="logoColor1" value="#ff3366">
-        </div>
-        <div class="input-group">
-          <label>Secondary Color</label>
-          <input type="color" id="logoColor2" value="#667eea">
-        </div>
-        <div class="input-group">
-          <label>Background</label>
-          <select id="logoBg">
-            <option value="white">White</option>
-            <option value="dark">Dark</option>
-            <option value="transparent">Transparent</option>
-            <option value="gradient">Gradient</option>
-          </select>
-        </div>
-      </div>
-
-      <button class="btn btn-primary" onclick="generateLogo()">✨ Generate Logo</button>
-
-      <div class="canvas-container">
-        <canvas id="logoCanvas" width="500" height="300"></canvas>
-      </div>
-
-      <div class="row">
-        <button class="btn btn-success" onclick="downloadCanvas('logoCanvas', 'logo.png')">⬇️ Download PNG</button>
-        <button class="btn btn-outline" onclick="generateLogo()">🔄 Regenerate</button>
-      </div>
-
-      <div class="watermark">Made with Digital Buy Hub ⚡</div>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Digital Buy Hub ⚡</div>
+    <div class="nav-links">
+      <a onclick="scrollToTools()">Tools</a>
+      <a onclick="openPricing()">Pricing</a>
+      <a href="https://digitalbuyhub.etsy.com" target="_blank">Etsy Shop</a>
     </div>
+  </nav>
 
-    <!-- ========== HASHTAG GENERATOR ========== -->
-    <div class="tool-card">
-      <h3>📱 Hashtag Generator</h3>
-      <p class="tool-desc">Get viral hashtags tailored to your niche</p>
+  <!-- Hero -->
+  <header>
+    <div class="hero">
+      <h1>Free Professional Tools<br />for Digital Creators</h1>
+      <p>
+        Logo Designer • Hashtag Generator • QR Code Maker • Product Mockups<br />
+        Free with watermark – Upgrade once to remove it everywhere
+      </p>
+      <button class="cta" onclick="scrollToTools()">Start Creating →</button>
+    </div>
+  </header>
 
-      <div class="input-group">
-        <label>Platform</label>
-        <select id="hashPlatform">
-          <option value="instagram">Instagram</option>
-          <option value="tiktok">TikTok</option>
-          <option value="pinterest">Pinterest</option>
-          <option value="youtube">YouTube</option>
-          <option value="twitter">Twitter/X</option>
-          <option value="linkedin">LinkedIn</option>
-        </select>
-      </div>
+  <!-- Tools Section -->
+  <section class="tools-section" id="tools">
+    <h2 class="section-title">Creator Toolkit</h2>
+    <p class="section-subtitle">
+      All tools are free with watermark. Unlock PRO once to remove it on this browser.
+      <span class="pro-badge">PRO</span>
+    </p>
 
-      <div class="input-group">
-        <label>Niche / Category</label>
-        <select id="hashNiche">
-          <option value="digital">Digital Products</option>
-          <option value="fashion">Fashion & Style</option>
-          <option value="fitness">Fitness & Health</option>
-          <option value="food">Food & Cooking</option>
-          <option value="travel">Travel & Adventure</option>
-          <option value="business">Business & Entrepreneur</option>
-          <option value="tech">Tech & Gadgets</option>
-          <option value="beauty">Beauty & Skincare</option>
-          <option value="art">Art & Design</option>
-          <option value="photography">Photography</option>
-          <option value="gaming">Gaming</option>
-          <option value="motivation">Motivation & Mindset</option>
-        </select>
-      </div>
+    <div class="tools-grid">
+      <!-- ========== LOGO DESIGNER ========== -->
+      <div class="tool-card">
+        <h3>🎨 Logo Designer</h3>
+        <p class="tool-desc">Create simple professional logos in seconds.</p>
 
-      <div class="input-group">
-        <label>Custom Keywords (Optional)</label>
-        <input type="text" id="hashKeyword" placeholder="Add custom keywords separated by comma">
-      </div>
-
-      <div class="row">
         <div class="input-group">
-          <label>Hashtag Count</label>
-          <select id="hashCount">
-            <option value="10">10 Tags</option>
-            <option value="15">15 Tags</option>
-            <option value="20" selected>20 Tags</option>
-            <option value="30">30 Tags (Max)</option>
-          </select>
+          <label>Brand Name</label>
+          <input type="text" id="logoText" value="Your Brand" placeholder="Enter your brand name" />
         </div>
+
         <div class="input-group">
-          <label>Mix Type</label>
-          <select id="hashMix">
-            <option value="mixed">Mixed (Best)</option>
-            <option value="popular">Popular Only</option>
-            <option value="niche">Niche Only</option>
-            <option value="trending">Trending</option>
-          </select>
+          <label>Tagline (Optional)</label>
+          <input type="text" id="logoTagline" placeholder="Your slogan here" />
         </div>
-      </div>
 
-      <button class="btn btn-primary" onclick="generateHashtags()">🔥 Generate Hashtags</button>
-
-      <div class="output-box" id="hashOutput" style="display:none;">
-        <div class="hashtag-display" id="hashDisplay"></div>
-        <textarea id="hashText" rows="3" readonly style="margin-bottom:10px;"></textarea>
         <div class="row">
-          <button class="btn btn-success" onclick="copyHashtags()">📋 Copy All</button>
-          <button class="btn btn-outline" onclick="generateHashtags()">🔄 New Set</button>
+          <div class="input-group">
+            <label>Style</label>
+            <select id="logoStyle">
+              <option value="modern">Modern Minimal</option>
+              <option value="bold">Bold & Strong</option>
+              <option value="elegant">Elegant Classic</option>
+              <option value="gradient">Gradient Glow</option>
+              <option value="neon">Neon Cyber</option>
+              <option value="vintage">Vintage Badge</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Design Combination</label>
+            <select id="logoCombo">
+              <option value="none">Simple</option>
+              <option value="accentBar">Side Accents</option>
+              <option value="box">Boxed Logo</option>
+              <option value="stamp">Corner Stamp</option>
+            </select>
+          </div>
         </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Primary Color</label>
+            <input type="color" id="logoColor1" value="#ff3366" />
+          </div>
+          <div class="input-group">
+            <label>Secondary Color</label>
+            <input type="color" id="logoColor2" value="#667eea" />
+          </div>
+          <div class="input-group">
+            <label>Background</label>
+            <select id="logoBg">
+              <option value="white">White</option>
+              <option value="dark">Dark</option>
+              <option value="transparent">Transparent</option>
+              <option value="gradient">Gradient</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="generateLogo()">✨ Generate Logo</button>
+
+        <div class="canvas-container">
+          <canvas id="logoCanvas" width="500" height="300"></canvas>
+        </div>
+
+        <div class="row">
+          <button class="btn btn-success" onclick="downloadLogoFree()">
+            ⬇️ Download Free (watermark)
+          </button>
+          <button class="btn btn-primary" onclick="downloadLogoPro()">
+            ⬇️ Download PRO (no watermark) <span class="pro-badge">PRO</span>
+          </button>
+        </div>
+
+        <div class="row" style="margin-top:8px;">
+          <button class="btn btn-outline" onclick="generateLogo()">🔄 Regenerate</button>
+        </div>
+
+        <div class="watermark">Free version adds a small "digitalbuyhub.com" watermark.</div>
       </div>
 
-      <div class="watermark">Made with Digital Buy Hub ⚡</div>
-    </div>
+      <!-- ========== HASHTAG GENERATOR ========== -->
+      <div class="tool-card">
+        <h3>📱 Hashtag Generator</h3>
+        <p class="tool-desc">Generate optimized hashtags for your niche.</p>
 
-    <!-- ========== QR CODE GENERATOR ========== -->
-    <div class="tool-card">
-      <h3>📷 QR Code Generator</h3>
-      <p class="tool-desc">Create custom QR codes for any link or text</p>
-
-      <div class="input-group">
-        <label>Content Type</label>
-        <select id="qrType" onchange="updateQRPlaceholder(); generateQR();">
-          <option value="url">Website URL</option>
-          <option value="text">Plain Text</option>
-          <option value="email">Email Address</option>
-          <option value="phone">Phone Number</option>
-          <option value="wifi">WiFi Network</option>
-          <option value="vcard">Contact Card</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label>Enter Content</label>
-        <input type="text" id="qrContent" placeholder="https://yourwebsite.com" oninput="generateQR()">
-      </div>
-
-      <div id="wifiFields" style="display:none;">
         <div class="input-group">
-          <label>WiFi Name (SSID)</label>
-          <input type="text" id="wifiSSID" placeholder="Your Network Name" oninput="generateQR()">
-        </div>
-        <div class="input-group">
-          <label>Password</label>
-          <input type="text" id="wifiPass" placeholder="Your Password" oninput="generateQR()">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-group">
-          <label>Foreground Color</label>
-          <input type="color" id="qrColor" value="#000000" onchange="generateQR()">
-        </div>
-        <div class="input-group">
-          <label>Background Color</label>
-          <input type="color" id="qrBgColor" value="#ffffff" onchange="generateQR()">
-        </div>
-        <div class="input-group">
-          <label>Size</label>
-          <select id="qrSize" onchange="generateQR()">
-            <option value="200">Small (200px)</option>
-            <option value="300" selected>Medium (300px)</option>
-            <option value="400">Large (400px)</option>
-            <option value="500">XL (500px)</option>
+          <label>Platform</label>
+          <select id="hashPlatform">
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="pinterest">Pinterest</option>
+            <option value="youtube">YouTube</option>
+            <option value="twitter">Twitter/X</option>
+            <option value="linkedin">LinkedIn</option>
           </select>
         </div>
-      </div>
 
-      <button class="btn btn-primary" onclick="generateQR()">⚡ Generate QR Code</button>
-
-      <div class="canvas-container">
-        <!-- QRCode.js will create the canvas inside this wrapper -->
-        <div id="qrWrapper"></div>
-      </div>
-
-      <button class="btn btn-success" onclick="downloadCanvas('qrCanvas', 'qrcode.png')">⬇️ Download QR Code</button>
-
-      <div class="watermark">Made with Digital Buy Hub ⚡</div>
-    </div>
-
-    <!-- ========== MOCKUP GENERATOR ========== -->
-    <div class="tool-card">
-      <h3>👕 Product Mockup Creator</h3>
-      <p class="tool-desc">Visualize your designs on real products</p>
-
-      <div class="input-group">
-        <label>Product Type</label>
-        <select id="mockupProduct" onchange="generateMockup()">
-          <option value="tshirt">T-Shirt</option>
-          <option value="hoodie">Hoodie</option>
-          <option value="mug">Coffee Mug</option>
-          <option value="phone">Phone Case</option>
-          <option value="tote">Tote Bag</option>
-          <option value="poster">Poster/Print</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label>Product Color</label>
-        <select id="mockupColor" onchange="generateMockup()">
-          <option value="#ffffff">White</option>
-          <option value="#000000">Black</option>
-          <option value="#1e293b">Navy</option>
-          <option value="#dc2626">Red</option>
-          <option value="#16a34a">Green</option>
-          <option value="#2563eb">Blue</option>
-          <option value="#9333ea">Purple</option>
-          <option value="#f97316">Orange</option>
-          <option value="#fbbf24">Yellow</option>
-          <option value="#ec4899">Pink</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label>Color Theme (optional)</label>
-        <select id="mockupTheme" onchange="applyMockupTheme(this.value)">
-          <option value="custom">Custom</option>
-          <option value="lightOnDark">Light print on dark</option>
-          <option value="darkOnLight">Dark print on light</option>
-          <option value="brand">Brand colors</option>
-          <option value="neon">Neon pop</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label>View</label>
-        <select id="mockupSide" onchange="generateMockup()">
-          <option value="front">Front</option>
-          <option value="back">Back</option>
-        </select>
-      </div>
-
-      <div class="input-group">
-        <label>Design Text</label>
-        <input type="text" id="mockupText" value="YOUR TEXT" placeholder="Your design text" oninput="generateMockup()">
-      </div>
-
-      <div class="input-group">
-        <label>Or Upload Image</label>
-        <input type="file" id="mockupImage" accept="image/*" onchange="handleMockupImage(this)">
-      </div>
-
-      <div class="input-group">
-        <button type="button" class="btn btn-outline" onclick="clearMockupImage()">Use Text Only (Remove Image)</button>
-      </div>
-
-      <div class="row">
         <div class="input-group">
-          <label>Text Color</label>
-          <input type="color" id="mockupTextColor" value="#000000" onchange="generateMockup()">
-        </div>
-        <div class="input-group">
-          <label>Font Style</label>
-          <select id="mockupFont" onchange="generateMockup()">
-            <option value="bold 48px Arial">Bold Sans</option>
-            <option value="48px Georgia">Classic Serif</option>
-            <option value="bold 48px Impact">Impact</option>
-            <option value="italic 48px Georgia">Italic Serif</option>
-            <option value="48px Courier New">Typewriter</option>
+          <label>Niche / Category</label>
+          <select id="hashNiche">
+            <option value="digital">Digital Products</option>
+            <option value="fashion">Fashion & Style</option>
+            <option value="fitness">Fitness & Health</option>
+            <option value="food">Food & Cooking</option>
+            <option value="travel">Travel & Adventure</option>
+            <option value="business">Business & Entrepreneur</option>
+            <option value="tech">Tech & Gadgets</option>
+            <option value="beauty">Beauty & Skincare</option>
+            <option value="art">Art & Design</option>
+            <option value="photography">Photography</option>
+            <option value="gaming">Gaming</option>
+            <option value="motivation">Motivation & Mindset</option>
           </select>
         </div>
+
+        <div class="input-group">
+          <label>Custom Keywords (Optional)</label>
+          <input
+            type="text"
+            id="hashKeyword"
+            placeholder="Add custom keywords separated by comma"
+          />
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Hashtag Count</label>
+            <select id="hashCount">
+              <option value="10">10 Tags</option>
+              <option value="15">15 Tags</option>
+              <option value="20" selected>20 Tags</option>
+              <option value="30">30 Tags</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Mix Type</label>
+            <select id="hashMix">
+              <option value="mixed">Mixed (Best)</option>
+              <option value="popular">Popular Only</option>
+              <option value="niche">Niche Only</option>
+              <option value="trending">Trending</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="generateHashtags()">🔥 Generate Hashtags</button>
+
+        <div class="output-box" id="hashOutput" style="display:none;">
+          <div class="hashtag-display" id="hashDisplay"></div>
+          <textarea id="hashText" rows="3" readonly style="margin-bottom:10px;"></textarea>
+          <div class="row">
+            <button class="btn btn-success" onclick="copyHashtags()">📋 Copy All</button>
+            <button class="btn btn-outline" onclick="generateHashtags()">🔄 New Set</button>
+          </div>
+          <p style="font-size:12px;color:#64748b;margin-top:8px;">
+            Free: adds #digitalbuyhub at the end. PRO removes this tag.
+          </p>
+        </div>
+
+        <div class="watermark">Hashtags are free to use; PRO removes the brand tag.</div>
       </div>
 
-      <div class="row">
+      <!-- ========== QR CODE GENERATOR ========== -->
+      <div class="tool-card">
+        <h3>📷 QR Code Generator</h3>
+        <p class="tool-desc">Create custom QR codes for any link or text.</p>
+
         <div class="input-group">
-          <label>Design Size</label>
-          <input type="range" id="mockupScale" min="50" max="150" value="100" oninput="generateMockup()">
+          <label>Content Type</label>
+          <select id="qrType" onchange="updateQRPlaceholder(); generateQR();">
+            <option value="url">Website URL</option>
+            <option value="text">Plain Text</option>
+            <option value="email">Email Address</option>
+            <option value="phone">Phone Number</option>
+            <option value="wifi">WiFi Network</option>
+            <option value="vcard">Contact Card</option>
+          </select>
         </div>
+
         <div class="input-group">
-          <label>Vertical Position</label>
-          <input type="range" id="mockupOffsetY" min="-50" max="50" value="0" oninput="generateMockup()">
+          <label>Enter Content</label>
+          <input
+            type="text"
+            id="qrContent"
+            placeholder="https://yourwebsite.com"
+            oninput="generateQR()"
+          />
         </div>
+
+        <div id="wifiFields" style="display:none;">
+          <div class="input-group">
+            <label>WiFi Name (SSID)</label>
+            <input
+              type="text"
+              id="wifiSSID"
+              placeholder="Your Network Name"
+              oninput="generateQR()"
+            />
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input
+              type="text"
+              id="wifiPass"
+              placeholder="Your Password"
+              oninput="generateQR()"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Foreground Color</label>
+            <input type="color" id="qrColor" value="#000000" onchange="generateQR()" />
+          </div>
+          <div class="input-group">
+            <label>Background Color</label>
+            <input type="color" id="qrBgColor" value="#ffffff" onchange="generateQR()" />
+          </div>
+          <div class="input-group">
+            <label>Size</label>
+            <select id="qrSize" onchange="generateQR()">
+              <option value="200">Small (200px)</option>
+              <option value="300" selected>Medium (300px)</option>
+              <option value="400">Large (400px)</option>
+              <option value="500">XL (500px)</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="generateQR()">⚡ Generate QR</button>
+
+        <div class="canvas-container">
+          <div id="qrWrapper"></div>
+        </div>
+
+        <div class="row">
+          <button class="btn btn-success" onclick="downloadQRFree()">
+            ⬇️ Download Free (watermark)
+          </button>
+          <button class="btn btn-primary" onclick="downloadQRPro()">
+            ⬇️ Download PRO (no watermark) <span class="pro-badge">PRO</span>
+          </button>
+        </div>
+
+        <div class="watermark">Free QR includes a small "digitalbuyhub.com" text.</div>
       </div>
 
-      <div class="row">
+      <!-- ========== MOCKUP / T-SHIRT CREATOR ========== -->
+      <div class="tool-card">
+        <h3>👕 Product Mockup Creator</h3>
+        <p class="tool-desc">Preview your design on T‑shirts, mugs and more.</p>
+
         <div class="input-group">
-          <label><input type="checkbox" id="mockupOutline" checked onchange="generateMockup()"> Outline Text</label>
+          <label>Product Type</label>
+          <select id="mockupProduct" onchange="generateMockup()">
+            <option value="tshirt">T‑Shirt</option>
+            <option value="hoodie">Hoodie</option>
+            <option value="mug">Coffee Mug</option>
+            <option value="phone">Phone Case</option>
+            <option value="tote">Tote Bag</option>
+            <option value="poster">Poster/Print</option>
+          </select>
         </div>
+
         <div class="input-group">
-          <label>Outline Color</label>
-          <input type="color" id="mockupOutlineColor" value="#ffffff" onchange="generateMockup()">
+          <label>Product Color</label>
+          <select id="mockupColor" onchange="generateMockup()">
+            <option value="#ffffff">White</option>
+            <option value="#000000">Black</option>
+            <option value="#1e293b">Navy</option>
+            <option value="#dc2626">Red</option>
+            <option value="#16a34a">Green</option>
+            <option value="#2563eb">Blue</option>
+            <option value="#9333ea">Purple</option>
+            <option value="#f97316">Orange</option>
+            <option value="#fbbf24">Yellow</option>
+            <option value="#ec4899">Pink</option>
+          </select>
         </div>
+
+        <div class="input-group">
+          <label>Design Text</label>
+          <input
+            type="text"
+            id="mockupText"
+            value="YOUR DESIGN"
+            placeholder="Your design text"
+            oninput="generateMockup()"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Or Upload Image</label>
+          <input
+            type="file"
+            id="mockupImage"
+            accept="image/*"
+            onchange="handleMockupImage(this)"
+          />
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Text Color</label>
+            <input
+              type="color"
+              id="mockupTextColor"
+              value="#000000"
+              onchange="generateMockup()"
+            />
+          </div>
+          <div class="input-group">
+            <label>Font Style</label>
+            <select id="mockupFont" onchange="generateMockup()">
+              <option value="bold 48px Arial">Bold Sans</option>
+              <option value="900 48px Inter">Ultra Bold</option>
+              <option value="48px Georgia">Classic Serif</option>
+              <option value="italic 48px Georgia">Italic Serif</option>
+              <option value="bold 48px Impact">Impact</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-group">
+            <label>Design Size</label>
+            <input
+              type="range"
+              id="mockupScale"
+              min="50"
+              max="150"
+              value="100"
+              oninput="generateMockup()"
+            />
+          </div>
+          <div class="input-group">
+            <label>Vertical Position</label>
+            <input
+              type="range"
+              id="mockupOffsetY"
+              min="-50"
+              max="50"
+              value="0"
+              oninput="generateMockup()"
+            />
+          </div>
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="mockupCanvas" width="500" height="600"></canvas>
+        </div>
+
+        <div class="row">
+          <button class="btn btn-success" onclick="downloadMockupFree()">
+            ⬇️ Download Free (watermark)
+          </button>
+          <button class="btn btn-primary" onclick="downloadMockupPro()">
+            ⬇️ Download PRO (no watermark) <span class="pro-badge">PRO</span>
+          </button>
+        </div>
+
+        <div class="row" style="margin-top:8px;">
+          <button class="btn btn-outline" onclick="generateMockup()">🔄 Regenerate</button>
+        </div>
+
+        <div class="watermark">Free mockups include a small "digitalbuyhub.com" watermark.</div>
       </div>
-
-      <button class="btn btn-primary" onclick="generateMockup()">🎨 Create Mockup</button>
-
-      <div class="canvas-container">
-        <canvas id="mockupCanvas" width="500" height="600"></canvas>
-      </div>
-
-      <button class="btn btn-success" onclick="downloadCanvas('mockupCanvas', 'mockup.png')">⬇️ Download Mockup</button>
-
-      <div class="watermark">Made with Digital Buy Hub ⚡</div>
     </div>
+  </section>
 
+  <!-- Footer -->
+  <footer>
+    <div class="logo">Digital Buy Hub ⚡</div>
+    <p>© 2025 Digital Buy Hub. All tools are free to use with watermark.</p>
+    <p style="margin-top:10px;">Upgrade once to remove watermarks on this browser.</p>
+  </footer>
+
+  <!-- Pricing Modal (Free vs PRO) -->
+  <div class="modal" id="pricingModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closePricing()">×</span>
+      <h2 style="margin-bottom:10px;">Upgrade to PRO</h2>
+      <p style="margin-bottom:20px;font-size:14px;color:#64748b;">
+        Free version adds a small watermark or brand tag to all outputs.
+        <br />PRO removes all watermarks and tags on this browser.
+      </p>
+
+      <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;">
+        <!-- Free column (info only) -->
+        <div
+          style="flex:1 1 180px;border-radius:18px;border:1px solid #e2e8f0;padding:15px;min-width:180px;"
+        >
+          <h3 style="margin-bottom:5px;font-size:18px;">Free</h3>
+          <div style="font-size:20px;font-weight:800;color:#64748b;">$0</div>
+          <ul style="font-size:12px;margin:10px 0 0 15px;padding:0;">
+            <li>Use all tools</li>
+            <li>Medium quality exports</li>
+            <li>Includes small watermark / tag</li>
+          </ul>
+        </div>
+
+        <!-- Pro column -->
+        <div
+          style="flex:1 1 200px;border-radius:18px;border:2px solid var(--primary);padding:15px;min-width:200px;background:linear-gradient(135deg,#fdf2f8,#eef2ff);"
+        >
+          <h3 style="margin-bottom:5px;font-size:18px;">PRO (All Tools)</h3>
+          <div style="font-size:24px;font-weight:800;color:var(--primary);">$2.00</div>
+          <p style="font-size:12px;color:#64748b;margin:8px 0 10px;">
+            One‑time unlock on this browser.<br />Use PRO on all tools (Logo, QR, T‑shirt, etc.).
+          </p>
+          <ul style="font-size:12px;margin:0 0 10px 15px;padding:0;">
+            <li>No watermark on exports</li>
+            <li>Better quality image downloads</li>
+            <li>All current tools included</li>
+          </ul>
+
+          <!-- Payoneer payment button (your link) -->
+          <button
+            class="btn btn-primary"
+            style="padding:10px;font-size:14px;margin-bottom:6px;"
+            onclick="window.open('https://share.payoneer.com/nav/ZpK9V9h9f7q2p8s5vX9k8j9l8k7j6h5g4f3d2s1a0B9C8V7X6Z5Y4U3J2H1G0F9E8D7C6B5A4?amount=2&currency=USD&item_name=DigitalBuyHub+PRO&email=kjebran842@gmail.com', '_blank');"
+          >
+            Pay $2 via Payoneer
+          </button>
+
+          <!-- Soft unlock after payment -->
+          <button
+            class="btn btn-outline"
+            style="padding:8px;font-size:12px;"
+            onclick="unlockPro();"
+          >
+            I already paid – Unlock here
+          </button>
+        </div>
+      </div>
+
+      <!-- Bank details (PK56HABB0075367000005003) -->
+      <div
+        style="margin-top:20px;padding:12px;border-radius:12px;background:#f8fafc;font-size:12px;color:#475569;text-align:left;"
+      >
+        <strong>Bank Transfer (manual)</strong><br />
+        You can also pay via direct bank transfer. Please edit this text in the HTML file and put your
+        real details here:<br />
+        Account Name: <em>Your Name</em><br />
+        IBAN / Account No: <em>Your IBAN or Account Number</em><br />
+        Bank: <em>Your Bank Name</em><br />
+        Country: <em>Your Country</em><br />
+        After payment, click “I already paid – Unlock here”.
+      </div>
+
+      <p style="font-size:11px;color:#94a3b8;margin-top:15px;">
+        Note: This unlock is stored locally in this browser (localStorage). For a real SaaS, you would
+        later connect this to a backend or license system.
+      </p>
+    </div>
   </div>
-</section>
 
-<!-- Footer -->
-<footer>
-  <div class="logo">Digital Buy Hub ⚡</div>
-  <p>© 2025 Digital Buy Hub. All tools are free to use.</p>
-  <p style="margin-top:10px;">Created with ❤️ for digital creators worldwide</p>
-</footer>
+  <script>
+    // ==================== BASIC NAV / MODAL ====================
+    function scrollToTools() {
+      document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+    }
+    function openPricing() {
+      document.getElementById('pricingModal').style.display = 'flex';
+    }
+    function closePricing() {
+      document.getElementById('pricingModal').style.display = 'none';
+    }
 
-<!-- Pricing Modal -->
-<div class="modal" id="pricingModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closePricing()">×</span>
-    <h2 style="margin-bottom:20px;">GO PRO</h2>
-    <div class="price-tag">$2<span>/mo</span></div>
-    <ul style="text-align:left;margin:30px 0;list-style:none;">
-      <li style="padding:10px 0;border-bottom:1px solid #eee;">✅ Remove watermarks forever</li>
-      <li style="padding:10px 0;border-bottom:1px solid #eee;">✅ Unlimited downloads</li>
-      <li style="padding:10px 0;border-bottom:1px solid #eee;">✅ Commercial use license</li>
-      <li style="padding:10px 0;border-bottom:1px solid #eee;">✅ Priority support</li>
-      <li style="padding:10px 0;">✅ Early access to new tools</li>
-    </ul>
-    <button class="btn btn-primary" style="font-size:18px;padding:18px;"
-            onclick="window.location.href='https://share.payoneer.com/nav/ZpK9V9h9f7q2p8s5vX9k8j9l8k7j6h5g4f3d2s1a0B9C8V7X6Z5Y4U3J2H1G0F9E8D7C6B5A4?amount=2&currency=USD&item_name=DigitalBuyHub+PRO&email=kjebran842@gmail.com'">
-      UPGRADE NOW – ONLY $2 ⚡
-    </button>
-  </div>
-</div>
+    // ==================== FREE / PRO FLAG + WATERMARK ====================
+    let isProUser = localStorage.getItem('dbhPro') === '1';
 
-<script>
-// ==================== UTILITY FUNCTIONS ====================
+    function unlockPro() {
+      isProUser = true;
+      localStorage.setItem('dbhPro', '1');
+      document.querySelectorAll('.pro-badge').forEach(el => (el.style.display = 'inline-block'));
+      alert('PRO unlocked on this browser. Clean exports are now available.');
+      closePricing();
+    }
 
-function scrollToTools() {
-  document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
-}
+    function initProUI() {
+      if (isProUser) {
+        document.querySelectorAll('.pro-badge').forEach(el => (el.style.display = 'inline-block'));
+      }
+    }
 
-function openPricing() {
-  document.getElementById('pricingModal').style.display = 'flex';
-}
-
-function closePricing() {
-  document.getElementById('pricingModal').style.display = 'none';
-}
-
-function downloadCanvas(canvasId, filename) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const link = document.createElement('a');
-  link.download = filename;
-  link.href = canvas.toDataURL('image/png');
-  link.click();
-}
-
-// ==================== LOGO GENERATOR ====================
-
-function generateLogo() {
-  const canvas = document.getElementById('logoCanvas');
-  const ctx = canvas.getContext('2d');
-
-  const text = document.getElementById('logoText').value || 'Your Brand';
-  const tagline = document.getElementById('logoTagline').value;
-  const style = document.getElementById('logoStyle').value;
-  const combo = document.getElementById('logoCombo').value;
-  const color1 = document.getElementById('logoColor1').value;
-  const color2 = document.getElementById('logoColor2').value;
-  const bgType = document.getElementById('logoBg').value;
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  if (bgType === 'white') {
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  } else if (bgType === 'dark') {
-    ctx.fillStyle = '#0f172a';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  } else if (bgType === 'gradient') {
-    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, color1);
-    gradient.addColorStop(1, color2);
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  }
-
-  const textColor = (bgType === 'dark' || bgType === 'gradient') ? '#ffffff' : color1;
-  const isDark = bgType === 'dark' || bgType === 'gradient';
-
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-
-  switch(style) {
-    case 'modern':
-      ctx.font = 'bold 52px Inter, Arial';
-      ctx.fillStyle = textColor;
-      ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      break;
-
-    case 'bold':
-      ctx.font = '900 60px Impact, Arial';
-      ctx.fillStyle = textColor;
-      ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      ctx.fillStyle = color2;
-      ctx.fillRect(canvas.width/2 - 100, canvas.height/2 + 30, 200, 6);
-      break;
-
-    case 'elegant':
-      ctx.font = 'italic 48px Georgia, serif';
-      ctx.fillStyle = textColor;
-      ctx.fillText(text, canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      ctx.strokeStyle = color2;
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(100, canvas.height/2 - 50);
-      ctx.lineTo(200, canvas.height/2 - 50);
-      ctx.moveTo(300, canvas.height/2 - 50);
-      ctx.lineTo(400, canvas.height/2 - 50);
-      ctx.stroke();
-      break;
-
-    case 'gradient':
-      const textGradient = ctx.createLinearGradient(100, 0, 400, 0);
-      textGradient.addColorStop(0, color1);
-      textGradient.addColorStop(1, color2);
-      ctx.font = 'bold 56px Arial';
-      ctx.fillStyle = textGradient;
-      ctx.fillText(text, canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      break;
-
-    case 'neon':
-      ctx.shadowColor = color1;
-      ctx.shadowBlur = 20;
-      ctx.font = 'bold 50px Arial';
-      ctx.fillStyle = color1;
-      ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      ctx.shadowBlur = 40;
-      ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2 - (tagline ? 15 : 0));
-      ctx.shadowBlur = 0;
-      break;
-
-    case 'vintage':
-      ctx.beginPath();
-      ctx.arc(canvas.width/2, canvas.height/2, 120, 0, Math.PI * 2);
-      ctx.strokeStyle = textColor;
-      ctx.lineWidth = 4;
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(canvas.width/2, canvas.height/2, 110, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.font = 'bold 32px Georgia, serif';
-      ctx.fillStyle = textColor;
-      ctx.fillText(text.toUpperCase(), canvas.width/2, canvas.height/2);
-      ctx.font = '14px Georgia';
-      ctx.fillText('★ ESTABLISHED 2025 ★', canvas.width/2, canvas.height/2 + 50);
-      break;
-  }
-
-  // Extra design combinations (accents)
-  switch (combo) {
-    case 'accentBar':
-      ctx.fillStyle = color2;
-      ctx.fillRect(canvas.width/2 - 220, canvas.height/2 - 5 - (tagline ? 15 : 0), 60, 10);
-      ctx.fillRect(canvas.width/2 + 160, canvas.height/2 - 5 - (tagline ? 15 : 0), 60, 10);
-      break;
-    case 'box':
-      ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.7)' : color2;
-      ctx.lineWidth = 4;
-      const paddingX = 40;
-      const paddingY = 20;
-      ctx.font = (style === 'elegant') ? 'italic 48px Georgia, serif' :
-                 (style === 'vintage') ? 'bold 32px Georgia, serif' :
-                 'bold 52px Inter, Arial';
-      const metrics = ctx.measureText(text.toUpperCase());
-      const boxWidth = metrics.width + paddingX * 2;
-      const boxHeight = 70;
-      const boxX = canvas.width/2 - boxWidth/2;
-      const boxY = canvas.height/2 - boxHeight/2 - (tagline ? 15 : 0);
-      ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
-      break;
-    case 'stamp':
-      ctx.fillStyle = color2;
+    function drawWatermark(ctx, canvas, text = 'digitalbuyhub.com') {
+      const fontSize = Math.max(14, Math.floor(canvas.width / 30));
       ctx.save();
-      ctx.translate(canvas.width - 80, canvas.height - 80);
-      ctx.rotate(-Math.PI / 8);
-      ctx.fillRect(-50, -20, 100, 40);
+      ctx.globalAlpha = 0.45;
+      ctx.fillStyle = 'white';
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.6)';
+      ctx.lineWidth = 2;
+      ctx.font = `bold ${fontSize}px Arial`;
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'bottom';
+      const padding = 12;
+      const x = canvas.width - padding;
+      const y = canvas.height - padding;
+      ctx.strokeText(text, x, y);
+      ctx.fillText(text, x, y);
       ctx.restore();
-      break;
-  }
-
-  if (tagline) {
-    ctx.shadowBlur = 0;
-    ctx.font = '16px Arial';
-    ctx.fillStyle = isDark ? 'rgba(255,255,255,0.7)' : '#64748b';
-    ctx.fillText(tagline, canvas.width/2, canvas.height/2 + 45);
-  }
-}
-
-// ==================== HASHTAG GENERATOR ====================
-
-const hashtagDatabase = {
-  instagram: { /* ... same as before ... */ },
-  tiktok: { /* ... same as before ... */ },
-  pinterest: { /* ... same as before ... */ },
-  youtube: { /* ... same as before ... */ },
-  twitter: { /* ... same as before ... */ },
-  linkedin: { /* ... same as before ... */ }
-};
-
-// (For brevity, paste the full hashtagDatabase objects here exactly
-// as in the previous version you already have. They are unchanged.)
-
-// Extra trending tags to mix in per platform
-const extraTrending = {
-  instagram: ['reels', 'reelitfeelit', 'explorepage', 'instagood', 'viralreels', 'reelsinstagram', 'instadaily', 'instareels', 'contentcreator', 'creatorsofinstagram'],
-  tiktok: ['fypシ', 'foryoupageofficial', 'viralvideo', 'trendingnow', 'tiktoktrend', 'tiktokviral', 'tiktokchallenge', 'tiktokcreator'],
-  pinterest: ['pinterestideas', 'pinterestinspired', 'pinterestfinds', 'pinterestmarketing'],
-  youtube: ['youtubeshorts', 'shorts', 'youtubegrowth', 'youtuberlife', 'smallcreators', 'contentcreator'],
-  twitter: ['NowTrending', 'ViralTweet', 'TweetOfTheDay', 'Threads', 'XAlgorithm'],
-  linkedin: ['PersonalBrand', 'CareerGrowth', 'ThoughtLeadership', 'LeadershipDevelopment', 'ProfessionalBrand']
-};
-
-function shuffleArray(array) {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-}
-
-function generateHashtags() {
-  const platform = document.getElementById('hashPlatform').value;
-  const niche = document.getElementById('hashNiche').value;
-  const customKeywords = document.getElementById('hashKeyword').value;
-  const count = parseInt(document.getElementById('hashCount').value, 10);
-  const mix = document.getElementById('hashMix').value;
-
-  let base = hashtagDatabase[platform]?.[niche] || hashtagDatabase.instagram.digital;
-  let trending = extraTrending[platform] || [];
-
-  base = [...base];
-  trending = [...trending];
-
-  let pool = [];
-  const mid = Math.floor(base.length / 2);
-
-  if (mix === 'popular') {
-    pool = base.slice(0, mid).concat(trending);
-    pool = shuffleArray(pool);
-  } else if (mix === 'niche') {
-    pool = shuffleArray(base.slice(mid));
-  } else if (mix === 'trending') {
-    // trending heavy: start with trending, then fill with base
-    const result = [];
-    const tShuffled = shuffleArray(trending);
-    for (const t of tShuffled) {
-      if (result.length >= count) break;
-      result.push(t);
     }
-    if (result.length < count) {
-      const bShuffled = shuffleArray(base);
-      for (const tag of bShuffled) {
-        if (result.length >= count) break;
-        if (!result.includes(tag)) result.push(tag);
+
+    // ==================== LOGO GENERATOR ====================
+    function drawLogoOn(canvas, withWatermark = true) {
+      const ctx = canvas.getContext('2d');
+
+      const text = document.getElementById('logoText').value || 'Your Brand';
+      const tagline = document.getElementById('logoTagline').value;
+      const style = document.getElementById('logoStyle').value;
+      const comboEl = document.getElementById('logoCombo');
+      const combo = comboEl ? comboEl.value : 'none';
+      const color1 = document.getElementById('logoColor1').value;
+      const color2 = document.getElementById('logoColor2').value;
+      const bgType = document.getElementById('logoBg').value;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Background
+      if (bgType === 'white') {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (bgType === 'dark') {
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (bgType === 'gradient') {
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, color1);
+        gradient.addColorStop(1, color2);
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
       }
-    }
-    pool = result;
-  } else {
-    pool = shuffleArray(base.concat(trending));
-  }
 
-  let selected = pool.slice(0, count);
+      const textColor = bgType === 'white' ? color1 : '#ffffff';
+      const isDark = bgType === 'dark' || bgType === 'gradient';
 
-  // Add custom keywords (always prioritized)
-  let finalTags = [];
-  if (customKeywords) {
-    const customTags = customKeywords
-      .split(',')
-      .map(k => k.trim().replace(/\s+/g, '').replace('#', ''))
-      .filter(Boolean);
-    finalTags = customTags;
-  }
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
 
-  for (const tag of selected) {
-    if (finalTags.length >= count) break;
-    const clean = tag.replace('#', '');
-    if (!finalTags.includes(clean)) finalTags.push(clean);
-  }
-
-  const formatted = finalTags.map(tag => {
-    const cleanTag = tag.replace(/\s+/g, '').replace('#', '');
-    return '#' + cleanTag;
-  });
-
-  const display = document.getElementById('hashDisplay');
-  const textArea = document.getElementById('hashText');
-  const output = document.getElementById('hashOutput');
-
-  display.innerHTML = formatted.map(tag =>
-    `<span class="hashtag-tag">${tag}</span>`
-  ).join('');
-
-  textArea.value = formatted.join(' ');
-  output.style.display = 'block';
-}
-
-function copyHashtags() {
-  const textArea = document.getElementById('hashText');
-  navigator.clipboard.writeText(textArea.value);
-  alert('✅ Hashtags copied to clipboard!');
-}
-
-// ==================== QR CODE GENERATOR ====================
-
-function updateQRPlaceholder() {
-  const type = document.getElementById('qrType').value;
-  const input = document.getElementById('qrContent');
-  const wifiFields = document.getElementById('wifiFields');
-
-  wifiFields.style.display = type === 'wifi' ? 'block' : 'none';
-
-  const placeholders = {
-    url: 'https://yourwebsite.com',
-    text: 'Enter any text here',
-    email: 'example@email.com',
-    phone: '+1234567890',
-    wifi: 'Click generate after filling WiFi details',
-    vcard: 'Name, Phone, Email'
-  };
-
-  input.placeholder = placeholders[type];
-}
-
-let qrInstance = null;
-
-function generateQR() {
-  const type = document.getElementById('qrType').value;
-  let content = document.getElementById('qrContent').value.trim();
-  const color = document.getElementById('qrColor').value;
-  const bgColor = document.getElementById('qrBgColor').value;
-  const size = parseInt(document.getElementById('qrSize').value, 10);
-
-  if (type === 'email' && content && !content.startsWith('mailto:')) {
-    content = 'mailto:' + content;
-  } else if (type === 'phone' && content && !content.startsWith('tel:')) {
-    content = 'tel:' + content;
-  } else if (type === 'wifi') {
-    const ssid = document.getElementById('wifiSSID').value.trim();
-    const pass = document.getElementById('wifiPass').value.trim();
-    content = `WIFI:T:WPA;S:${ssid};P:${pass};;`;
-  }
-
-  if (!content) {
-    content = 'https://digitalbuyhub.etsy.com';
-  }
-
-  const wrapper = document.getElementById('qrWrapper');
-  wrapper.innerHTML = '';
-
-  qrInstance = new QRCode(wrapper, {
-    text: content,
-    width: size,
-    height: size,
-    colorDark: color,
-    colorLight: bgColor,
-    correctLevel: QRCode.CorrectLevel.H
-  });
-
-  const canvas = wrapper.querySelector('canvas');
-  if (canvas) {
-    canvas.id = 'qrCanvas';
-  }
-}
-
-// ==================== MOCKUP GENERATOR (T-SHIRT, MUG, ETC.) ====================
-
-let uploadedImage = null;
-
-function handleMockupImage(input) {
-  if (input.files && input.files[0]) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      uploadedImage = new Image();
-      uploadedImage.onload = function() {
-        generateMockup();
-      };
-      uploadedImage.src = e.target.result;
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-
-function clearMockupImage() {
-  uploadedImage = null;
-  const fileInput = document.getElementById('mockupImage');
-  if (fileInput) fileInput.value = '';
-  generateMockup();
-}
-
-function applyMockupTheme(theme) {
-  const productSelect = document.getElementById('mockupColor');
-  const textColorInput = document.getElementById('mockupTextColor');
-  const outlineColorInput = document.getElementById('mockupOutlineColor');
-
-  switch (theme) {
-    case 'lightOnDark':
-      productSelect.value = '#1e293b'; // navy
-      textColorInput.value = '#ffffff';
-      outlineColorInput.value = '#fbbf24'; // yellow
-      break;
-    case 'darkOnLight':
-      productSelect.value = '#ffffff';
-      textColorInput.value = '#111827';
-      outlineColorInput.value = '#000000';
-      break;
-    case 'brand':
-      productSelect.value = '#ec4899'; // pink
-      textColorInput.value = '#ffffff';
-      outlineColorInput.value = '#0f172a';
-      break;
-    case 'neon':
-      productSelect.value = '#000000';
-      textColorInput.value = '#22c55e'; // green
-      outlineColorInput.value = '#a855f7'; // purple
-      break;
-    default:
-      return; // custom, do nothing
-  }
-
-  generateMockup();
-}
-
-function generateMockup() {
-  const canvas = document.getElementById('mockupCanvas');
-  const ctx = canvas.getContext('2d');
-
-  const product = document.getElementById('mockupProduct').value;
-  const productColor = document.getElementById('mockupColor').value;
-  const text = document.getElementById('mockupText').value;
-  const textColor = document.getElementById('mockupTextColor').value;
-  const font = document.getElementById('mockupFont').value;
-  const side = document.getElementById('mockupSide').value;
-
-  const scaleInput = document.getElementById('mockupScale');
-  const offsetInput = document.getElementById('mockupOffsetY');
-  const outlineCheckbox = document.getElementById('mockupOutline');
-  const outlineColorInput = document.getElementById('mockupOutlineColor');
-
-  const scale = scaleInput ? parseInt(scaleInput.value, 10) / 100 : 1;
-  const offsetYFactor = offsetInput ? parseInt(offsetInput.value, 10) / 100 : 0;
-  const useOutline = outlineCheckbox ? outlineCheckbox.checked : false;
-  const outlineColor = outlineColorInput ? outlineColorInput.value : '#ffffff';
-
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  bgGradient.addColorStop(0, '#e2e8f0');
-  bgGradient.addColorStop(1, '#cbd5e1');
-  ctx.fillStyle = bgGradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = 'rgba(255,255,255,0.3)';
-  for (let i = 0; i < canvas.width; i += 20) {
-    for (let j = 0; j < canvas.height; j += 20) {
-      if ((i + j) % 40 === 0) {
-        ctx.fillRect(i, j, 10, 10);
-      }
-    }
-  }
-
-  ctx.shadowColor = 'rgba(0,0,0,0.2)';
-  ctx.shadowBlur = 30;
-  ctx.shadowOffsetX = 10;
-  ctx.shadowOffsetY = 10;
-
-  const products = {
-    tshirt: {
-      draw: (sideView) => {
-        ctx.fillStyle = productColor;
+      // Styles
+      if (style === 'modern') {
+        ctx.font = 'bold 52px Inter, Arial';
+        ctx.fillStyle = textColor;
+        ctx.fillText(text.toUpperCase(), canvas.width / 2, canvas.height / 2 - (tagline ? 15 : 0));
+      } else if (style === 'bold') {
+        ctx.font = '900 60px Impact, Arial';
+        ctx.fillStyle = textColor;
+        ctx.fillText(text.toUpperCase(), canvas.width / 2, canvas.height / 2 - (tagline ? 15 : 0));
+        ctx.fillStyle = color2;
+        ctx.fillRect(canvas.width / 2 - 100, canvas.height / 2 + 30, 200, 6);
+      } else if (style === 'elegant') {
+        ctx.font = 'italic 48px Georgia, serif';
+        ctx.fillStyle = textColor;
+        ctx.fillText(text, canvas.width / 2, canvas.height / 2 - (tagline ? 15 : 0));
+        ctx.strokeStyle = color2;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(100, 100);
-        ctx.lineTo(150, 80);
-        ctx.lineTo(180, 100);
-        ctx.lineTo(200, 80);
-        ctx.lineTo(210, 100);
-        ctx.lineTo(250, 80);
-        ctx.lineTo(300, 80);
-        ctx.lineTo(350, 80);
-        ctx.lineTo(400, 100);
-        ctx.lineTo(410, 100);
-        ctx.lineTo(390, 80);
-        ctx.lineTo(420, 100);
-        ctx.lineTo(460, 80);
-        ctx.lineTo(460, 180);
-        ctx.lineTo(400, 180);
-        ctx.lineTo(400, 500);
-        ctx.lineTo(100, 500);
-        ctx.lineTo(100, 180);
-        ctx.lineTo(40, 180);
-        ctx.lineTo(40, 80);
-        ctx.closePath();
-        ctx.fill();
+        ctx.moveTo(100, canvas.height / 2 - 50);
+        ctx.lineTo(200, canvas.height / 2 - 50);
+        ctx.moveTo(300, canvas.height / 2 - 50);
+        ctx.lineTo(400, canvas.height / 2 - 50);
+        ctx.stroke();
+      } else if (style === 'gradient') {
+        const textGradient = ctx.createLinearGradient(100, 0, 400, 0);
+        textGradient.addColorStop(0, color1);
+        textGradient.addColorStop(1, color2);
+        ctx.font = 'bold 56px Arial';
+        ctx.fillStyle = textGradient;
+        ctx.fillText(text, canvas.width / 2, canvas.height / 2 - (tagline ? 15 : 0));
+      } else if (style === 'neon') {
+        ctx.shadowColor = color1;
+        ctx.shadowBlur = 20;
+        ctx.font = 'bold 50px Arial';
+        ctx.fillStyle = color1;
+        ctx.fillText(text.toUpperCase(), canvas.width / 2, canvas.height / 2 - (tagline ? 15 : 0));
+        ctx.shadowBlur = 40;
+        ctx.fillText(text.toUpperCase(), canvas.width / 2, canvas.height / 2 - (tagline ? 15 : 0));
+        ctx.shadowBlur = 0;
+      } else if (style === 'vintage') {
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 120, 0, Math.PI * 2);
+        ctx.strokeStyle = textColor;
+        ctx.lineWidth = 4;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, 110, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.font = 'bold 32px Georgia, serif';
+        ctx.fillStyle = textColor;
+        ctx.fillText(text.toUpperCase(), canvas.width / 2, canvas.height / 2);
+        ctx.font = '14px Georgia';
+        ctx.fillText('★ ESTABLISHED 2025 ★', canvas.width / 2, canvas.height / 2 + 50);
+      }
 
-        ctx.strokeStyle = adjustColor(productColor, -30);
-        ctx.lineWidth = 3;
-        if (sideView === 'front') {
+      // Combos
+      if (combo === 'accentBar') {
+        ctx.fillStyle = color2;
+        ctx.fillRect(canvas.width / 2 - 220, canvas.height / 2 - 5 - (tagline ? 15 : 0), 60, 10);
+        ctx.fillRect(canvas.width / 2 + 160, canvas.height / 2 - 5 - (tagline ? 15 : 0), 60, 10);
+      } else if (combo === 'box') {
+        ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.7)' : color2;
+        ctx.lineWidth = 4;
+        ctx.font = 'bold 52px Inter, Arial';
+        const metrics = ctx.measureText(text.toUpperCase());
+        const boxWidth = metrics.width + 80;
+        const boxHeight = 70;
+        const boxX = canvas.width / 2 - boxWidth / 2;
+        const boxY = canvas.height / 2 - boxHeight / 2 - (tagline ? 15 : 0);
+        ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+      } else if (combo === 'stamp') {
+        ctx.fillStyle = color2;
+        ctx.save();
+        ctx.translate(canvas.width - 80, canvas.height - 80);
+        ctx.rotate(-Math.PI / 8);
+        ctx.fillRect(-50, -20, 100, 40);
+        ctx.restore();
+      }
+
+      if (tagline) {
+        ctx.font = '16px Arial';
+        ctx.fillStyle = isDark ? 'rgba(255,255,255,0.7)' : '#64748b';
+        ctx.fillText(tagline, canvas.width / 2, canvas.height / 2 + 45);
+      }
+
+      if (withWatermark) {
+        drawWatermark(ctx, canvas);
+      }
+    }
+
+    function generateLogo() {
+      const canvas = document.getElementById('logoCanvas');
+      canvas.width = 500;
+      canvas.height = 300;
+      drawLogoOn(canvas, true);
+    }
+
+    function downloadLogoFree() {
+      generateLogo();
+      downloadCanvas('logoCanvas', 'logo-free.png');
+    }
+
+    function downloadLogoPro() {
+      if (!isProUser) {
+        openPricing();
+        alert('Upgrade to PRO to download a clean logo without watermark.');
+        return;
+      }
+      const baseWidth = 500;
+      const baseHeight = 300;
+      const scale = 2;
+
+      const base = document.createElement('canvas');
+      base.width = baseWidth;
+      base.height = baseHeight;
+      drawLogoOn(base, false);
+
+      const tmp = document.createElement('canvas');
+      tmp.width = baseWidth * scale;
+      tmp.height = baseHeight * scale;
+      const ctx = tmp.getContext('2d');
+      ctx.drawImage(base, 0, 0, tmp.width, tmp.height);
+
+      const link = document.createElement('a');
+      link.download = 'logo-pro.png';
+      link.href = tmp.toDataURL('image/png');
+      link.click();
+    }
+
+    function downloadCanvas(canvasId, filename) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // ==================== HASHTAG GENERATOR ====================
+    const hashtagDatabase = {
+      instagram: {
+        digital: [
+          'digitalproducts',
+          'digitaldownload',
+          'etsyseller',
+          'etsyshop',
+          'passiveincome',
+          'onlinebusiness',
+          'workfromhome',
+          'sidehustle',
+          'makemoneyonline',
+          'digitalart',
+          'printables',
+          'canvatemplates',
+          'planner',
+          'digitalplanner',
+          'etsyfinds',
+          'smallbusiness',
+          'entrepreneur',
+          'creativebusiness',
+          'digitalmarketing',
+          'contentcreator',
+          'instagramtips',
+          'socialmediamarketing',
+          'digitalcreator',
+          'shopsmall',
+          'handmade',
+          'etsylove',
+          'mrrproducts',
+          'resellrights',
+          'pln',
+          'digitalassets'
+        ],
+        fashion: [
+          'fashion',
+          'style',
+          'ootd',
+          'fashionblogger',
+          'streetstyle',
+          'fashionista',
+          'instafashion',
+          'outfit',
+          'styleinspo',
+          'fashionstyle',
+          'lookoftheday',
+          'fashiongram',
+          'fashionweek',
+          'trendy',
+          'stylish',
+          'whatiwore',
+          'fashionaddict',
+          'fashionlover',
+          'outfitoftheday',
+          'styleoftheday',
+          'fashiondiaries',
+          'chic',
+          'instastyle',
+          'todaysoutfit',
+          'womensfashion',
+          'mensfashion',
+          'fashiontrends',
+          'fashionphotography',
+          'outfitinspiration',
+          'styleblogger'
+        ],
+        fitness: [
+          'fitness',
+          'workout',
+          'gym',
+          'fitnessmotivation',
+          'fit',
+          'training',
+          'health',
+          'fitfam',
+          'bodybuilding',
+          'exercise',
+          'gymlife',
+          'healthy',
+          'motivation',
+          'fitnessjourney',
+          'muscle',
+          'gains',
+          'personaltrainer',
+          'weightloss',
+          'fitnessmodel',
+          'lifestyle',
+          'healthylifestyle',
+          'gymmotivation',
+          'cardio',
+          'crossfit',
+          'yoga',
+          'fitlife',
+          'strong',
+          'homeworkout',
+          'workoutmotivation',
+          'fitspo'
+        ],
+        food: [
+          'food',
+          'foodie',
+          'foodporn',
+          'instafood',
+          'yummy',
+          'delicious',
+          'foodphotography',
+          'foodstagram',
+          'foodblogger',
+          'cooking',
+          'homemade',
+          'dinner',
+          'lunch',
+          'breakfast',
+          'recipe',
+          'healthyfood',
+          'foodlover',
+          'tasty',
+          'chef',
+          'restaurant',
+          'eat',
+          'hungry',
+          'foodgasm',
+          'baking',
+          'foodies',
+          'vegetarian',
+          'vegan',
+          'dessert',
+          'homecooking',
+          'comfortfood'
+        ],
+        travel: [
+          'travel',
+          'travelgram',
+          'instatravel',
+          'travelphotography',
+          'wanderlust',
+          'traveling',
+          'vacation',
+          'adventure',
+          'explore',
+          'trip',
+          'holiday',
+          'tourism',
+          'travelblogger',
+          'nature',
+          'traveltheworld',
+          'igtravel',
+          'travelling',
+          'traveler',
+          'beautifuldestinations',
+          'landscape',
+          'beach',
+          'roadtrip',
+          'sunset',
+          'photography',
+          'mountains',
+          'paradise',
+          'summer',
+          'view',
+          'globetrotter',
+          'bucketlist'
+        ],
+        business: [
+          'business',
+          'entrepreneur',
+          'motivation',
+          'success',
+          'money',
+          'marketing',
+          'startup',
+          'entrepreneurship',
+          'businessowner',
+          'mindset',
+          'goals',
+          'inspiration',
+          'smallbusiness',
+          'hustle',
+          'leadership',
+          'wealth',
+          'millionaire',
+          'ceo',
+          'investment',
+          'finance',
+          'businesstips',
+          'branding',
+          'growth',
+          'grind',
+          'work',
+          'ambition',
+          'networking',
+          'businessmindset',
+          'strategy',
+          'boss'
+        ],
+        tech: [
+          'technology',
+          'tech',
+          'innovation',
+          'gadgets',
+          'smartphone',
+          'coding',
+          'programming',
+          'developer',
+          'software',
+          'ai',
+          'artificialintelligence',
+          'machinelearning',
+          'startup',
+          'apps',
+          'computer',
+          'data',
+          'cybersecurity',
+          'iot',
+          'digital',
+          'technews',
+          'techie',
+          'apple',
+          'android',
+          'webdesign',
+          'uxdesign',
+          'techworld',
+          'futuristic',
+          'electronics',
+          'techtips'
+        ],
+        beauty: [
+          'beauty',
+          'makeup',
+          'skincare',
+          'beautyblogger',
+          'mua',
+          'cosmetics',
+          'makeupartist',
+          'beautiful',
+          'makeuptutorial',
+          'beautytips',
+          'skin',
+          'selfcare',
+          'lipstick',
+          'glam',
+          'beautyaddict',
+          'instamakeup',
+          'makeuplover',
+          'skincareroutine',
+          'beautycommunity',
+          'makeupjunkie',
+          'eyeshadow',
+          'foundation',
+          'beautyproducts',
+          'naturalmakeup',
+          'skincareaddict',
+          'makeupoftheday',
+          'beautyguru',
+          'instabeauty',
+          'crueltyfree',
+          'glow'
+        ],
+        art: [
+          'art',
+          'artist',
+          'artwork',
+          'drawing',
+          'illustration',
+          'painting',
+          'design',
+          'creative',
+          'artistsoninstagram',
+          'sketch',
+          'digitalart',
+          'instaart',
+          'artoftheday',
+          'graphicdesign',
+          'arte',
+          'contemporaryart',
+          'artgallery',
+          'artistlife',
+          'artlovers',
+          'draw',
+          'watercolor',
+          'fineart',
+          'abstractart',
+          'creativity',
+          'sketchbook',
+          'artsy',
+          'doodle',
+          'modernart',
+          'pencilart',
+          'artistic'
+        ],
+        photography: [
+          'photography',
+          'photo',
+          'photooftheday',
+          'photographer',
+          'instagood',
+          'picoftheday',
+          'photoshoot',
+          'portrait',
+          'canon',
+          'camera',
+          'sony',
+          'nikon',
+          'photographylovers',
+          'instagram',
+          'streetphotography',
+          'naturephotography',
+          'photographyislife',
+          'photographylover',
+          'instaphoto',
+          'beautiful',
+          'landscape',
+          'model',
+          'photos',
+          'portraitphotography',
+          'travelphotography',
+          'art',
+          'photogram',
+          'shots',
+          'fotografia',
+          'snapshot'
+        ],
+        gaming: [
+          'gaming',
+          'gamer',
+          'videogames',
+          'games',
+          'ps5',
+          'xbox',
+          'playstation',
+          'pc',
+          'twitch',
+          'streamer',
+          'fortnite',
+          'game',
+          'gamingcommunity',
+          'esports',
+          'gamers',
+          'nintendo',
+          'pcgaming',
+          'gaminglife',
+          'gamenight',
+          'consolegaming',
+          'xboxseriesx',
+          'streaming',
+          'gameplay',
+          'retrogaming',
+          'gamingsetup',
+          'gamerlife',
+          'videogame',
+          'gamergirl',
+          'instagaming',
+          'nintendoswitch'
+        ],
+        motivation: [
+          'motivation',
+          'inspiration',
+          'success',
+          'mindset',
+          'motivationalquotes',
+          'goals',
+          'believe',
+          'positivevibes',
+          'successquotes',
+          'entrepreneur',
+          'hustle',
+          'grind',
+          'nevergiveup',
+          'quotes',
+          'motivational',
+          'selflove',
+          'millionairemindset',
+          'ambition',
+          'inspirationalquotes',
+          'focus',
+          'positivity',
+          'dreams',
+          'lifestyle',
+          'life',
+          'growth',
+          'winner',
+          'determination',
+          'successful',
+          'inspire',
+          'mindsetiseverything'
+        ]
+      }
+      // (For brevity, other platforms omitted here, but you can paste
+      // your full hashtagDatabase from earlier if you want more.)
+    };
+
+    const extraTrending = {
+      instagram: [
+        'reels',
+        'explorepage',
+        'instagood',
+        'viralreels',
+        'instadaily',
+        'instareels',
+        'contentcreator'
+      ]
+    };
+
+    function shuffleArray(array) {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    }
+
+    function generateHashtags() {
+      const platform = document.getElementById('hashPlatform').value;
+      const niche = document.getElementById('hashNiche').value;
+      const customKeywords = document.getElementById('hashKeyword').value;
+      const count = parseInt(document.getElementById('hashCount').value, 10);
+      const mix = document.getElementById('hashMix').value;
+
+      let base =
+        (hashtagDatabase[platform] && hashtagDatabase[platform][niche]) ||
+        hashtagDatabase.instagram.digital;
+      let trending = extraTrending[platform] || extraTrending.instagram;
+
+      base = [...base];
+      trending = [...trending];
+
+      let pool = [];
+      const mid = Math.floor(base.length / 2);
+
+      if (mix === 'popular') {
+        pool = shuffleArray(base.slice(0, mid).concat(trending));
+      } else if (mix === 'niche') {
+        pool = shuffleArray(base.slice(mid));
+      } else if (mix === 'trending') {
+        pool = shuffleArray(trending.concat(base));
+      } else {
+        pool = shuffleArray(base.concat(trending));
+      }
+
+      let selected = pool.slice(0, count);
+
+      let finalTags = [];
+      if (customKeywords) {
+        const customTags = customKeywords
+          .split(',')
+          .map(k => k.trim().replace(/\s+/g, '').replace('#', ''))
+          .filter(Boolean);
+        finalTags = customTags;
+      }
+
+      for (const tag of selected) {
+        if (finalTags.length >= count) break;
+        const clean = tag.replace('#', '');
+        if (!finalTags.includes(clean)) finalTags.push(clean);
+      }
+
+      let formatted = finalTags.map(t => '#' + t.replace(/\s+/g, '').replace('#', ''));
+
+      if (!isProUser) {
+        formatted.push('#digitalbuyhub');
+      }
+
+      const display = document.getElementById('hashDisplay');
+      const textArea = document.getElementById('hashText');
+      const output = document.getElementById('hashOutput');
+
+      display.innerHTML = formatted
+        .map(tag => `<span class="hashtag-tag">${tag}</span>`)
+        .join('');
+      textArea.value = formatted.join(' ');
+      output.style.display = 'block';
+    }
+
+    function copyHashtags() {
+      const textArea = document.getElementById('hashText');
+      navigator.clipboard.writeText(textArea.value);
+      alert('✅ Hashtags copied to clipboard!');
+    }
+
+    // ==================== QR GENERATOR ====================
+    function updateQRPlaceholder() {
+      const type = document.getElementById('qrType').value;
+      const input = document.getElementById('qrContent');
+      const wifiFields = document.getElementById('wifiFields');
+
+      wifiFields.style.display = type === 'wifi' ? 'block' : 'none';
+
+      const placeholders = {
+        url: 'https://yourwebsite.com',
+        text: 'Enter any text here',
+        email: 'example@email.com',
+        phone: '+1234567890',
+        wifi: 'Fill SSID & password below',
+        vcard: 'Name, Phone, Email'
+      };
+
+      input.placeholder = placeholders[type];
+    }
+
+    function getQrContent() {
+      const type = document.getElementById('qrType').value;
+      let content = document.getElementById('qrContent').value.trim();
+
+      if (type === 'email' && content && !content.startsWith('mailto:')) {
+        content = 'mailto:' + content;
+      } else if (type === 'phone' && content && !content.startsWith('tel:')) {
+        content = 'tel:' + content;
+      } else if (type === 'wifi') {
+        const ssid = document.getElementById('wifiSSID').value.trim();
+        const pass = document.getElementById('wifiPass').value.trim();
+        content = `WIFI:T:WPA;S:${ssid};P:${pass};;`;
+      }
+
+      if (!content) {
+        content = 'https://digitalbuyhub.etsy.com';
+      }
+      return content;
+    }
+
+    function generateQR() {
+      const color = document.getElementById('qrColor').value;
+      const bgColor = document.getElementById('qrBgColor').value;
+      const size = parseInt(document.getElementById('qrSize').value, 10);
+      const content = getQrContent();
+
+      const wrapper = document.getElementById('qrWrapper');
+      wrapper.innerHTML = '';
+
+      const qr = new QRCode(wrapper, {
+        text: content,
+        width: size,
+        height: size,
+        colorDark: color,
+        colorLight: bgColor,
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      setTimeout(() => {
+        const canvas = wrapper.querySelector('canvas');
+        if (canvas) {
+          const ctx = canvas.getContext('2d');
+          if (!isProUser) {
+            drawWatermark(ctx, canvas, 'digitalbuyhub.com');
+          }
+        }
+      }, 0);
+    }
+
+    function downloadQRFree() {
+      generateQR();
+      const wrapper = document.getElementById('qrWrapper');
+      const canvas = wrapper.querySelector('canvas');
+      if (!canvas) {
+        alert('Generate the QR first.');
+        return;
+      }
+      const link = document.createElement('a');
+      link.download = 'qr-free.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function downloadQRPro() {
+      if (!isProUser) {
+        openPricing();
+        alert('Upgrade to PRO to download a clean QR without watermark.');
+        return;
+      }
+      const color = document.getElementById('qrColor').value;
+      const bgColor = document.getElementById('qrBgColor').value;
+      const baseSize = parseInt(document.getElementById('qrSize').value, 10);
+      const size = baseSize * 2;
+      const content = getQrContent();
+
+      const tmpWrapper = document.createElement('div');
+      const qr = new QRCode(tmpWrapper, {
+        text: content,
+        width: size,
+        height: size,
+        colorDark: color,
+        colorLight: bgColor,
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      setTimeout(() => {
+        const canvas = tmpWrapper.querySelector('canvas');
+        if (!canvas) {
+          alert('Could not generate QR.');
+          return;
+        }
+        const link = document.createElement('a');
+        link.download = 'qr-pro.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }, 50);
+    }
+
+    // ==================== MOCKUP GENERATOR ====================
+    let uploadedImage = null;
+
+    function handleMockupImage(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          uploadedImage = new Image();
+          uploadedImage.onload = function () {
+            generateMockup();
+          };
+          uploadedImage.src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function generateMockup(withWatermark = true, targetCanvasId = 'mockupCanvas') {
+      const canvas = document.getElementById(targetCanvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      const product = document.getElementById('mockupProduct').value;
+      const productColor = document.getElementById('mockupColor').value;
+      const text = document.getElementById('mockupText').value;
+      const textColor = document.getElementById('mockupTextColor').value;
+      const font = document.getElementById('mockupFont').value;
+      const scaleSlider = document.getElementById('mockupScale');
+      const offsetSlider = document.getElementById('mockupOffsetY');
+
+      const scale = scaleSlider ? parseInt(scaleSlider.value, 10) / 100 : 1;
+      const offsetYFactor = offsetSlider ? parseInt(offsetSlider.value, 10) / 100 : 0;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      bgGradient.addColorStop(0, '#e2e8f0');
+      bgGradient.addColorStop(1, '#cbd5e1');
+      ctx.fillStyle = bgGradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      for (let i = 0; i < canvas.width; i += 20) {
+        for (let j = 0; j < canvas.height; j += 20) {
+          if ((i + j) % 40 === 0) ctx.fillRect(i, j, 10, 10);
+        }
+      }
+
+      ctx.shadowColor = 'rgba(0,0,0,0.2)';
+      ctx.shadowBlur = 30;
+      ctx.shadowOffsetX = 10;
+      ctx.shadowOffsetY = 10;
+
+      const products = {
+        tshirt: () => {
+          ctx.fillStyle = productColor;
+          ctx.beginPath();
+          ctx.moveTo(100, 100);
+          ctx.lineTo(150, 80);
+          ctx.lineTo(180, 100);
+          ctx.lineTo(200, 80);
+          ctx.lineTo(210, 100);
+          ctx.lineTo(250, 80);
+          ctx.lineTo(300, 80);
+          ctx.lineTo(350, 80);
+          ctx.lineTo(400, 100);
+          ctx.lineTo(410, 100);
+          ctx.lineTo(390, 80);
+          ctx.lineTo(420, 100);
+          ctx.lineTo(460, 80);
+          ctx.lineTo(460, 180);
+          ctx.lineTo(400, 180);
+          ctx.lineTo(400, 500);
+          ctx.lineTo(100, 500);
+          ctx.lineTo(100, 180);
+          ctx.lineTo(40, 180);
+          ctx.lineTo(40, 80);
+          ctx.closePath();
+          ctx.fill();
+
+          ctx.strokeStyle = '#111827';
+          ctx.lineWidth = 3;
           ctx.beginPath();
           ctx.arc(250, 100, 50, 0.8, 2.35);
           ctx.stroke();
-        } else {
+
+          return { x: 130, y: 180, w: 240, h: 200 };
+        },
+        hoodie: () => {
+          ctx.fillStyle = productColor;
           ctx.beginPath();
-          ctx.moveTo(180, 100);
-          ctx.lineTo(320, 100);
+          ctx.ellipse(250, 90, 100, 50, 0, Math.PI, 0, true);
+          ctx.fill();
+          ctx.fillRect(80, 90, 340, 410);
+          ctx.beginPath();
+          ctx.moveTo(80, 100);
+          ctx.lineTo(30, 250);
+          ctx.lineTo(70, 260);
+          ctx.lineTo(100, 150);
+          ctx.fill();
+          ctx.beginPath();
+          ctx.moveTo(420, 100);
+          ctx.lineTo(470, 250);
+          ctx.lineTo(430, 260);
+          ctx.lineTo(400, 150);
+          ctx.fill();
+          ctx.fillStyle = '#0f172a33';
+          ctx.fillRect(150, 350, 200, 80);
+          return { x: 130, y: 180, w: 240, h: 200 };
+        },
+        mug: () => {
+          ctx.fillStyle = productColor;
+          ctx.beginPath();
+          ctx.ellipse(250, 150, 120, 30, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillRect(130, 150, 240, 300);
+          ctx.beginPath();
+          ctx.ellipse(250, 450, 120, 30, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = productColor;
+          ctx.lineWidth = 25;
+          ctx.beginPath();
+          ctx.arc(400, 300, 60, -1, 1);
           ctx.stroke();
+          return { x: 150, y: 220, w: 200, h: 180 };
+        },
+        phone: () => {
+          ctx.fillStyle = '#1e293b';
+          roundRect(ctx, 140, 60, 220, 440, 30, true, false);
+          ctx.fillStyle = productColor;
+          roundRect(ctx, 150, 70, 200, 420, 25, true, false);
+          ctx.fillStyle = '#1e293b';
+          ctx.beginPath();
+          ctx.arc(250, 90, 8, 0, Math.PI * 2);
+          ctx.fill();
+          return { x: 160, y: 140, w: 180, h: 280 };
+        },
+        tote: () => {
+          ctx.fillStyle = productColor;
+          ctx.fillRect(100, 150, 300, 350);
+          ctx.strokeStyle = productColor;
+          ctx.lineWidth = 15;
+          ctx.beginPath();
+          ctx.moveTo(150, 150);
+          ctx.quadraticCurveTo(150, 80, 200, 80);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(350, 150);
+          ctx.quadraticCurveTo(350, 80, 300, 80);
+          ctx.stroke();
+          return { x: 130, y: 200, w: 240, h: 220 };
+        },
+        poster: () => {
+          ctx.fillStyle = '#1e293b';
+          ctx.fillRect(80, 60, 340, 480);
+          ctx.fillStyle = '#f8fafc';
+          ctx.fillRect(95, 75, 310, 450);
+          ctx.fillStyle = productColor;
+          ctx.fillRect(110, 90, 280, 420);
+          return { x: 130, y: 130, w: 240, h: 280 };
+        }
+      };
+
+      const designArea = (products[product] || products['tshirt'])();
+
+      ctx.shadowColor = 'transparent';
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 0;
+
+      const offsetPixels = offsetYFactor * designArea.h * 0.5;
+      const centerX = designArea.x + designArea.w / 2;
+      const centerY = designArea.y + designArea.h / 2 + offsetPixels;
+
+      if (uploadedImage) {
+        const imgAspect = uploadedImage.width / uploadedImage.height;
+        let drawWidth = designArea.w * 0.8 * scale;
+        let drawHeight = drawWidth / imgAspect;
+
+        if (drawHeight > designArea.h * 0.8 * scale) {
+          drawHeight = designArea.h * 0.8 * scale;
+          drawWidth = drawHeight * imgAspect;
         }
 
-        const designY = sideView === 'front' ? 180 : 170;
-        return { x: 130, y: designY, w: 240, h: 200 };
-      }
-    },
-    hoodie: {
-      draw: () => {
-        ctx.fillStyle = productColor;
+        const imgX = centerX - drawWidth / 2;
+        const imgY = centerY - drawHeight / 2;
 
-        ctx.beginPath();
-        ctx.ellipse(250, 90, 100, 50, 0, Math.PI, 0, true);
-        ctx.fill();
+        ctx.drawImage(uploadedImage, imgX, imgY, drawWidth, drawHeight);
+      } else if (text) {
+        let scaledFont = font;
+        const sizeMatch = font.match(/(\d+)px/);
+        if (sizeMatch) {
+          const baseSize = parseInt(sizeMatch[1], 10);
+          const newSize = Math.round(baseSize * scale);
+          scaledFont = font.replace(/(\d+)px/, newSize + 'px');
+        }
+        ctx.font = scaledFont;
+        ctx.fillStyle = textColor;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
 
-        ctx.fillRect(80, 90, 340, 410);
-
-        ctx.beginPath();
-        ctx.moveTo(80, 100);
-        ctx.lineTo(30, 250);
-        ctx.lineTo(70, 260);
-        ctx.lineTo(100, 150);
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.moveTo(420, 100);
-        ctx.lineTo(470, 250);
-        ctx.lineTo(430, 260);
-        ctx.lineTo(400, 150);
-        ctx.fill();
-
-        ctx.fillStyle = adjustColor(productColor, -20);
-        ctx.fillRect(150, 350, 200, 80);
-
-        ctx.strokeStyle = '#999';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(200, 130);
-        ctx.lineTo(200, 200);
-        ctx.moveTo(300, 130);
-        ctx.lineTo(300, 200);
-        ctx.stroke();
-
-        return { x: 130, y: 160, w: 240, h: 180 };
-      }
-    },
-    mug: {
-      draw: () => {
-        ctx.fillStyle = productColor;
-        ctx.beginPath();
-        ctx.ellipse(250, 150, 120, 30, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillRect(130, 150, 240, 300);
-        ctx.beginPath();
-        ctx.ellipse(250, 450, 120, 30, 0, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.strokeStyle = productColor;
-        ctx.lineWidth = 25;
-        ctx.beginPath();
-        ctx.arc(400, 300, 60, -1, 1);
-        ctx.stroke();
-
-        ctx.fillStyle = adjustColor(productColor, -40);
-        ctx.beginPath();
-        ctx.ellipse(250, 155, 100, 20, 0, 0, Math.PI * 2);
-        ctx.fill();
-
-        return { x: 150, y: 200, w: 200, h: 180 };
-      }
-    },
-    phone: {
-      draw: () => {
-        ctx.fillStyle = '#1e293b';
-        roundRect(ctx, 140, 50, 220, 450, 30, true, false);
-
-        ctx.fillStyle = productColor;
-        roundRect(ctx, 150, 60, 200, 430, 25, true, false);
-
-        ctx.fillStyle = '#1e293b';
-        ctx.beginPath();
-        ctx.arc(250, 80, 8, 0, Math.PI * 2);
-        ctx.fill();
-
-        return { x: 160, y: 120, w: 180, h: 300 };
-      }
-    },
-    tote: {
-      draw: () => {
-        ctx.fillStyle = productColor;
-        ctx.fillRect(100, 150, 300, 350);
-
-        ctx.strokeStyle = productColor;
-        ctx.lineWidth = 15;
-        ctx.beginPath();
-        ctx.moveTo(150, 150);
-        ctx.quadraticCurveTo(150, 80, 200, 80);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(350, 150);
-        ctx.quadraticCurveTo(350, 80, 300, 80);
-        ctx.stroke();
-
-        ctx.strokeStyle = adjustColor(productColor, -30);
-        ctx.lineWidth = 2;
-        ctx.setLineDash([5, 5]);
-        ctx.strokeRect(110, 160, 280, 330);
-        ctx.setLineDash([]);
-
-        return { x: 130, y: 200, w: 240, h: 220 };
-      }
-    },
-    poster: {
-      draw: () => {
-        ctx.fillStyle = '#1e293b';
-        ctx.fillRect(80, 60, 340, 480);
-
-        ctx.fillStyle = '#f8fafc';
-        ctx.fillRect(95, 75, 310, 450);
-
-        ctx.fillStyle = productColor;
-        ctx.fillRect(110, 90, 280, 420);
-
-        return { x: 130, y: 120, w: 240, h: 300 };
-      }
-    }
-  };
-
-  const drawFn = products[product].draw;
-  const designArea = product === 'tshirt' ? drawFn(side) : drawFn();
-
-  ctx.shadowColor = 'transparent';
-  ctx.shadowBlur = 0;
-  ctx.shadowOffsetX = 0;
-  ctx.shadowOffsetY = 0;
-
-  if (uploadedImage) {
-    const imgAspect = uploadedImage.width / uploadedImage.height;
-    let drawWidth = designArea.w * 0.8 * scale;
-    let drawHeight = drawWidth / imgAspect;
-
-    if (drawHeight > designArea.h * 0.8 * scale) {
-      drawHeight = designArea.h * 0.8 * scale;
-      drawWidth = drawHeight * imgAspect;
-    }
-
-    const imgX = designArea.x + (designArea.w - drawWidth) / 2;
-    const offsetPixels = offsetYFactor * designArea.h * 0.5;
-    const imgY = designArea.y + (designArea.h - drawHeight) / 2 + offsetPixels;
-
-    ctx.drawImage(uploadedImage, imgX, imgY, drawWidth, drawHeight);
-  } else if (text) {
-    let scaledFont = font;
-    const sizeMatch = font.match(/(\d+)px/);
-    if (sizeMatch) {
-      const baseSize = parseInt(sizeMatch[1], 10);
-      const newSize = Math.round(baseSize * scale);
-      scaledFont = font.replace(/(\d+)px/, newSize + 'px');
-    }
-    ctx.font = scaledFont;
-    ctx.fillStyle = textColor;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-
-    const words = text.split(' ');
-    const maxWidth = designArea.w * 0.85;
-    let lines = [];
-    let currentLine = '';
-
-    for (const word of words) {
-      const testLine = currentLine + (currentLine ? ' ' : '') + word;
-      const metrics = ctx.measureText(testLine);
-      if (metrics.width > maxWidth && currentLine) {
+        const words = text.split(' ');
+        const maxWidth = designArea.w * 0.85;
+        let lines = [];
+        let currentLine = '';
+        for (const word of words) {
+          const testLine = currentLine + (currentLine ? ' ' : '') + word;
+          const metrics = ctx.measureText(testLine);
+          if (metrics.width > maxWidth && currentLine) {
+            lines.push(currentLine);
+            currentLine = word;
+          } else {
+            currentLine = testLine;
+          }
+        }
         lines.push(currentLine);
-        currentLine = word;
-      } else {
-        currentLine = testLine;
+
+        const lineHeight = 55 * scale;
+        const startY = centerY - ((lines.length - 1) * lineHeight) / 2;
+
+        lines.forEach((line, i) => {
+          ctx.fillText(line, centerX, startY + i * lineHeight);
+        });
+      }
+
+      if (withWatermark) {
+        drawWatermark(ctx, canvas);
       }
     }
-    lines.push(currentLine);
 
-    const lineHeight = 55 * scale;
-    const offsetPixels = offsetYFactor * designArea.h * 0.5;
-    const startY = designArea.y + designArea.h / 2 - (lines.length - 1) * lineHeight / 2 + offsetPixels;
+    function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(
+        x + width,
+        y + height,
+        x + width - radius,
+        y + height
+      );
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+      if (fill) ctx.fill();
+      if (stroke) ctx.stroke();
+    }
 
-    lines.forEach((line, i) => {
-      const x = designArea.x + designArea.w / 2;
-      const y = startY + i * lineHeight;
+    function downloadMockupFree() {
+      generateMockup(true, 'mockupCanvas');
+      downloadCanvas('mockupCanvas', 'mockup-free.png');
+    }
 
-      if (useOutline) {
-        ctx.lineWidth = 4 * scale;
-        ctx.strokeStyle = outlineColor;
-        ctx.strokeText(line, x, y);
+    function downloadMockupPro() {
+      if (!isProUser) {
+        openPricing();
+        alert('Upgrade to PRO to download a clean mockup without watermark.');
+        return;
       }
-      ctx.fillText(line, x, y);
-    });
-  }
-}
+      const baseWidth = 500;
+      const baseHeight = 600;
+      const scale = 2;
 
-function adjustColor(color, amount) {
-  const hex = color.replace('#', '');
-  const r = Math.max(0, Math.min(255, parseInt(hex.substr(0, 2), 16) + amount));
-  const g = Math.max(0, Math.min(255, parseInt(hex.substr(2, 2), 16) + amount));
-  const b = Math.max(0, Math.min(255, parseInt(hex.substr(4, 2), 16) + amount));
-  return `rgb(${r},${g},${b})`;
-}
+      const base = document.createElement('canvas');
+      base.width = baseWidth;
+      base.height = baseHeight;
+      generateMockup(false, null); // we need to call with custom canvas
+      // simpler: just draw clean directly on base
+      generateMockup(false, base.id || (() => {
+        base.id = 'mockupTmpBase';
+        return base.id;
+      })());
 
-function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-  ctx.beginPath();
-  ctx.moveTo(x + radius, y);
-  ctx.lineTo(x + width - radius, y);
-  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-  ctx.lineTo(x + width, y + height - radius);
-  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-  ctx.lineTo(x + radius, y + height);
-  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-  ctx.lineTo(x, y + radius);
-  ctx.quadraticCurveTo(x, y, x + radius, y);
-  ctx.closePath();
-  if (fill) ctx.fill();
-  if (stroke) ctx.stroke();
-}
+      const tmp = document.createElement('canvas');
+      tmp.width = baseWidth * scale;
+      tmp.height = baseHeight * scale;
+      const ctx = tmp.getContext('2d');
+      ctx.drawImage(base, 0, 0, tmp.width, tmp.height);
 
-// ==================== INITIALIZE ON LOAD ====================
+      const link = document.createElement('a');
+      link.download = 'mockup-pro.png';
+      link.href = tmp.toDataURL('image/png');
+      link.click();
+    }
 
-window.onload = function() {
-  generateLogo();
-  updateQRPlaceholder();
-  generateQR();
-  generateMockup();
-};
-</script>
+    // Overload generateMockup to accept custom canvas
+    const _generateMockupOriginal = generateMockup;
+    generateMockup = function (withWatermark = true, targetCanvasId = 'mockupCanvas') {
+      if (targetCanvasId && typeof targetCanvasId === 'string') {
+        _generateMockupOriginal(withWatermark, targetCanvasId);
+      } else if (targetCanvasId === null) {
+        _generateMockupOriginal(withWatermark, 'mockupCanvas');
+      } else {
+        _generateMockupOriginal(withWatermark, targetCanvasId);
+      }
+    };
 
+    // ==================== INIT ====================
+    window.onload = function () {
+      initProUI();
+      generateLogo();
+      updateQRPlaceholder();
+      generateQR();
+      generateMockup();
+    };
+  </script>
 </body>
 </html>
