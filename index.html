@@ -7,45 +7,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <style>
-    :root{--primary:#ff4e6b;--dark:#0f172a;--light:#f8fafc;--gray:#64748b;}
+    :root{--primary:#ff3366;--dark:#0f172a;--light:#f8fafc;--gray:#64748b;}
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Inter',sans-serif;background:var(--light);color:var(--dark);line-height:1.6;}
     
     /* Header */
     header {
       background: url('https://images.unsplash.com/photo-1558655146-9f40138ed1cb?q=80&w=1964&auto=format&fit=crop') center/cover no-repeat;
-      height:90vh;min-height:600px;position:relative;color:white;
-      display:flex;align-items:center;justify-content:center;text-align:center;
+      height:90vh;min-height:600px;position:relative;color:white;display:flex;align-items:center;justify-content:center;text-align:center;
     }
-    .overlay {background:rgba(15,23,42,0.88);position:absolute;top:0;left:0;width:100%;height:100%;}
-    .hero-content {position:relative;z-index:2;max-width:900px;padding:20px;}
-    .hero-content h1 {font-family:'Playfair Display',serif;font-size:72px;margin-bottom:20px;}
-    .hero-content p {font-size:26px;margin-bottom:40px;opacity:0.95;}
-    .cta-btn {
-      background:var(--primary);color:white;padding:20px 60px;border:none;border-radius:50px;font-size:22px;font-weight:700;cursor:pointer;
-      box-shadow:0 15px 40px rgba(255,78,107,0.4);transition:0.3s;
-    }
-    .cta-btn:hover {transform:translateY(-8px);box-shadow:0 25px 50px rgba(255,78,107,0.6);}
+    .overlay{background:rgba(15,23,42,0.88);position:absolute;inset:0;}
+    .hero-content{position:relative;z-index:2;max-width:900px;padding:20px;}
+    .hero-content h1{font-family:'Playfair Display',serif;font-size:76px;margin-bottom:20px;}
+    .hero-content p{font-size:26px;margin-bottom:40px;opacity:0.95;}
+    .cta-btn{background:var(--primary);color:white;padding:20px 60px;border:none;border-radius:50px;font-size:22px;font-weight:700;cursor:pointer;transition:0.4s;box-shadow:0 15px 40px rgba(255,51,102,0.4);}
+    .cta-btn:hover{transform:translateY(-8px);box-shadow:0 25px 50px rgba(255,51,102,0.6);}
 
-    /* Nav - FULL MENU ADDED */
-    nav {
-      position:fixed;top:0;width:100%;z-index:1000;background:rgba(15,23,42,0.95);backdrop-filter:blur(15px);
-      padding:20px 5%;display:flex;justify-content:space-between;align-items:center;
-    }
-    .logo {font-size:32px;font-weight:900;color:white;}
-    .nav-links a {
-      color:white;text-decoration:none;margin:0 30px;font-weight:600;font-size:18px;transition:0.3s;position:relative;
-    }
-    .nav-links a:hover {color:var(--primary);}
-    .nav-links a::after {
-      content:'';position:absolute;bottom:-8px;left:0;width:0;height:3px;background:var(--primary);transition:0.3s;
-    }
-    .nav-links a:hover::after {width:100%;}
+    /* Nav */
+    nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(15,23,42,0.95);backdrop-filter:blur(15px);padding:20px 5%;display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-size:32px;font-weight:900;color:white;}
+    .nav-links a{color:white;text-decoration:none;margin:0 30px;font-weight:600;font-size:18px;transition:0.3s;position:relative;}
+    .nav-links a:hover{color:var(--primary);}
+    .nav-links a::after{content:'';position:absolute;bottom:-8px;left:0;width:0;height:3px;background:var(--primary);transition:0.3s;}
+    .nav-links a:hover::after{width:100%;}
 
-    /* Rest of styles same as before */
-    .tools-section{padding:120px 5%;background:var(--light);}
+    /* Tools Section */
+    .tools-section{padding:120px 5% 80px;background:var(--light);}
     .section-title{text-align:center;font-size:52px;margin-bottom:20px;font-family:'Playfair Display',serif;color:var(--dark);}
-    .section-subtitle{text-align:center;font-size:20px;color:var(--gray);max-width:700px;margin:0 auto 80px;}
+    .section-subtitle{text-align:center;font-size:20px;color:var(--gray);max-width:800px;margin:0 auto 80px;}
     .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:40px;max-width:1400px;margin:auto;}
     .tool-card{background:white;border-radius:25px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.1);transition:0.4s;}
     .tool-card:hover{transform:translateY(-20px);box-shadow:0 40px 80px rgba(0,0,0,0.18);}
@@ -54,20 +43,21 @@
     .tool-body{padding:40px;}
     input,select,button{width:100%;padding:16px;margin:12px 0;border-radius:12px;border:none;font-size:16px;}
     input,select{border:2px solid #e2e8f0;}
-    button{background:var(--primary);color:white;font-weight:700;cursor:pointer;}
-    button:hover{background:#ff2e56;}
-    canvas{border-radius:15px;margin:20px 0;box-shadow:0 10px 30px rgba(0,0,0,0.1);}
-    .colors{display:flex;gap:15px;justify-content:center;margin:20px 0;}
+    button{background:var(--primary);color:white;font-weight:700;cursor:pointer;transition:0.3s;}
+    button:hover{background:#e62e5c;}
+    canvas{border-radius:15px;margin:20px 0;box-shadow:0 10px 30px rgba(0,0,0,0.1);width:100%;max-width:500px;}
+    .colors{display:flex;gap:15px;justify-content:center;margin:20px 0;flex-wrap:wrap;}
     .c{width:55px;height:55px;border-radius:50%;cursor:pointer;border:5px solid white;box-shadow:0 8px 20px rgba(0,0,0,0.2);}
-    .watermark{text-align:center;margin-top:25px;font-size:13px;color:var(--gray);background:rgba(255,78,107,0.1);padding:12px;border-radius:12px;}
+    .watermark{text-align:center;margin-top:25px;font-size:13px;color:var(--gray);background:rgba(255,51,102,0.1);padding:12px;border-radius:12px;}
 
+    /* Footer */
     footer{background:var(--dark);color:white;padding:100px 5% 50px;text-align:center;}
     footer .logo{font-size:40px;margin-bottom:20px;}
     .social a{color:white;font-size:30px;margin:0 20px;transition:0.3s;}
     .social a:hover{color:var(--primary);}
 
     /* Pricing Modal */
-    #pricing-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;align-items:center;justify-content:center;padding:20px;}
+    #pricing-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:9999;align-items:center;justify-content:center;padding:20px;}
     .modal-content{background:white;color:var(--dark);padding:70px 50px;border-radius:35px;max-width:500px;text-align:center;box-shadow:0 40px 120px rgba(0,0,0,0.6);}
     .close{position:absolute;top:30px;right:40px;font-size:50px;cursor:pointer;color:white;}
     .price-big{font-size:100px;font-weight:900;color:var(--primary);}
@@ -75,12 +65,11 @@
 </head>
 <body>
 
-<!-- FULL PROFESSIONAL MENU -->
 <nav>
   <div class="logo">Digital Buy Hub ⚡</div>
   <div class="nav-links">
-    <a href="#" onclick="window.scrollTo(0,0)">Home</a>
-    <a href="#tools">Tools</a>
+    <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'})">Home</a>
+    <a href="#tools" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Tools</a>
     <a onclick="document.getElementById('pricing-modal').style.display='flex'">Pricing</a>
     <a href="https://digitalbuyhub.etsy.com" target="_blank">Etsy Shop</a>
   </div>
@@ -99,11 +88,87 @@
 
 <section class="tools-section" id="tools">
   <h2 class="section-title">Choose Your Tool</h2>
-  <p class="section-subtitle">Everything is completely free. Small tasteful branding on free version.<br>Want clean version? Only $2/month.</p>
+  <p class="section-subtitle">Everything is completely free. Small tasteful branding on free version. Remove it forever for only $2/month.</p>
 
   <div class="tools-grid">
-    <!-- All your 4 tools go here (Logo, Hashtag, QR, Mockup) -->
-    <!-- I kept them exactly the same as your working version -->
+
+    <!-- 1. LOGO GENERATOR -->
+    <div class="tool-card">
+      <div class="tool-header"><h3>Logo Maker</h3></div>
+      <div class="tool-body">
+        <input type="text" id="logotext" placeholder="Your brand name" value="Digital Buy Hub">
+        <select id="logoicon">
+          <option value="⚡">⚡ Lightning</option>
+          <option value="💎">💎 Diamond</option>
+          <option value="🚀">🚀 Rocket</option>
+          <option value="⭐">⭐ Star</option>
+          <option value="🔥">🔥 Fire</option>
+          <option value="🌟">🌟 Sparkle</option>
+          <option value="✦">✦ Gem</option>
+          <option value="✨">✨ Sparkles</option>
+        </select>
+        <div class="colors">
+          <div class="c" style="background:#ff3366" data="#ff3366"></div>
+          <div class="c" style="background:#8b5cf6" data="#8b5cf6"></div>
+          <div class="c" style="background:#10b981" data="#10b981"></div>
+          <div class="c" style="background:#f59e0b" data="#f59e0b"></div>
+          <div class="c" style="background:#1e293b" data="#1e293b"></div>
+        </div>
+        <button onclick="makeLogo()">Generate Logo</button>
+        <canvas id="logoCanvas" width="500" height="300"></canvas>
+        <button style="background:#10b981;" onclick="downloadLogo()">Download PNG</button>
+        <div class="watermark">Made with ❤️ Digital Buy Hub</div>
+      </div>
+    </div>
+
+    <!-- 2. HASHTAG GENERATOR -->
+    <div class="tool-card">
+      <div class="tool-header"><h3>Hashtag Generator</h3></div>
+      <div class="tool-body">
+        <select id="platform">
+          <option>Instagram</option><option>TikTok</option><option>Pinterest</option><option>YouTube</option>
+        </select>
+        <input type="text" id="keyword" placeholder="Your niche (optional)">
+        <button onclick="genHashtags()">Generate Hashtags</button>
+        <div id="hashtags" style="margin-top:20px;line-height:2.2;word-wrap:break-word;"></div>
+      </div>
+    </div>
+
+    <!-- 3. QR CODE GENERATOR -->
+    <div class="tool-card">
+      <div class="tool-header"><h3>QR Code Generator</h3></div>
+      <div class="tool-body">
+        <input type="text" id="qrtext" placeholder="Your link" value="https://digitalbuyhub.etsy.com">
+        <button onclick="genQR()">Generate QR</button>
+        <canvas id="qrcode"></canvas>
+        <button style="background:#10b981;" onclick="downloadQR()">Download PNG</button>
+        <div class="watermark">Made with ❤️ Digital Buy Hub</div>
+      </div>
+    </div>
+
+    <!-- 4. T-SHIRT / MUG MOCKUP -->
+    <div class="tool-card">
+      <div class="tool-header"><h3>T-Shirt / Mug Mockup</h3></div>
+      <div class="tool-body">
+        <input type="text" id="mocktext" placeholder="Your text" value="Digital Buy Hub">
+        <input type="file" id="mocklogo" accept="image/*">
+        <select id="product">
+          <option>T-Shirt</option><option>Mug</option><option>Hoodie</option><option>Tote Bag</option>
+        </select>
+        <div class="colors">
+          <div class="c" style="background:#ffffff" data="#ffffff"></div>
+          <div class="c" style="background:#000000" data="#000000"></div>
+          <div class="c" style="background:#ff3366" data="#ff3366"></div>
+          <div class="c" style="background:#8b5cf6" data="#8b5cf6"></div>
+          <div class="c" style="background:#10b981" data="#10b981"></div>
+        </div>
+        <button onclick="drawMockup()">Update Mockup</button>
+        <button style="background:#10b981;" onclick="downloadMockup()">Download PNG</button>
+        <canvas id="mockup" width="500" height="600"></canvas>
+        <div class="watermark">Made with ❤️ Digital Buy Hub</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -111,36 +176,159 @@
   <div class="logo">Digital Buy Hub ⚡</div>
   <p>The #1 free tool suite for Etsy sellers & digital creators in 2025</p>
   <div class="social">
-    <a href="#">Instagram</a> <a href="#">TikTok</a> <a href="#">YouTube</a>
+    <a href="#">Instagram</a> • <a href="#">TikTok</a> • <a href="#">YouTube</a>
   </div>
   <p style="margin-top:50px;font-size:14px;opacity:0.7;">© 2025 Digital Buy Hub • Made with passion in Pakistan</p>
 </footer>
 
-<!-- $2 PRICING MODAL (HIDDEN) -->
+<!-- HIDDEN $2 PRICING MODAL -->
 <div id="pricing-modal">
   <div class="close" onclick="this.parentElement.style.display='none'">×</div>
   <div class="modal-content">
-    <h2>GO PRO</h2>
+    <h2>GO PRO – ONLY $2/MONTH</h2>
     <div class="price-big">$2<span style="font-size:40px;">/month</span></div>
-    <p><s>$29</s> → Lifetime launch price</p>
+    <p><s>$29/month</s> → Lifetime launch price</p>
     <ul style="text-align:left;margin:50px 0;font-size:19px;line-height:2.2;">
       <li>Remove logo from all tools forever</li>
-      <li>Unlimited downloads & use</li>
+      <li>Unlimited downloads & generations</li>
       <li>All future tools free</li>
       <li>Commercial license</li>
     </ul>
-    <button style="padding:25px 90px;font-size:28px;background:#ff4e6b;border:none;color:white;border-radius:50px;cursor:pointer;"
+    <button style="padding:25px 90px;font-size:28px;background:#ff3366;border:none;color:white;border-radius:50px;cursor:pointer;"
             onclick="window.location.href='https://share.payoneer.com/nav/ZpK9V9h9f7q2p8s5vX9k8j9l8k7j6h5g4f3d2s1a0B9C8V7X6Z5Y4U3J2H1G0F9E8D7C6B5A4?amount=2&currency=USD&item_name=DigitalBuyHub+PRO&email=kjebran842@gmail.com'">
       YES! TAKE MY $2 → NO LOGO EVER ⚡
     </button>
+    <p style="margin-top:20px;font-size:15px;">Instant access • Cancel anytime</p>
   </div>
 </div>
 
-<!-- Keep your working script here (logo, hashtag, qr, mockup) -->
 <script>
-// Your full working script from last version goes here
-// Everything works perfectly
-</script>
+// Logo Generator
+let logoColor = "#ff3366";
+document.querySelectorAll(".tool-card:nth-child(1) .c").forEach(c => c.onclick = () => { logoColor = c.getAttribute("data"); makeLogo(); });
+function makeLogo() {
+  let canvas = document.getElementById("logoCanvas");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, 500, 300);
+  ctx.fillStyle = logoColor;
+  ctx.font = "bold 120px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(document.getElementById("logoicon").value, 250, 140);
+  ctx.font = "bold 46px Arial";
+  ctx.fillText(document.getElementById("logotext").value.toUpperCase(), 250, 230);
+}
+function downloadLogo() {
+  let a = document.createElement("a");
+  a.download = "logo-digitalbuyhub.png";
+  a.href = document.getElementById("logoCanvas").toDataURL();
+  a.click();
+}
 
+// Hashtag Generator
+const hashtagDB = {
+  Instagram: "#digitalproducts #etsyseller #passiveincome #canvatemplates #mrr #sidehustle #digitaldownloads #etsyshop #facelessmarketing #makemoneyonline #printables #etsyfinds #canva #etsydigital #passiveincome2025",
+  TikTok: "#fyp #viral #digitalproducts #etsy #sidehustle #passiveincome #canva #mrr #foryou #trending #etsyseller #smallbusiness #workfromhome #digitalmarketing",
+  Pinterest: "#digitalproducts #etsydigitalproducts #passiveincome2025 #canvatemplates #mrr #etsysidehustle #digitaldownloads #printables #etsyprintables #canvadesign",
+  YouTube: "#digitalproducts #etsytutorial #passiveincome #howtomakemoneyonline #canvatemplates #sidehustle2025 #etsyseller #mrr #digitalmarketing"
+};
+function genHashtags() {
+  let platform = document.getElementById("platform").value;
+  let keyword = document.getElementById("keyword").value.trim();
+  let tags = hashtagDB[platform];
+  if (keyword) tags += " #" + keyword.replace(/\s+/g, "");
+  document.getElementById("hashtags").innerHTML = tags + 
+    "<br><br><button style='background:#10b981;padding:12px 30px;border:none;border-radius:50px;color:white;font-weight:bold;cursor:pointer;' onclick='copyHashtags()'>Copy All</button>" +
+    "<div class='watermark'>Made with ❤️ Digital Buy Hub</div>";
+}
+function copyHashtags() {
+  let text = document.getElementById("hashtags").innerText.split("Made with")[0].trim();
+  navigator.clipboard.writeText(text);
+  alert("Copied to clipboard! 🔥");
+}
+
+// QR Code
+function genQR() {
+  let text = document.getElementById("qrtext").value.trim() || "https://digitalbuyhub.etsy.com";
+  QRCode.toCanvas(document.getElementById("qrcode"), text, {width: 300, errorCorrectionLevel: 'H'});
+}
+function downloadQR() {
+  let link = document.createElement("a");
+  link.download = "qr-digitalbuyhub.png";
+  link.href = document.getElementById("qrcode").toDataURL();
+  link.click();
+}
+
+// T-Shirt/Mug Mockup
+let mockColor = "#ffffff";
+let mockLogo = null;
+document.querySelectorAll(".tool-card:nth-child(4) .c").forEach(c => c.onclick = () => { mockColor = c.getAttribute("data"); drawMockup(); });
+document.getElementById("mocklogo").onchange = function(e) {
+  let file = e.target.files[0];
+  if (file) {
+    let reader = new FileReader();
+    reader.onload = function(ev) {
+      mockLogo = new Image();
+      mockLogo.onload = drawMockup;
+      mockLogo.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+};
+function drawMockup() {
+  let canvas = document.getElementById("mockup");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = mockColor;
+  ctx.fillRect(0, 0, 500, 600);
+
+  let product = document.getElementById("product").value;
+  if (product === "T-Shirt" || product === "Hoodie") {
+    ctx.fillStyle = mockColor;
+    ctx.fillRect(80, 100, 340, 400);
+    ctx.fillStyle = "#222";
+    ctx.fillRect(200, 80, 100, 60);
+  }
+  if (product === "Mug") {
+    ctx.fillStyle = mockColor;
+    ctx.fillRect(100, 150, 300, 300);
+    ctx.strokeStyle = "#333";
+    ctx.lineWidth = 20;
+    ctx.beginPath();
+    ctx.arc(400, 300, 80, 0, Math.PI * 2);
+    ctx.stroke();
+  }
+  if (product === "Tote Bag") {
+    ctx.fillStyle = mockColor;
+    ctx.fillRect(100, 150, 300, 300);
+    ctx.fillStyle = "#333";
+    ctx.fillRect(150, 130, 200, 40);
+  }
+
+  ctx.fillStyle = "#000000";
+  ctx.font = "bold 42px Arial";
+  ctx.textAlign = "center";
+  ctx.fillText(document.getElementById("mocktext").value || "Your Design", 250, 320);
+
+  if (mockLogo) ctx.drawImage(mockLogo, 150, 180, 200, 200);
+
+  // Watermark
+  ctx.fillStyle = "rgba(255,255,255,0.9)";
+  ctx.font = "14px Arial";
+  ctx.fillText("Made with Digital Buy Hub ⚡", 250, 560);
+}
+function downloadMockup() {
+  let link = document.createElement("a");
+  link.download = "mockup-digitalbuyhub.png";
+  link.href = document.getElementById("mockup").toDataURL();
+  link.click();
+}
+
+// Initialize on load
+window.onload = function() {
+  makeLogo();
+  genQR();
+  drawMockup();
+};
+</script>
 </body>
 </html>
