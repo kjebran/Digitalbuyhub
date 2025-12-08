@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Buy Hub • All‑in‑One SEO & Creator Toolkit</title>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5861022813995259"
-     crossorigin="anonymous"></script>
- 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YN3YYZFSGE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YN3YYZFSGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YN3YYZFSGE');
+  </script>
 
-  gtag('config', 'G-YN3YYZFSGE');
-</script>
+  <!-- Google AdSense (Auto Ads) -->
+  <script async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5861022813995259"
+          crossorigin="anonymous"></script>
 
   <!-- Fonts -->
   <link
@@ -24,7 +25,7 @@
     rel="stylesheet"
   />
 
-  <!-- QR code library (browser-ready) -->
+  <!-- QR code library -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
     crossorigin="anonymous"
@@ -474,10 +475,10 @@
     <div class="hero">
       <h1>All‑in‑One SEO & Creator Toolkit<br />for Digital Sellers</h1>
       <p>
-        Like a mini Helium 10 for creators, Etsy sellers and small brands.<br />
-        Generate keywords, titles, captions, logos, QR codes and T‑shirt mockups in one place.
+        Keyword ideas, titles & descriptions, hashtags, logos, QR codes and T‑shirt mockups – all in one
+        simple workspace.
       </p>
-      <button class="cta" onclick="scrollToTools()">Start Free (with watermark) →</button>
+      <button class="cta" onclick="scrollToTools()">Start Creating →</button>
     </div>
   </header>
 
@@ -485,8 +486,7 @@
   <section class="tools-section" id="tools">
     <h2 class="section-title">Creator & SEO Tool Suite</h2>
     <p class="section-subtitle">
-      All tools are free with a small watermark or credit line. Upgrade once to remove it on this
-      browser.
+      All tools are free to try. Upgrade once to unlock clean, higher‑quality exports on this browser.
     </p>
 
     <!-- Suite Overview -->
@@ -526,7 +526,7 @@
       <div class="tool-card">
         <h3>🔍 Keyword & Topic Ideas</h3>
         <p class="tool-desc">
-          Generate long‑tail keyword and content ideas for SEO, blogs, YouTube & more.
+          Generate long‑tail keyword and content ideas for SEO, blogs, YouTube & products.
         </p>
 
         <div class="input-group">
@@ -572,17 +572,20 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" onclick="generateKeywords()">✨ Generate Ideas</button>
+        <button class="btn btn-primary" onclick="trackEvent('generate_keywords'); generateKeywords();">
+          ✨ Generate Ideas
+        </button>
 
         <div class="output-box" id="kwOutputBox" style="display:none;">
           <textarea id="kwOutputText" rows="8" readonly style="margin-bottom:10px;"></textarea>
           <div class="row">
-            <button class="btn btn-success" onclick="copyKeywords()">📋 Copy Ideas</button>
+            <button class="btn btn-success" onclick="trackEvent('copy_keywords'); copyKeywords();">
+              📋 Copy Ideas
+            </button>
             <button class="btn btn-outline" onclick="generateKeywords()">🔄 New Ideas</button>
           </div>
           <p style="font-size:12px;color:#64748b;margin-top:8px;">
-            Free: limited ideas and includes a small “generated with digitalbuyhub.com” note.
-            PRO: more ideas, no note.
+            PRO unlocks more ideas and removes the small “generated with digitalbuyhub.com” note.
             <span class="pro-badge">PRO</span>
           </p>
         </div>
@@ -650,19 +653,20 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" onclick="generateTextContent()">
+        <button class="btn btn-primary" onclick="trackEvent('generate_textcontent'); generateTextContent();">
           ✨ Generate Text Ideas
         </button>
 
         <div class="output-box" id="tcOutputBox" style="display:none;">
           <textarea id="tcOutputText" rows="8" readonly style="margin-bottom:10px;"></textarea>
           <div class="row">
-            <button class="btn btn-success" onclick="copyTextContent()">📋 Copy All</button>
+            <button class="btn btn-success" onclick="trackEvent('copy_textcontent'); copyTextContent();">
+              📋 Copy All
+            </button>
             <button class="btn btn-outline" onclick="generateTextContent()">🔄 New Ideas</button>
           </div>
           <p style="font-size:12px;color:#64748b;margin-top:8px;">
-            Free: limited ideas and includes a small “generated with digitalbuyhub.com” note.
-            PRO: more ideas, no note.
+            PRO unlocks more ideas and removes the small “generated with digitalbuyhub.com” note.
             <span class="pro-badge">PRO</span>
           </p>
         </div>
@@ -733,22 +737,26 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" onclick="generateHashtags()">🔥 Generate Hashtags</button>
+        <button class="btn btn-primary" onclick="trackEvent('generate_hashtags'); generateHashtags();">
+          🔥 Generate Hashtags
+        </button>
 
         <div class="output-box" id="hashOutput" style="display:none;">
           <div class="hashtag-display" id="hashDisplay"></div>
           <textarea id="hashText" rows="3" readonly style="margin-bottom:10px;"></textarea>
           <div class="row">
-            <button class="btn btn-success" onclick="copyHashtags()">📋 Copy All</button>
+            <button class="btn btn-success" onclick="trackEvent('copy_hashtags'); copyHashtags();">
+              📋 Copy All
+            </button>
             <button class="btn btn-outline" onclick="generateHashtags()">🔄 New Set</button>
           </div>
           <p style="font-size:12px;color:#64748b;margin-top:8px;">
-            Free: adds #digitalbuyhub at the end. PRO: no brand tag.
+            PRO removes the #digitalbuyhub brand tag.
             <span class="pro-badge">PRO</span>
           </p>
         </div>
 
-        <div class="watermark">Hashtags are free to use; PRO removes the brand tag.</div>
+        <div class="watermark">Hashtags generated with Digital Buy Hub ⚡</div>
       </div>
 
       <!-- BRAND & CREATIVE TOOLS HEADING -->
@@ -816,18 +824,20 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" onclick="generateLogo()">✨ Generate Logo</button>
+        <button class="btn btn-primary" onclick="trackEvent('generate_logo'); generateLogo();">
+          ✨ Generate Logo
+        </button>
 
         <div class="canvas-container">
           <canvas id="logoCanvas" width="500" height="300"></canvas>
         </div>
 
         <div class="row">
-          <button class="btn btn-success" onclick="downloadLogoFree()">
-            ⬇️ Download Free (watermark)
+          <button class="btn btn-success" onclick="trackEvent('download_logo_free'); downloadLogoFree();">
+            ⬇️ Download Free
           </button>
-          <button class="btn btn-primary" onclick="downloadLogoPro()">
-            ⬇️ Download PRO (no watermark) <span class="pro-badge">PRO</span>
+          <button class="btn btn-primary" onclick="trackEvent('download_logo_pro'); downloadLogoPro();">
+            ⬇️ Download PRO (no branding) <span class="pro-badge">PRO</span>
           </button>
         </div>
 
@@ -835,7 +845,7 @@
           <button class="btn btn-outline" onclick="generateLogo()">🔄 Regenerate</button>
         </div>
 
-        <div class="watermark">Free version adds a small "digitalbuyhub.com" watermark.</div>
+        <div class="watermark">Logos generated with Digital Buy Hub ⚡</div>
       </div>
 
       <!-- ========== QR CODE GENERATOR ========== -->
@@ -906,22 +916,24 @@
           </div>
         </div>
 
-        <button class="btn btn-primary" onclick="generateQR()">⚡ Generate QR</button>
+        <button class="btn btn-primary" onclick="trackEvent('generate_qr'); generateQR();">
+          ⚡ Generate QR
+        </button>
 
         <div class="canvas-container">
           <div id="qrWrapper"></div>
         </div>
 
         <div class="row">
-          <button class="btn btn-success" onclick="downloadQRFree()">
-            ⬇️ Download Free (watermark)
+          <button class="btn btn-success" onclick="trackEvent('download_qr_free'); downloadQRFree();">
+            ⬇️ Download Free
           </button>
-          <button class="btn btn-primary" onclick="downloadQRPro()">
-            ⬇️ Download PRO (no watermark) <span class="pro-badge">PRO</span>
+          <button class="btn btn-primary" onclick="trackEvent('download_qr_pro'); downloadQRPro();">
+            ⬇️ Download PRO (no branding) <span class="pro-badge">PRO</span>
           </button>
         </div>
 
-        <div class="watermark">Free QR includes a small "digitalbuyhub.com" text.</div>
+        <div class="watermark">QR codes generated with Digital Buy Hub ⚡</div>
       </div>
 
       <!-- ========== MOCKUP / T-SHIRT CREATOR ========== -->
@@ -1030,11 +1042,11 @@
         </div>
 
         <div class="row">
-          <button class="btn btn-success" onclick="downloadMockupFree()">
-            ⬇️ Download Free (watermark)
+          <button class="btn btn-success" onclick="trackEvent('download_mockup_free'); downloadMockupFree();">
+            ⬇️ Download Free
           </button>
-          <button class="btn btn-primary" onclick="downloadMockupPro()">
-            ⬇️ Download PRO (no watermark) <span class="pro-badge">PRO</span>
+          <button class="btn btn-primary" onclick="trackEvent('download_mockup_pro'); downloadMockupPro();">
+            ⬇️ Download PRO (no branding) <span class="pro-badge">PRO</span>
           </button>
         </div>
 
@@ -1042,7 +1054,7 @@
           <button class="btn btn-outline" onclick="generateMockup()">🔄 Regenerate</button>
         </div>
 
-        <div class="watermark">Free mockups include a small "digitalbuyhub.com" watermark.</div>
+        <div class="watermark">Mockups generated with Digital Buy Hub ⚡</div>
       </div>
     </div>
   </section>
@@ -1053,7 +1065,7 @@
       How Digital Buy Hub Works
     </h2>
     <p class="section-subtitle" style="margin-bottom:40px;">
-      Simple flow – all tools in one place, just like a micro SaaS.
+      Simple flow – all tools in one place, just like a micro‑SaaS.
     </p>
     <div
       style="display:flex;flex-wrap:wrap;gap:20px;max-width:900px;margin:0 auto;align-items:stretch;"
@@ -1071,10 +1083,10 @@
         </p>
       </div>
       <div style="flex:1 1 240px;background:#f8fafc;border-radius:18px;padding:20px;">
-        <h3 style="font-size:18px;margin-bottom:8px;">3. Download Free or Go PRO</h3>
+        <h3 style="font-size:18px;margin-bottom:8px;">3. Download & Upgrade Anytime</h3>
         <p style="font-size:14px;color:#64748b;">
-          Free downloads include a tiny watermark or tag. Unlock PRO once to remove it everywhere on
-          this browser.
+          Download examples for free. Upgrade once to unlock clean, higher‑quality exports on this
+          browser.
         </p>
       </div>
     </div>
@@ -1083,8 +1095,8 @@
   <!-- Footer -->
   <footer>
     <div class="logo">Digital Buy Hub ⚡</div>
-    <p>© 2025 Digital Buy Hub. All tools are free to use with watermark.</p>
-    <p style="margin-top:10px;">Upgrade once to remove watermarks on this browser.</p>
+    <p>© 2025 Digital Buy Hub. All tools are free to use with branding on outputs.</p>
+    <p style="margin-top:10px;">Upgrade once to remove branding on this browser.</p>
   </footer>
 
   <!-- Pricing Modal (Free vs PRO) -->
@@ -1093,8 +1105,7 @@
       <span class="modal-close" onclick="closePricing()">×</span>
       <h2 style="margin-bottom:10px;">Upgrade to PRO</h2>
       <p style="margin-bottom:20px;font-size:14px;color:#64748b;">
-        Free version adds a small watermark or brand tag to all outputs.
-        <br />PRO removes all watermarks and tags on this browser.
+        PRO removes branding from exports and unlocks higher‑quality downloads on this browser.
       </p>
 
       <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;">
@@ -1107,7 +1118,7 @@
           <ul style="font-size:12px;margin:10px 0 0 15px;padding:0;">
             <li>Use all tools</li>
             <li>Medium quality exports</li>
-            <li>Includes small watermark / tag</li>
+            <li>Includes small Digital Buy Hub branding</li>
           </ul>
         </div>
 
@@ -1122,7 +1133,7 @@
             etc.).
           </p>
           <ul style="font-size:12px;margin:0 0 10px 15px;padding:0;">
-            <li>No watermark on exports</li>
+            <li>No branding on exports</li>
             <li>Better quality image downloads</li>
             <li>All current tools included</li>
           </ul>
@@ -1131,7 +1142,7 @@
           <button
             class="btn btn-primary"
             style="padding:10px;font-size:14px;margin-bottom:6px;"
-            onclick="window.open('https://share.payoneer.com/nav/ZpK9V9h9f7q2p8s5vX9k8j9l8k7j6h5g4f3d2s1a0B9C8V7X6Z5Y4U3J2H1G0F9E8D7C6B5A4?amount=2&currency=USD&item_name=DigitalBuyHub+PRO&email=kjebran842@gmail.com', '_blank');"
+            onclick="trackEvent('payoneer_click',{location:'pricing_modal'}); window.open('https://share.payoneer.com/nav/ZpK9V9h9f7q2p8s5vX9k8j9l8k7j6h5g4f3d2s1a0B9C8V7X6Z5Y4U3J2H1G0F9E8D7C6B5A4?amount=2&currency=USD&item_name=DigitalBuyHub+PRO&email=kjebran842@gmail.com', '_blank');"
           >
             Pay $2 via Payoneer
           </button>
@@ -1140,7 +1151,7 @@
           <button
             class="btn btn-outline"
             style="padding:8px;font-size:12px;"
-            onclick="unlockPro();"
+            onclick="trackEvent('unlock_pro_click'); unlockPro();"
           >
             I already paid – Unlock here
           </button>
@@ -1154,10 +1165,10 @@
         <strong>Bank Transfer (manual)</strong><br />
         You can also pay via direct bank transfer. Edit this block in the HTML file with your real
         details:<br />
-        Account Name: <em>Jibran Khan</em><br />
-        IBAN / Account No: <em>PK56HABB0075367000005003</em><br />
-        Bank: <em>Habib Bank Limited</em><br />
-        Country: <em>Pakistan</em><br />
+        Account Name: <em>Your Name</em><br />
+        IBAN / Account No: <em>Your IBAN or Account Number</em><br />
+        Bank: <em>Your Bank Name</em><br />
+        Country: <em>Your Country</em><br />
         After payment, click “I already paid – Unlock here”.
       </div>
 
@@ -1215,6 +1226,13 @@
       ctx.strokeText(text, x, y);
       ctx.fillText(text, x, y);
       ctx.restore();
+    }
+
+    // ==================== ANALYTICS EVENT HELPER ====================
+    function trackEvent(name, params = {}) {
+      if (typeof gtag === 'function') {
+        gtag('event', name, params);
+      }
     }
 
     // ==================== LOGO GENERATOR ====================
@@ -1358,7 +1376,7 @@
     function downloadLogoPro() {
       if (!isProUser) {
         openPricing();
-        alert('Upgrade to PRO to download a clean logo without watermark.');
+        alert('Upgrade to PRO to download a clean logo without branding.');
         return;
       }
       const baseWidth = 500;
@@ -1587,7 +1605,7 @@
         ],
         youtube: [
           "Today we dive deep into {kw}. I'll share tips, examples, and lessons I wish I knew when I first started.",
-          "If you've ever wanted to {kw} but didn't know where to start, this video is for you.",
+          "If you've ever wanted to {kw} but didn't know where to start, this video is for you. Watch until the end for extra tips.",
           'Timestamps in the description – don\'t forget to subscribe!',
           'Comment "PART 2" if you want more content about {kw}.'
         ],
@@ -1763,13 +1781,7 @@
           'instafashion',
           'outfit',
           'styleinspo',
-          'fashionstyle',
-          'lookoftheday',
-          'fashiongram',
-          'fashionweek',
-          'trendy',
-          'stylish',
-          'whatiwore'
+          'fashionstyle'
         ],
         fitness: [
           'fitness',
@@ -1780,10 +1792,7 @@
           'training',
           'health',
           'fitfam',
-          'exercise',
-          'gymlife',
-          'healthy',
-          'fitnessjourney'
+          'exercise'
         ],
         food: [
           'food',
@@ -1794,8 +1803,6 @@
           'delicious',
           'foodphotography',
           'foodstagram',
-          'cooking',
-          'homemade',
           'recipe'
         ],
         travel: [
@@ -1805,34 +1812,23 @@
           'travelphotography',
           'wanderlust',
           'vacation',
-          'adventure',
-          'explore',
-          'trip',
-          'holiday'
+          'adventure'
         ],
         business: [
           'business',
           'entrepreneur',
+          'motivation',
           'success',
           'money',
-          'startup',
-          'businessowner',
-          'smallbusiness',
-          'hustle',
-          'leadership',
-          'wealth'
+          'marketing'
         ],
         tech: [
           'technology',
           'tech',
           'innovation',
           'gadgets',
-          'coding',
-          'programming',
-          'developer',
-          'software',
-          'ai',
-          'startup'
+          'smartphone',
+          'coding'
         ],
         beauty: [
           'beauty',
@@ -1840,10 +1836,7 @@
           'skincare',
           'beautyblogger',
           'mua',
-          'cosmetics',
-          'makeupartist',
-          'glam',
-          'skincareroutine'
+          'cosmetics'
         ],
         art: [
           'art',
@@ -1851,10 +1844,7 @@
           'artwork',
           'drawing',
           'illustration',
-          'painting',
-          'design',
-          'creative',
-          'digitalart'
+          'painting'
         ],
         photography: [
           'photography',
@@ -1862,9 +1852,6 @@
           'photooftheday',
           'photographer',
           'picoftheday',
-          'photoshoot',
-          'portrait',
-          'canon',
           'camera'
         ],
         gaming: [
@@ -1873,10 +1860,7 @@
           'videogames',
           'ps5',
           'xbox',
-          'playstation',
-          'pcgaming',
-          'twitch',
-          'streamer'
+          'pcgaming'
         ],
         motivation: [
           'motivation',
@@ -1884,9 +1868,6 @@
           'success',
           'mindset',
           'goals',
-          'positivevibes',
-          'nevergiveup',
-          'selflove',
           'growth'
         ]
       }
@@ -2055,7 +2036,7 @@
     function downloadQRPro() {
       if (!isProUser) {
         openPricing();
-        alert('Upgrade to PRO to download a clean QR without watermark.');
+        alert('Upgrade to PRO to download a clean QR without branding.');
         return;
       }
       const color = document.getElementById('qrColor').value;
@@ -2351,7 +2332,7 @@
     function downloadMockupPro() {
       if (!isProUser) {
         openPricing();
-        alert('Upgrade to PRO to download a clean mockup without watermark.');
+        alert('Upgrade to PRO to download a clean mockup without branding.');
         return;
       }
       const baseWidth = 500;
@@ -2386,6 +2367,3 @@
   </script>
 </body>
 </html>
-
-
-
