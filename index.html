@@ -131,13 +131,14 @@
   <nav>
     <div class="logo">Digital Buy Hub ⚡</div>
     <div class="nav-links" aria-label="Main navigation">
-      <a onclick="scrollTo('tools')">All Tools</a>
-      <a onclick="scrollTo('seo-tools')">SEO Tools</a>
-      <a onclick="scrollTo('brand-tools')">Brand Tools</a>
-      <a onclick="scrollTo('business-tools')">Business Tools</a>
-      <a onclick="scrollTo('faq')">FAQ</a>
-      <a onclick="scrollTo('about')">About</a>
+      <a onclick="scrollToSection('tools')">All Tools</a>
+      <a onclick="scrollToSection('seo-tools')">SEO Tools</a>
+      <a onclick="scrollToSection('brand-tools')">Brand Tools</a>
+      <a onclick="scrollToSection('business-tools')">Business Tools</a>
+      <a onclick="scrollToSection('faq')">FAQ</a>
+      <a onclick="scrollToSection('about')">About</a>
       <a onclick="openPricing()">Pricing</a>
+      <a href="https://gumroad.com/products" target="_blank" rel="noopener">Gumroad</a>
       <a class="cta-nav" href="https://digitalbuyhub.etsy.com" target="_blank" rel="noopener">Etsy Shop</a>
     </div>
   </nav>
@@ -154,7 +155,7 @@
         <span class="hero-pill">Logo, QR & mockups</span>
         <span class="hero-pill">Invoice generator</span>
       </div>
-      <button class="cta" onclick="scrollTo('tools')">Start Creating →</button>
+      <button class="cta" onclick="scrollToSection('tools')">Start Creating →</button>
     </div>
   </header>
 
@@ -601,7 +602,6 @@
             </div>
           </div>
 
-          <!-- Added: client address and due date to match JS -->
           <div class="row">
             <div class="input-group">
               <label for="invClientAddress">Client address (optional)</label>
@@ -781,18 +781,32 @@
 
   <!-- Inline JS -->
   <script>
-    // Basic helpers
-    function scrollTo(id) {
+    // Basic helpers (with navbar offset)
+    function scrollToSection(id) {
       const el = document.getElementById(id);
-      if (el) el.scrollIntoView({behavior: 'smooth'});
+      if (!el) return;
+
+      const navHeight = 80; // adjust if you change nav height
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const targetY = rect.top + scrollTop - navHeight;
+
+      window.scrollTo({
+        top: targetY,
+        behavior: 'smooth'
+      });
     }
+
     // copy year
     document.getElementById('copyYear').innerText = new Date().getFullYear();
 
     // ==================== BASIC NAV / MODAL ====================
-    function scrollToTools() { scrollTo('tools'); }
-    function openPricing() { document.getElementById('pricingModal').style.display = 'flex'; }
-    function closePricing() { document.getElementById('pricingModal').style.display = 'none'; }
+    function openPricing() {
+      document.getElementById('pricingModal').style.display = 'flex';
+    }
+    function closePricing() {
+      document.getElementById('pricingModal').style.display = 'none';
+    }
 
     // ==================== FREE / PRO FLAG + WATERMARK ====================
     let isProUser = localStorage.getItem('dbhPro') === '1';
@@ -1389,7 +1403,6 @@
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Background handling
       if (bgType === 'white') {
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -1523,8 +1536,8 @@
       const text = document.getElementById('mockupText').value;
       const textColor = document.getElementById('mockupTextColor').value;
       const font = document.getElementById('mockupFont').value;
-      const scale = document.getElementById('mockupScale') ? parseInt(document.getElementById('mockupScale').value, 10)/100 : 1;
-      const offsetYFactor = document.getElementById('mockupOffsetY') ? parseInt(document.getElementById('mockupOffsetY').value,10)/100 : 0;
+      const scale = 1;
+      const offsetYFactor = 0;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
