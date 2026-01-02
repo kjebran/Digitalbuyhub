@@ -36,32 +36,26 @@ gtag('config', 'G-9J3JQYZHJ6');
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-/* Reset & Body */
 body, html{margin:0;padding:0;font-family:Inter;background:#fdfdfd;color:#1f2937;scroll-behavior:smooth;}
 a{text-decoration:none;color:inherit;}
 
-/* Navbar */
 nav{position:fixed;top:0;width:100%;background:#1e3a8a;color:white;display:flex;justify-content:space-between;align-items:center;padding:12px 5%;z-index:999;box-shadow:0 2px 6px rgba(0,0,0,0.15);}
 nav a{margin-left:20px;font-weight:600;color:white;transition:0.3s;}
 nav a:hover{color:#60a5fa;}
 nav .logo{font-size:20px;font-weight:800;}
 
-/* Hero */
 .hero{padding:150px 20px 80px;text-align:center;background:linear-gradient(135deg,#2563eb,#1e3a8a);color:white;}
 .hero h1{font-size:2.8rem;margin-bottom:15px;}
 .hero p{font-size:1.2rem;margin-bottom:25px;}
 .hero .btn{display:inline-block;background:#facc15;color:#1e3a8a;padding:12px 25px;border-radius:8px;font-weight:700;transition:0.3s;}
 .hero .btn:hover{background:#fcd34d;}
 
-/* Adserra placeholder */
 #adserra-top{margin:20px 0;min-height:90px;text-align:center;line-height:90px;color:#555;border:1px dashed #ccc;}
 #adserra-bottom{margin:40px 0;min-height:90px;text-align:center;line-height:90px;color:#555;border:1px dashed #ccc;}
 
-/* Sections */
 section{padding:80px 5%;}
 section h2{text-align:center;font-size:2rem;margin-bottom:40px;color:#1e3a8a;}
 
-/* Grid cards */
 .grid{display:flex;flex-wrap:wrap;gap:25px;justify-content:center;}
 .card{background:white;padding:25px;border-radius:15px;box-shadow:0 6px 20px rgba(0,0,0,0.08);width:280px;transition:0.3s;}
 .card:hover{transform:translateY(-5px);}
@@ -70,21 +64,18 @@ section h2{text-align:center;font-size:2rem;margin-bottom:40px;color:#1e3a8a;}
 .card a{display:inline-block;padding:10px 20px;background:#2563eb;color:white;border-radius:8px;font-weight:600;transition:0.3s;}
 .card a:hover{background:#1e40af;}
 
-/* Footer */
 footer{background:#1e3a8a;color:white;text-align:center;padding:50px 20px;margin-top:50px;}
 footer p{margin:0;font-size:0.95rem;}
 
-/* Responsive */
 @media(max-width:768px){
   .grid{flex-direction:column;align-items:center;}
   nav{flex-direction:column;gap:10px;}
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- Navbar -->
 <nav>
   <div class="logo">Digital Buy Hub ⚡</div>
   <div>
@@ -95,7 +86,6 @@ footer p{margin:0;font-size:0.95rem;}
   </div>
 </nav>
 
-<!-- Hero Section -->
 <section id="hero" class="hero">
   <div id="adserra-top">Ads Top Placeholder</div>
   <h1>Free Resources for Creators & Small Businesses</h1>
@@ -103,7 +93,6 @@ footer p{margin:0;font-size:0.95rem;}
   <a href="#seo" class="btn">Explore Resources</a>
 </section>
 
-<!-- SEO Section -->
 <section id="seo">
 <h2>SEO Resources</h2>
 <div class="grid">
@@ -120,7 +109,6 @@ footer p{margin:0;font-size:0.95rem;}
 </div>
 </section>
 
-<!-- Templates Section -->
 <section id="templates">
 <h2>Templates</h2>
 <div class="grid">
@@ -137,7 +125,6 @@ footer p{margin:0;font-size:0.95rem;}
 </div>
 </section>
 
-<!-- Branding Section -->
 <section id="branding">
 <h2>Branding Assets</h2>
 <div class="grid">
@@ -154,12 +141,10 @@ footer p{margin:0;font-size:0.95rem;}
 </div>
 </section>
 
-<!-- Bottom Adserra placeholder -->
 <section>
   <div id="adserra-bottom">Ads Bottom Placeholder</div>
 </section>
 
-<!-- Footer -->
 <footer>
 <p>&copy; <span id="year"></span> Digital Buy Hub | Built with ❤️ on GitHub Pages</p>
 </footer>
@@ -170,6 +155,3 @@ document.getElementById('year').innerText=new Date().getFullYear();
 
 </body>
 </html>
-
-
-
